@@ -1,0 +1,16 @@
+._ellipsis{
+    overflow: hidden;
+    white-space: nowrap;
+    // word-wrap: normal;
+    text-overflow: ellipsis;
+}
+@mixin text-ellipsis ($width) {
+    width: $width;
+    @extend ._ellipsis;
+}
+
+@mixin text-hide() {
+    font: 0/0 a;
+    color: transparent;
+    text-indent: -9999px;
+}

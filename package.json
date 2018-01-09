@@ -1,0 +1,29 @@
+{
+  "name": "parcel-yindou-template",
+  "description": "yindou-template using parcel bundler",
+  "version": "1.0.0",
+  "author": "LHammer",
+  "license": "MIT",
+  "scripts": {
+    "webdev": "npm run development-web",
+    "appdev": "npm run development-app",
+    "development-web": "cross-env NODE_ENV=development parcel src/web/index.html",
+    "development-app": "cross-env NODE_ENV=development parcel src/app/index.html",
+    "prod": "npm run build",
+    "build": "cross-env NODE_ENV=production parcel build index.html --no-minify"
+  },
+  "dependencies": {
+    "jquery": "^1.11.1",
+    "vue": "^2.5.10",
+    "zepto": "^1.2.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-vue": "^2.0.0",
+    "cross-env": "^5.0.5",
+    "exports-loader": "^0.6.4",
+    "node-sass": "^4.7.2",
+    "parcel-bundler": "^1.2.0",
+    "script-loader": "^0.7.2"
+  }
+}
