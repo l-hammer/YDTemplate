@@ -5,12 +5,13 @@
   "author": "LHammer",
   "license": "MIT",
   "scripts": {
-    "webdev": "npm run development-web",
-    "appdev": "npm run development-app",
-    "development-web": "cross-env NODE_ENV=development parcel src/web/index.html",
-    "development-app": "cross-env NODE_ENV=development parcel src/app/index.html",
+    "webdev": "npm run webdevelopment",
+    "appdev": "npm run appdevelopment",
+    "webdevelopment": "cross-env NODE_ENV=development parcel src/web/index.html",
+    "appdevelopment": "cross-env NODE_ENV=development parcel src/app/index.html",
     "prod": "npm run build",
-    "build": "cross-env NODE_ENV=production parcel build index.html --no-minify"
+    "webbuild": "cross-env NODE_ENV=production parcel build src/web/index.html --no-minify",
+    "appbuild": "cross-env NODE_ENV=production parcel build src/app/index.html --no-minify"
   },
   "dependencies": {
     "jquery": "^1.11.1",
@@ -18,6 +19,7 @@
     "zepto": "^1.2.0"
   },
   "devDependencies": {
+    "autoprefixer": "^7.2.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-vue": "^2.0.0",
     "cross-env": "^5.0.5",
