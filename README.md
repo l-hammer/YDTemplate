@@ -2,7 +2,7 @@
 <br><br>
 <p align="center">
   	<a href="https://getbootstrap.com/">
-        <i style="font-size: 69px;">📄</i>
+        <img align="center" src="./construction.jpg">
   	</a>
 	<h3 align="center">YDTemplate</h3>
 	<p align="center">
