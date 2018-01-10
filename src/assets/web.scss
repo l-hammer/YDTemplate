@@ -1,9 +1,7 @@
 
-@import "normalize.scss";  /* resets */
+@import "normalize/index.scss";  /* resets */
 @import "animation/index.scss";  /* 清除浮动 */
-@import "mixins/clearfix.scss";  /* 清除浮动 */
-@import "mixins/ellipsis.scss";  /* 文本省略 */
-@import "mixins/fontsize.scss";  /* 字体dpr */
+@import "mixins/index.scss";  /* mixins */
 
 * {
     box-sizing: border-box;

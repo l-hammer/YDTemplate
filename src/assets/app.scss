@@ -1,9 +1,7 @@
 
-@import "normalize.scss";  /* resets */
+@import "normalize/index.scss";  /* resets */
 @import "animation/index.scss";  /* 清除浮动 */
-@import "mixins/clearfix.scss";  /* 清除浮动 */
-@import "mixins/ellipsis.scss";  /* 文本省略 */
-@import "mixins/fontsize.scss";  /* 字体dpr */
+@import "mixins/index.scss";  /* mixins */
 
 @include font-size(16px, "p");
 @include font-size(69px, ".main i");
@@ -18,7 +16,6 @@ html, body {
     height: 100%;
     line-height: 1;
     font-family: 'Microsoft Yahei Mono';
-    user-select: none;
     -webkit-font-smoothing: antialiased;
 }
 .main {
