@@ -12,12 +12,12 @@
     "appdevelopment": "cross-env NODE_ENV=development parcel src/app/index.html",
     "webegdevelopment": "cross-env NODE_ENV=development parcel src/examples/web/index.html",
     "prod": "npm run build",
-    "webbuild": "cross-env NODE_ENV=production parcel build src/web/index.html",
-    "webbuildmin": "cross-env NODE_ENV=production parcel build src/web/index.html --no-minify",
-    "appbuild": "cross-env NODE_ENV=production parcel build src/app/index.html",
-    "appbuildmin": "cross-env NODE_ENV=production parcel build src/app/index.html --no-minify",
-    "webegbuild": "cross-env NODE_ENV=production parcel build src/examples/web/index.html",
-    "webegbuildmin": "cross-env NODE_ENV=production parcel build src/examples/web/index.html --no-minify"
+    "webbuild": "cross-env NODE_ENV=production parcel build src/web/index.html  --no-minify",
+    "webbuildmin": "cross-env NODE_ENV=production parcel build src/web/index.html",
+    "appbuild": "cross-env NODE_ENV=production parcel build src/app/index.html --no-minify",
+    "appbuildmin": "cross-env NODE_ENV=production parcel build src/app/index.html",
+    "webegbuild": "cross-env NODE_ENV=production parcel build src/examples/web/index.html --no-minify",
+    "webegbuildmin": "cross-env NODE_ENV=production parcel build src/examples/web/index.html"
   },
   "dependencies": {
     "jquery": "^1.11.1",
