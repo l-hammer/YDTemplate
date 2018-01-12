@@ -9,18 +9,24 @@ import re
 
 if __name__ == "__main__":
 
-	# cp js -> template.tpl{{jsCode}}
+	filearg = sys.argv[1]
 	lineStart = 0
 	lineEnd = 0
+
+	# cp js -> template.tpl{{jsCode}}
 	jsCon = ''
-	filePath = './src/examples/web/index.js'
-	templateFilePath = './src/examples/web/template.tpl'
+	filePath = './src/'+filearg+'/index.js'
+	templateFilePath = './src/'+filearg+'/template.tpl'
 	
 	file_object = open(filePath, 'r')
 	for (num,value) in enumerate(file_object):
-		if value.find("var YD = YD || {};") is 0:
-			lineStart = num
-		if value.find("if (module.hot)") is 0:
+		if filearg.find("web") is not -1:
+			if value.find("var YD = YD || {};") is not -1:
+				lineStart = num
+		else:
+			if value.find("this is a mark line") is not -1:
+				lineStart = num + 2
+		if value.find("if (module.hot)") is not -1:
 			lineEnd = num - 4
 	file_object.close()
 
@@ -37,13 +43,13 @@ if __name__ == "__main__":
 	
 	# cp html -> template.tpl{{htmlCode}}
 	htmlCon = ''
-	filePath = './src/examples/web/index.html'
+	filePath = './src/'+filearg+'/index.html'
 
 	file_object = open(filePath, 'r')
 	for (num,value) in enumerate(file_object):
-		if value.find("<body>") is 0:
-			lineStart = num
-		if value.find("</body>") is 0:
+		if value.find("<body>") is not -1:
+			lineStart = num + 1
+		if value.find("</body>") is not -1:
 			lineEnd = num - 2
 	file_object.close()
 

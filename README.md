@@ -20,6 +20,7 @@ Several quick start options are available:
 - Web development Run `npm run webdev`
 - App development Run `npm run appdev`
 - Webeg development Run `npm run Webegdev`
+- Build Run `bash build.sh @param1 @param2` (@params1:`web`,`app`,`webeg`,`appeg`; @params2:`--no-minify`)
 - Open `http://localhost:9001` in your browser.
 
 ## What's included
