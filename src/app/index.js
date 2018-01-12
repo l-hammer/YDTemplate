@@ -8,6 +8,7 @@ import '../assets/app.scss';
 
 /**
  * 使用ES5写法，上线时直接拷贝以下内容到./template.tpl
+ * this is a mark line(以此线为标准，autocopy脚本会自动拷贝其之后的代码)
  */
 new Vue({
     el: '#app',

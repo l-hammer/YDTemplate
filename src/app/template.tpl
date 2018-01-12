@@ -7,14 +7,8 @@
     <link rel="stylesheet" href="<{$g_resources_url}>/web/css/normalize.min.css">
 <{/block}>
 
-<{block name=local_css_block}>
-<style>
-    {{cssCode}}
-</style>
-<{/block}>
-
 <{block name=content}>
-    {{htmlCode}}
+{{htmlCode}}
 <{/block}>
 
 <{block name=local_js_link}>
@@ -24,7 +18,13 @@
 
 <{block name=local_js_block}>
 <script type="text/javascript">
-    {{jsCode}}
+{{jsCode}}
 </script>
+<{/block}>
+
+<{block name=local_css_block}>
+<style>
+{{cssCode}}
+</style>
 <{/block}>
 
