@@ -8,32 +8,35 @@
 
 # 打包成功后自动拷贝
 
-rm -rf dist/ && \
-
-if [[ $1 == "web" && ! $2 ]]; then
-    npm run webbuildmin && \
-    python autocopy.py $1
-elif [[ $1 == "web" && $2 == "--no-minify" ]]; then
-    npm run webbuild && \
-    python autocopy.py web
-elif [[ $1 == "app" && ! $2 ]]; then
-    npm run appbuildmin && \
-    python autocopy.py $1
-elif [[ $1 == "app" && $2 == "--no-minify" ]]; then
-    npm run appbuild && \
-    python autocopy.py $1
-elif [[ $1 == "webeg" && ! $2 ]]; then
-    npm run webegbuildmin && \
-    python autocopy.py examples/web
-elif [[ $1 == "webeg" && $2 == "--no-minify" ]]; then
-    npm run webegbuild && \
-    python autocopy.py examples/web
-elif [[ $1 == "appeg" && ! $2 ]]; then
-    npm run appegbuildmin && \
-    python autocopy.py examples/app
-elif [[ $1 == "appeg" && $2 == "--no-minify" ]]; then
-    npm run appegbuild && \
-    python autocopy.py examples/app
+if [ ! $1 ]; then
+    echo "> 🚨  warning: 请输入参数@param1 @param2 (@param1:web,app,webeg,appeg; @param2:--no-minify)"
+else
+    rm -rf dist/ && \
+    if [[ $1 == "web" && ! $2 ]]; then
+        npm run webbuildmin && \
+        python autocopy.py $1
+    elif [[ $1 == "web" && $2 == "--no-minify" ]]; then
+        npm run webbuild && \
+        python autocopy.py web
+    elif [[ $1 == "app" && ! $2 ]]; then
+        npm run appbuildmin && \
+        python autocopy.py $1
+    elif [[ $1 == "app" && $2 == "--no-minify" ]]; then
+        npm run appbuild && \
+        python autocopy.py $1
+    elif [[ $1 == "webeg" && ! $2 ]]; then
+        npm run webegbuildmin && \
+        python autocopy.py examples/web
+    elif [[ $1 == "webeg" && $2 == "--no-minify" ]]; then
+        npm run webegbuild && \
+        python autocopy.py examples/web
+    elif [[ $1 == "appeg" && ! $2 ]]; then
+        npm run appegbuildmin && \
+        python autocopy.py examples/app
+    elif [[ $1 == "appeg" && $2 == "--no-minify" ]]; then
+        npm run appegbuild && \
+        python autocopy.py examples/app
+    fi
 fi
 
 # 以下代码未实现（sed替换不知道怎么搞），使用autocopy.py代替
