@@ -6,6 +6,8 @@
 @import "animation/index.scss";  /* 清除浮动 */
 @import "mixins/index.scss";  /* mixins */
 
+@include clearfix();
+
 * {
     box-sizing: border-box;
 }

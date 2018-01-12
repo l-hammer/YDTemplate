@@ -9,6 +9,8 @@
 @import "../jquery-modal/index.scss";
 // @import "../swiper/index.scss";
 
+@include clearfix();
+
 *{
 	box-sizing: border-box;
 } 

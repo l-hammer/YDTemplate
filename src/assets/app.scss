@@ -6,6 +6,7 @@
 @import "animation/index.scss";  /* 清除浮动 */
 @import "mixins/index.scss";  /* mixins */
 
+@include clearfix();
 @include font-size(16px, "p");
 @include font-size(69px, ".main i");
 

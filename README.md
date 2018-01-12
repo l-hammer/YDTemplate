@@ -19,9 +19,9 @@ Several quick start options are available:
 - Install dependencies with [npm](https://www.npmjs.com/): `npm install`
 - Web development Run `npm run webdev`
 - App development Run `npm run appdev`
-- Webeg development Run `npm run Webegdev`
-- Build Run `bash build.sh @param1 @param2` (@params1:`web`,`app`,`webeg`,`appeg`; @params2:`--no-minify`)
-- Open `http://localhost:9001` in your browser.
+- Webeg development Run `npm run webegdev`
+- Build Run `bash build.sh @param1 @param2` (@param1:`web`,`app`,`webeg`,`appeg`; @param2:`--no-minify`)
+- Open `http://localhost:1234` in your browser.
 
 ## What's included
 
@@ -48,6 +48,9 @@ YDTemplate/
 │       ├── index.html    //web开发页
 │       ├── index.js    //web开发脚本
 │       └──template.tpl    //web上线模板
+├── clearcache.sh    //清除缓冲
+├── autocopy.py    //自动拷贝上线代码
+├── build.sh    //打包
 └── .browserslistrc    //支持的浏览器
 ```
 ## Technology
