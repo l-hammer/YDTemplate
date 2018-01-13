@@ -7,14 +7,19 @@
   "scripts": {
     "webdev": "npm run webdevelopment",
     "appdev": "npm run appdevelopment",
+    "webegdev": "npm run webegdevelopment",
     "webdevelopment": "cross-env NODE_ENV=development parcel src/web/index.html",
     "appdevelopment": "cross-env NODE_ENV=development parcel src/app/index.html",
+    "webegdevelopment": "cross-env NODE_ENV=development parcel src/examples/web/index.html",
     "prod": "npm run build",
     "webbuild": "cross-env NODE_ENV=production parcel build src/web/index.html --no-minify",
     "appbuild": "cross-env NODE_ENV=production parcel build src/app/index.html --no-minify"
   },
   "dependencies": {
     "jquery": "^1.11.1",
+    "jquery-modal": "^0.9.1",
+    "perfect-scrollbar": "^1.3.0",
+    "swiper": "^4.0.7",
     "vue": "^2.5.10",
     "zepto": "^1.2.0"
   },
