@@ -19,6 +19,7 @@ Several quick start options are available:
 - Install dependencies with [npm](https://www.npmjs.com/): `npm install`
 - Web development Run `npm run webdev`
 - App development Run `npm run appdev`
+- Webeg development Run `npm run Webegdev`
 - Open `http://localhost:9001` in your browser.
 
 ## What's included
@@ -35,6 +36,9 @@ YDTemplate/
 │   │   │   └── index.scss    //可重用的代码块@mixin
 │   │   ├── app.scss    //app开发样式入口
 │   │   └── web.scss    //web开发样式入口
+│   ├── examples/
+│   │   ├── web/    //web examples
+│   │   ├── app/    //app examples
 │   ├── app/
 │   │   ├── index.html    //app开发页
 │   │   ├── index.js    //app开发脚本
