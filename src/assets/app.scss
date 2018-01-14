@@ -1,4 +1,7 @@
-
+/**
+ * 为避免打包代码量过大，较大的（大于一百行）第三方样式建议不要使用@import引入，使用CDN引入即可
+ * 例如：swiper.scss就不要使用@import引入，直接使用<link rel="stylesheet" href="https://static.yindou.com/web/css/swiper.min.css">
+ */
 @import "normalize/index.scss";  /* resets */
 @import "animation/index.scss";  /* 清除浮动 */
 @import "mixins/index.scss";  /* mixins */

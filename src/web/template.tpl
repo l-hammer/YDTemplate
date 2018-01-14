@@ -8,16 +8,14 @@
     <link href="<{$g_resources_url}>/web/css/perfect-scrollbar.min.css" rel="stylesheet">
 <{/block}>
 
-<{block name=local_css_block}> 
-    <style>
-        
-    </style>
+<{block name=local_css_block}>
+<style>
+    {{cssCode}}
+</style>
 <{/block}>
 
 <{block name=content}>
-    <div>
-
-    </div>
+    {{htmlCode}}
 <{/block}>
 
 <{block name=local_js_link}>
@@ -25,8 +23,8 @@
 <{/block}>
 
 <{block name=local_js_block}>
-    <script type="text/javascript">
-
-    </script>
+<script type="text/javascript">
+    {{jsCode}}
+</script>
 <{/block}>
 

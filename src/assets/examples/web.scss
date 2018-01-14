@@ -1,29 +1,16 @@
-
+/**
+ * 为避免打包代码量过大，较大的（大于一百行）第三方样式建议不要使用@import引入，使用CDN引入即可
+ * 例如：swiper.scss就不要使用@import引入,直接使用<link rel="stylesheet" href="https://static.yindou.com/web/css/swiper.min.css">
+ */
+@import "../normalize/index.scss";  /* resets */
+@import "../animation/index.scss";  /* 清除浮动 */
+@import "../mixins/index.scss";  /* mixins */
 @import "../perfect-scrollbar/index.scss";
 @import "../jquery-modal/index.scss";
-@import "../swiper/index.scss";
+// @import "../swiper/index.scss";
 
 *{
 	box-sizing: border-box;
-}
-.clearfix:after,.clearfix:before {
-    display: table;
-    content: " "
-}
-
-.clearfix:after {
-    clear: both
-}
-
-.clearfix {
-    *zoom:1}
-::input-placeholder { /* WebKit browsers */ 
-	color: #9c8b59 !important;
-	line-height: .653333rem; 
-}
-::-webkit-input-placeholder { /* WebKit browsers */ 
-	color: #9c8b59 !important; 
-	line-height: .653333rem;
 } 
 a, a:hover, a:active, a:visited{
 	text-decoration: none;
