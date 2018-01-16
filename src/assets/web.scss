@@ -3,13 +3,14 @@
  * 例如：swiper.scss就不要使用@import引入，直接使用<link rel="stylesheet" href="https://static.yindou.com/web/css/swiper.min.css">
  */
 @import "normalize/index.scss";  /* resets */
-@import "animation/index.scss";  /* 清除浮动 */
+@import "animation/index.scss";  /* 常用动画 */
 @import "mixins/index.scss";  /* mixins */
-
-@include clearfix();
 
 * {
     box-sizing: border-box;
+}
+.clearfix {
+    @include clearfix();
 }
 ::-webkit-input-placeholder { /* WebKit browsers */ 
     line-height: 1;
