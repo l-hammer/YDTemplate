@@ -1,0 +1,17 @@
+/** 
+ * 上下垂直居中
+ */
+%__lower_right {
+    position: absolute;
+    left: 50%; top: 50%;
+}
+@mixin center($left: auto, $top: auto) {
+    @extend %__lower_right;
+    @supports not (transform-origin: center) {
+        margin-left: $left;
+        margin-top: $top;
+    }
+    @supports (transform-origin: center) {
+        transform: translate(-50%, -50%);
+    }
+}
