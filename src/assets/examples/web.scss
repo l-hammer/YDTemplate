@@ -6,10 +6,12 @@
 @import "../animation/index.scss";  /* 清除浮动 */
 @import "../mixins/index.scss";  /* mixins */
 @import "../perfect-scrollbar/index.scss";
-@import "../jquery-modal/index.scss";
+@import "../modal/index.scss";
 // @import "../swiper/index.scss";
 
-@include clearfix();
+.clearfix {
+    @include clearfix();
+}
 
 *{
 	box-sizing: border-box;

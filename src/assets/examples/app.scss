@@ -1,5 +1,9 @@
 @import "../normalize/index.scss";  /* resets */
 
+.clearfix {
+    @include clearfix();
+}
+
 *{
     box-sizing: border-box;
     /* user-select: none; */
