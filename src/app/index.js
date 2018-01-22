@@ -15,7 +15,7 @@ new Vue({
     template: `
         <div id="app" class="main">
             <img src="https://caiyunupload.b0.upaiyun.com/newweb/imgs/logo.png" alt="银豆网">
-            <p>欢迎使用银豆H5专题开发模板📄</p>
+            <p>欢迎使用银豆&#8197;H5&#8197;专题开发模板📄</p>
         </div>
     `,
     data: function(){

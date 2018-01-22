@@ -32,14 +32,14 @@ html, body {
     justify-content: center;
     align-items: center;
     p {
-        width: 6.12rem;
+        width: 15em;
         overflow: hidden;
         white-space: nowrap;
         margin-top: .266667rem;
         border-right: 1px solid transparent;
-        animation: typing 5s steps(14), caret 1s steps(1) infinite;
+        animation: typing 5s steps(15), caret 1s steps(1) infinite;
     }
     img {
-        width: 229px;
+        width: 3.05333rem;
     }
 }
