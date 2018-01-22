@@ -26,8 +26,9 @@ YD.FouthAnnual = function(){
 	this.$isLogin = $('#isLogin').val();
 	this.$getCouponBtn = $('#getCouponBtn');
 	this.$scrollTop = $('#scrollTop');
-	this.$recordTbody = $('#recordTbody');
-
+    this.$recordTbody = $('#recordTbody');
+    this.$successBtn = $('#successBtn');
+    
     this.init = function(){
         this.events();
         // 对话框
@@ -44,21 +45,32 @@ YD.FouthAnnual = function(){
 			} 
 		});
     }
-	this.YDModel = function(result, isend, load){
-		var modal_template="\
-			<div class='dg-modal yd-modal' id='get-form'>\
-				<p class='desp'>恭喜亲领取成功，请在“我的账户”-“优惠券”查看</p>\
-			</div>";                               
-		$(modal_template).appendTo('body').modal({
-			fadeDuration: 250,
-		});
-		return false;
-	}
     this.events = function(){
 		var self = this;
 		self.$unLoginBtn.on('click', function(){
 			YD.showLogin(); return;
-		});
+        });
+        self.YDModel = function(result, isend, load){
+            var modal_template="\
+                <div class='dg-modal yd-modal' id='get-form'>\
+                    <h3 class='modal-header'>领取结果</h3>\
+                    <p class='modal-content desp'>恭喜亲领取成功，请在“我的账户”-“优惠券”<a class='active' href='#'>查看</a></p>\
+                    <div class='modal-footer clearfix'>\
+                        <a href='#close' rel='modal:close' class='btn fr cancel'>取消</a>\
+                        <a class='btn fr success' id='successBtn'>确定</a>\
+                    </div>\
+                </div>";                               
+            $(modal_template).appendTo('body').modal({
+                fadeDuration: 250,
+                showClose: true,
+                closeClass: 'yd-icon yd-icon-close',
+                closeText: ''
+            });
+            $('#successBtn').on('click', function(){
+                $.modal.close();
+            });
+            return false;
+        }
 		self.$getCouponBtn.on('click', function(){
 			if(self.$isLogin){
 				$.ajax({

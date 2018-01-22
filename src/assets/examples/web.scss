@@ -3,6 +3,7 @@
  * 例如：swiper.scss就不要使用@import引入,直接使用<link rel="stylesheet" href="https://static.yindou.com/web/css/swiper.min.css">
  */
 @import "../normalize/index.scss";  /* resets */
+@import "../iconfonts/index.scss";  /* 常用图标 */
 @import "../animation/index.scss";  /* 清除浮动 */
 @import "../mixins/index.scss";  /* mixins */
 @import "../perfect-scrollbar/index.scss";
@@ -432,12 +433,6 @@ html, body{
 	color: #f38635;
 }
 .floor2 .table-container.cash .recordTbody{width:100%; height: 177px;overflow-x: hidden;overflow-y: auto;
-    -webkit-border-bottom-left-radius: 8px; 
-    -webkit-border-bottom-right-radius: 8px;
-    -moz-border-bottom-left-radius: 8px; 
-    -moz-border-bottom-right-radius: 8px; 
-    -ms-border-bottom-left-radius: 8px; 
-    -ms-border-bottom-right-radius: 8px; 
     border-bottom-left-radius: 8px; 
     border-bottom-right-radius: 8px;
 	position: relative; }
@@ -449,16 +444,5 @@ html, body{
 .floor2 .table-container.cash .norecord{
 	text-align: center;
 	line-height: 176px;
-}
-.dg-modal.yd-modal{
-	width: 500px;
-	border-radius: 8px;
-}
-.dg-modal.yd-modal p.desp{
-	padding: 29px;
-	text-align: center;
-}
-.dg-modal.yd-modal a.coupon{
-    color: #ff8809;
 }
 
