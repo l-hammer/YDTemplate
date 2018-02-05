@@ -63,7 +63,7 @@ YD.FouthAnnual = function(){
             $(modal_template).appendTo('body').modal({
                 fadeDuration: 250,
                 showClose: true,
-                closeClass: 'yd-icon yd-icon-close',
+                closeClass: 'YDSICON yds-icon-close',
                 closeText: ''
             });
             $('#successBtn').on('click', function(){
