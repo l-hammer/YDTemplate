@@ -18,9 +18,7 @@ new Vue({
             <p>欢迎使用银豆&#8197;H5&#8197;专题开发模板📄</p>
         </div>
     `,
-    created: function () {
-        // console.log($);
-    },
+    created: function () {},
 });
 
 /**
