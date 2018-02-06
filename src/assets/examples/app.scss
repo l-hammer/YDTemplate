@@ -1,4 +1,5 @@
 @import "../normalize/index.scss";  /* resets */
+@import "../mixins/index.scss";  /* mixin */
 
 .clearfix {
     @include clearfix();
