@@ -14,28 +14,28 @@ else
     rm -rf dist/ && \
     if [[ $1 == "web" && ! $2 ]]; then
         npm run webbuildmin && \
-        python autocopy.py $1
+        python ./bin/autocopy.py $1
     elif [[ $1 == "web" && $2 == "--no-minify" ]]; then
         npm run webbuild && \
-        python autocopy.py web
+        python ./bin/autocopy.py web
     elif [[ $1 == "app" && ! $2 ]]; then
         npm run appbuildmin && \
-        python autocopy.py $1
+        python ./bin/autocopy.py $1
     elif [[ $1 == "app" && $2 == "--no-minify" ]]; then
         npm run appbuild && \
-        python autocopy.py $1
+        python ./bin/autocopy.py $1
     elif [[ $1 == "webeg" && ! $2 ]]; then
         npm run webegbuildmin && \
-        python autocopy.py examples/web
+        python ./bin/autocopy.py examples/web
     elif [[ $1 == "webeg" && $2 == "--no-minify" ]]; then
         npm run webegbuild && \
-        python autocopy.py examples/web
+        python ./bin/autocopy.py examples/web
     elif [[ $1 == "appeg" && ! $2 ]]; then
         npm run appegbuildmin && \
-        python autocopy.py examples/app
+        python ./bin/autocopy.py examples/app
     elif [[ $1 == "appeg" && $2 == "--no-minify" ]]; then
         npm run appegbuild && \
-        python autocopy.py examples/app
+        python ./bin/autocopy.py examples/app
     fi
 fi
 
