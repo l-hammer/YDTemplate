@@ -12,6 +12,7 @@ if [ ! $1 ]; then
     echo "> 🚨  warning: 请输入参数@param1 @param2 (@param1:web,app,webeg,appeg; @param2:--no-minify)"
 else
     rm -rf dist/ && \
+    git co *.tpl && \
     if [[ $1 == "web" && ! $2 ]]; then
         npm run webbuildmin && \
         python ./bin/autocopy.py $1
