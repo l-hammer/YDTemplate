@@ -31,8 +31,10 @@ YDTemplate/
 │   ├── assets/
 │   │   ├── normalize/
 │   │   │   └── index.scss    //统一浏览器默认样式
+│   │   ├── iconfonts/
+│   │   │   └── index.scss    //内联字体&&字体图标
 │   │   ├── animation/
-│   │   │   └── index.scss    //css动画
+│   │   │   └── index.scss    //常用css动画
 │   │   ├── mixins/
 │   │   │   └── index.scss    //可重用的代码块@mixin
 │   │   ├── app.scss    //app开发样式入口
