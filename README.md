@@ -21,7 +21,7 @@ Several quick start options are available:
 - App development Run `npm run appdev`
 - Webeg development Run `npm run webegdev`
 - Build Run `bash build.sh @param1 @param2` (@param1:`web`,`app`,`webeg`,`appeg`; @param2:`--no-minify`)
-- mvuseless Run `python bin/mvuseless.sh @param` (@param:`web`,`app`,`examples`)
+- Move useless codes Run `python bin/mvuseless.py @param` (@param:`web`,`app`,`examples`)
 - Open `http://localhost:1234` in your browser.
 
 ## What's included
