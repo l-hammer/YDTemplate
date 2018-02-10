@@ -22,7 +22,8 @@
     "webegbuildmin": "cross-env NODE_ENV=production parcel build src/examples/web/index.html",
     "appegbuild": "cross-env NODE_ENV=production parcel build src/examples/app/index.html --no-minify",
     "appegbuildmin": "cross-env NODE_ENV=production parcel build src/examples/app/index.html",
-    "cleardepe": "rm -rf node_modules/"
+    "cleardepe": "rm -rf node_modules/",
+    "dist": "npm run webbuild && npm run appbuild"
   },
   "dependencies": {
     "jquery": "^3.3.1",
