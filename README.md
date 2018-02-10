@@ -2,7 +2,7 @@
 <br><br>
 <p align="center">
   	<a href="https://getbootstrap.com/">
-        <img src="https://raw.githubusercontent.com/l-hammer/YDTemplate/master/construction.jpeg" width="99">
+        <img src="./static/construction.jpeg" width="99">
   	</a>
 	<h3 align="center">YDTemplate</h3>
 	<p align="center">
