@@ -6,6 +6,9 @@
   	</a>
 	<h3 align="center">YDTemplate</h3>
 	<p align="center">
+		<img src="https://travis-ci.org/l-hammer/YDTemplate.svg?branch=master">
+	</p>
+	<p align="center">
 		Yindou Web and App special development template~
 		<br>
 	</p>
