@@ -7,6 +7,8 @@
 	<h3 align="center">YDTemplate</h3>
 	<p align="center">
 		<img src="https://travis-ci.org/l-hammer/YDTemplate.svg?branch=master">
+		<img src="https://img.shields.io/david/dev/expressjs/express.svg">
+		<img src="https://img.shields.io/github/license/mashape/apistatus.svg">
 	</p>
 	<p align="center">
 		Yindou Web and App special development template~
