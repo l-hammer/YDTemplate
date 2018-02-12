@@ -9,7 +9,7 @@
 # 打包成功后自动拷贝
 
 if [ ! $1 ]; then
-    echo "> 🚨  warning: 请输入参数@param1 @param2 (@param1:web,app,webeg,appeg; @param2:--no-minify)"
+    echo -e "\033[33m > 🚨  warning: 请输入参数@param1 @param2 (@param1:web/app/webeg/appeg; @param2:--no-minify) \033[0m"
 else
     rm -rf dist/ && \
     git co *.tpl && \
@@ -37,6 +37,9 @@ else
     elif [[ $1 == "appeg" && $2 == "--no-minify" ]]; then
         npm run appegbuild && \
         python ./bin/autocopy.py examples/app
+    else
+        echo -e "\033[31m > 💥  error: 参数输入错误，请重新输入……  \033[0m"
+        echo -e "\033[32m > ♻️  参数: @param1 @param2 (@param1:web/app/webeg/appeg; @param2:--no-minify) \033[0m"
     fi
 fi
 

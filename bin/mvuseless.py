@@ -32,7 +32,7 @@ if __name__ == "__main__":
         return False 
     
     if len(sys.argv) == 1:
-        print("> 🚨  warning: 请输入参数@param (@param:web,app,examples)")
+        print("\033[33m > 🚨  warning: 请输入参数@param (@param:web/app/examples) \033[0m")
     elif sys.argv[1] == 'web' or sys.argv[1] == 'app' or sys.argv[1] == 'examples':
         param = sys.argv[1]
         if param == 'web' or param == 'app':
@@ -71,6 +71,7 @@ if __name__ == "__main__":
         shutil.rmtree(path)
         shutil.rmtree(pathexamples)
     else:
-        print("> ⚡️  error: 参数输入有误~")
+        print("\033[31m > 💥  error: 参数输入错误，请重新输入……  \033[0m")
+        print("\033[32m > ♻️  参数: @param (@param:web/app/examples) \033[0m")
     
     
