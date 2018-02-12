@@ -3,7 +3,6 @@
   "description": "yindou-template using parcel bundler",
   "version": "1.0.0",
   "author": "LHammer",
-  "license": "MIT",
   "scripts": {
     "webdev": "npm run webdevelopment",
     "appdev": "npm run appdevelopment",
@@ -25,6 +24,18 @@
     "cleardepe": "rm -rf node_modules/",
     "dist": "npm run webbuild && npm run appbuild"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/l-hammer/YDTemplate.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/l-hammer/YDTemplate/issues"
+  },
+  "keywords": [
+    "LHammer",
+    "YDTemplate"
+  ],
   "dependencies": {
     "jquery": "^3.3.1",
     "jquery-modal": "^0.9.1",
