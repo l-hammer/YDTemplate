@@ -42,12 +42,19 @@ if __name__ == "__main__":
             pathexamplescss = './src/assets/examples/' + param + '.scss'
             if param == 'web':
                 mvarr = mvwebarr
+                npmdist = 'npm run appbuild'
             elif param == 'app':
                 mvarr = mvapparr
+                npmdist = 'npm run webbuild'
+            with open(packageFile, 'r') as l:
+                lines = l.readlines()
+            with open(packageFile, 'w') as s:
+                for line in lines:
+                    s.write(line.replace('npm run webbuild && npm run appbuild', npmdist))
             with open(packageFile, 'r') as f:
                 with open(packageFile + '.less', 'w') as g:
                     for line in f.readlines():
-                        if not isInArray(mvarr, line):               
+                        if not isInArray(mvarr, line):
                             g.write(line)
             shutil.move(packageFile + '.less', packageFile)
             os.remove(pathcss)
@@ -58,7 +65,7 @@ if __name__ == "__main__":
             with open(packageFile, 'r') as f:
                 with open(packageFile + '.less', 'w') as g:
                     for line in f.readlines():
-                        if not isInArray(mvegarr, line):               
+                        if not isInArray(mvegarr, line):
                             g.write(line)
             shutil.move(packageFile + '.less', packageFile)
         shutil.rmtree(path)
