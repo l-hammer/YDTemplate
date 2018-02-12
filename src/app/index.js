@@ -2,7 +2,6 @@
  * jax采用zepto.ajax
  * 上线时拷贝dist目录下生成的样式，并在./template.tpl引入对应脚本
  */
-// import $ from 'exports-loader?zepto!script-loader';
 import Vue from 'vue/dist/vue';
 import '../assets/app.scss';
 
