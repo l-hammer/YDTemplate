@@ -65,7 +65,7 @@ YDTemplate/
 ```
 ## Technology
 
-- App `Vue 2.x` + `Zepto`
+- App `Vue 2.x` + `Axios`
 - Web `Jquery`
 
 ## Browser Support
