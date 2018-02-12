@@ -10,7 +10,7 @@ install:
   - npm install
 
 script:
-  - npm run dist
+  # - npm run dist
 
 branches:
   only:
