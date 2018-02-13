@@ -46,6 +46,8 @@ YDTemplate/
 │   │   │   └── index.scss    // 常用css动画
 │   │   ├── mixins/
 │   │   │   └── index.scss    // 可重用的代码块@mixin
+│   │   ├── components/
+│   │   │   └── index.scss    // 常用组件样式@dialog
 │   │   ├── app.scss    // app开发样式入口
 │   │   └── web.scss    // web开发样式入口
 │   ├── examples/
