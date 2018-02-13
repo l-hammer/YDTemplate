@@ -54,7 +54,7 @@ module.exports = function (KarmaConfig) {
         frameworks: ['jasmine'],
         // 告诉 Karma 要将哪些 js 文件加载到浏览器运行测试
         files: [
-            './src/app/*.js'
+            './test/unit/*.spec.js'
         ],
         // SauceLabs 的配置，这里只需要配置几个重要的字段即可，完整的字段可以参考：
         // https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options

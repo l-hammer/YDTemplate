@@ -14,5 +14,9 @@ module.exports = {
         "object-curly-newline": 0,
         "no-unused-expressions": 0,
         // "quotes": ["error", "single", { "avoidEscape": true }],
+    },
+    /* globals document */
+    "globals": {
+        "document": true
     }
 };

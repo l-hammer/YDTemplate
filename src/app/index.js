@@ -9,15 +9,28 @@ import '../assets/app.scss';
  * 使用ES5写法，上线时直接拷贝以下内容到./template.tpl
  * this is a mark line(以此线为标准，autocopy脚本会自动拷贝其之后的代码)
  */
-new Vue({
-    el: '#app',
+var Child = {
     template: `
         <div id="app" class="main">
             <img src="https://caiyunupload.b0.upaiyun.com/newweb/imgs/logo.png" alt="银豆网">
             <p>欢迎使用银豆&#8197;H5&#8197;专题开发模板📄</p>
         </div>
     `,
-    created: function () {},
+};
+
+new Vue({
+    el: '#app',
+    components: {
+        'v-child': Child,
+    },
+    data: function () {
+        return {
+            title: 'YDTemplate',
+        };
+    },
+    mounted: function () {
+        document.title = this.title;
+    },
 });
 
 /**
