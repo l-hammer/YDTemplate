@@ -14,9 +14,28 @@ module.exports = {
         "object-curly-newline": 0,
         "no-unused-expressions": 0,
         // "quotes": ["error", "single", { "avoidEscape": true }],
+        "one-var": ["error", "always"],
+        "no-mixed-operators": [
+            "error",
+            {
+                "groups": [
+                    ["+", "-", "*", "/", "%", "**"],
+                    ["&", "|", "^", "~", "<<", ">>", ">>>"],
+                    ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+                    ["&&", "||"],
+                    ["in", "instanceof"]
+                ],
+                "allowSamePrecedence": true
+            }
+        ],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-alert": 0,
+        "vars-on-top": 0,
     },
     /* globals document */
     "globals": {
-        "document": true
+        "document": true,
+        "Image": true,
+        "alert": true
     }
 };
