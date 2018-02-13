@@ -31,9 +31,14 @@ module.exports = {
         "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
         "no-alert": 0,
         "vars-on-top": 0,
+        "max-len": [1, 129, {
+            "ignoreComments": true
+        }],
+        "no-eval": ["error"],
     },
     /* globals document */
     "globals": {
+        "window": false,
         "document": true,
         "Image": true,
         "alert": true
