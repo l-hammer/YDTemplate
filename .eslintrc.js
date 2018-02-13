@@ -13,5 +13,6 @@ module.exports = {
         "prefer-arrow-callback": 0,
         "object-curly-newline": 0,
         "no-unused-expressions": 0,
+        // "quotes": ["error", "single", { "avoidEscape": true }],
     }
 };
