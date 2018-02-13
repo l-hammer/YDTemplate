@@ -8,8 +8,8 @@ import '../assets/web.scss';
 /**
  * 开发JS,上线直接拷贝一下内容到./template.tpl
  */
-var YD = {};
-var template;
+var YD = {},
+    template;
 
 YD.Template = function () {
     /** 变量 */
