@@ -12,7 +12,10 @@
     "appdevelopment": "cross-env NODE_ENV=development parcel src/app/index.html",
     "webegdevelopment": "cross-env NODE_ENV=development parcel src/examples/web/index.html",
     "appegdevelopment": "cross-env NODE_ENV=development parcel src/examples/app/index.html",
-    "prod": "npm run build",
+    "webstart": "cross-env NODE_ENV=development node server/index.js web --no-cache",
+    "appstart": "cross-env NODE_ENV=development node server/index.js app --no-cache",
+    "webegstart": "cross-env NODE_ENV=development node server/index.js webeg --no-cache",
+    "appegstart": "cross-env NODE_ENV=development node server/index.js appeg --no-cache",
     "webbuild": "cross-env NODE_ENV=production parcel build src/web/index.html  --no-minify",
     "webbuildmin": "cross-env NODE_ENV=production parcel build src/web/index.html",
     "appbuild": "cross-env NODE_ENV=production parcel build src/app/index.html --no-minify",
@@ -56,6 +59,8 @@
     "eslint": "^4.17.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
+    "express": "^4.16.2",
+    "http-proxy-middleware": "^0.17.4",
     "jasmine": "^3.0.0",
     "jasmine-core": "^2.99.1",
     "karma": "^2.0.0",
@@ -65,7 +70,7 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-sauce-launcher": "^1.2.0",
     "node-sass": "^4.7.2",
-    "parcel-bundler": "^1.2.0",
+    "parcel-bundler": "^1.6.2",
     "parcel-plugin-eslint": "^1.0.3"
   }
 }

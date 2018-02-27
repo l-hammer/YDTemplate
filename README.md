@@ -22,9 +22,10 @@ Several quick start options are available:
 
 - Clone the repo: `https://github.com/l-hammer/YDTemplate.git`
 - Install dependencies with [npm](https://www.npmjs.com/): `npm install`
-- Web development Run `npm run webdev`
-- App development Run `npm run appdev`
-- Webeg development Run `npm run webegdev`
+- Web development Run ~~`npm run webdev`~~ `npm run webstart`
+- App development Run ~~`npm run appdev`~~ `npm run appstart`
+- Open web example Run ~~`npm run webegdev`~~ `npm run webegstart`
+- Open app example Run ~~`npm run appegdev`~~ `npm run appegstart`
 - Build Run `bash build.sh @param1 @param2` (@param1:`web`,`app`,`webeg`,`appeg`; @param2:`--no-minify`)
 - Move useless codes Run `python bin/mvuseless.py @param` (@param:`web`,`app`,`examples`)
 - Open `http://localhost:1234` in your browser.
@@ -36,6 +37,8 @@ YDTemplate/
 ├── bin/    // python脚本
 │   ├── autocopy.py    // 🚚自动拷贝上线代码
 │   └── mvuseless.py    // 🚚删除开发非相关代码for强迫症用户
+├── server/
+│   └── index.js    // 💡node proxy
 ├── src/
 │   ├── assets/
 │   │   ├── normalize/
