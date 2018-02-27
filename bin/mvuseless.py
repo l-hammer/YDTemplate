@@ -12,11 +12,13 @@ if __name__ == "__main__":
     packageFile = './package.json'
     mvwebarr = [
         "webdev",
+        "webstart",
         "webeg",
         "webbuild"
     ]
     mvapparr = [
         "appdev",
+        "appstart",
         "appeg",
         "appbuild"
     ]
