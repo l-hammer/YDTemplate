@@ -5,7 +5,7 @@ module.exports = {
         "indent": ["error", 4],
         "no-var": 0,
         "no-new": 0,
-        "object-shorthand": ["error", "never"], // http://eslint.cn/docs/rules/object-shorthand
+        "object-shorthand": ["error", "always"], // http://eslint.cn/docs/rules/object-shorthand
         "func-names": ["error", "never"],
         "no-console":0,
         "camelcase": 2, 
@@ -35,6 +35,10 @@ module.exports = {
             "ignoreComments": true
         }],
         "no-eval": ["error"],
+        "no-param-reassign": ["error", { "props": false }],
+        "arrow-body-style": ["error", "always"],
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0,
     },
     /* globals document */
     "globals": {
