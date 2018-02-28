@@ -2,9 +2,11 @@
  * jax采用zepto.ajax
  * 上线时拷贝dist目录下生成的样式，并在./template.tpl引入对应脚本
  */
-import axios from 'axios';
 import Vue from 'vue/dist/vue';
+import axios from '../api/index';
 import '../assets/app.scss';
+
+Vue.prototype.$axios = axios;
 
 /**
  * 使用ES5写法，上线时直接拷贝以下内容到./template.tpl
@@ -17,14 +19,19 @@ new Vue({
             <p v-html="message"></p>\
         </div>
     `,
-    data: function () {
+    data() {
         return {
             message: '欢迎使用银豆&#8197;H5&#8197;专题开发模板📄',
         };
     },
-    mounted: function () {
-        axios.post('/webapi/uc_my_userinfo').then(function (res) {
+    mounted() {
+        const data = {
+            username: 'LHammer',
+        };
+        this.$axios.test(data).then(function (res) {
             console.log(res);
+        }).catch(function (error) {
+            console.log(error);
         });
     },
 }).$mount('#app');

@@ -1,3 +1,7 @@
+/**
+ * Created by LHammer on 18/02/27.
+ * node proxy
+ */
 const proxy = require('http-proxy-middleware')
 const Bundler = require('parcel-bundler')
 const express = require('express')
@@ -23,7 +27,10 @@ app.use(
   '/webapi',
   proxy({
     changeOrigin: true,
-    target: 'http://songhwwww.yind123.com/',
+    // 代理到测试环境
+    // target: 'http://songhwwww.yind123.com/',
+    // 代理到mock环境
+    target: 'https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/example/',
     pathRewrite: { 
       '^/api': '' 
     },
