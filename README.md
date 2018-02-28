@@ -40,6 +40,9 @@ YDTemplate/
 ├── server/
 │   └── index.js    // 💡node proxy
 ├── src/
+│   ├── api/
+│   │   ├── config.js/    // axios配置
+│   │   └── app/    // 业务API
 │   ├── assets/
 │   │   ├── normalize/
 │   │   │   └── index.scss    // 统一浏览器默认样式
@@ -55,7 +58,7 @@ YDTemplate/
 │   │   └── web.scss    // web开发样式入口
 │   ├── examples/
 │   │   ├── web/    // web examples
-│   │   ├── app/    // app examples
+│   │   └── app/    // app examples
 │   ├── app/
 │   │   ├── index.html    // app开发页
 │   │   ├── index.js    // app开发脚本
