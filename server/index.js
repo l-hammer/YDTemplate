@@ -5,6 +5,7 @@
 const proxy = require('http-proxy-middleware')
 const Bundler = require('parcel-bundler')
 const express = require('express')
+const cookieParser = require('cookie-parser')
 
 let proxypath;
 const arguments = process.argv.splice(2);
@@ -39,6 +40,11 @@ app.use(
     },
   })
 )
+
+// app.use(cookieParser())
+// app.get('http://songhwwww.yind123.com/', function(req, res) {
+//   console.log('Cookies: ', req.cookies)
+// })
 
 app.use(bundler.middleware())
 app.listen(Number(process.env.PORT || 1234))
