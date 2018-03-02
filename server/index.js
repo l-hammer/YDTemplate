@@ -5,7 +5,6 @@
 const proxy = require('http-proxy-middleware')
 const Bundler = require('parcel-bundler')
 const express = require('express')
-const cookieParser = require('cookie-parser')
 
 let proxypath;
 const arguments = process.argv.splice(2);
@@ -28,23 +27,27 @@ app.use(
   '/webapi',
   proxy({
     changeOrigin: true,
-    // 代理到测试环境
-    // target: 'http://songhwwww.yind123.com/',
-    // 代理到mock环境
+    /**
+     * 拦截的目标对象
+     * @param target -> https://www.yindou.com 线上环境
+     * @param target -> http://songhwwww.yind123.com 测试环境
+     * @param target -> https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/xxxxxx mock环境
+     */
     target: 'https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/example/',
     pathRewrite: { 
       '^/api': '' 
     },
     onProxyReq: function (proxyReq, req, res) {
-      proxyReq.setHeader('cookie', 'UM_distinctid=15f57d1509446b-0552480959efeb-18396d56-13c680-15f57d15095916; _kela_guide=ok; gr_user_id=58776851-79b8-42fe-9bd2-2c94215dacc2; get_str=%7B%22%5C%2Findex_php5%22%3A%22%22%2C%22zhaiquangoumai%5C%2F500183_html%22%3A%22%22%7D; PHPSESSID=t3bhat3dr45n24mkrif1oghlv4; Hm_lvt_de72ed30dc21da8d5dcf608850a7aaac=1517884748,1519626678; CNZZDATA1260321659=1026547113-1509006554-null%7C1519635577; yd_username=11101234999; gr_session_id_b9a32bc6f5df5804=ff662ac5-110c-4e2a-9ffc-d8bbaf0b6576; Hm_lpvt_de72ed30dc21da8d5dcf608850a7aaac=1519720959');
+      /**
+       * 订阅http-proxy的proxyReq事件
+       * 在转发请求前设置请求头，将PHPSESSID附加到cookie
+       * @class https://www.yindou.com -> 'PHPSESSID=8tufrvnd97s353qtd7df3m7bg2'
+       * @class http://songhwwww.yind123.com/ -> 'PHPSESSID=t3bhat3dr45n24mkrif1oghlv4'
+       */
+      proxyReq.setHeader('cookie', 'PHPSESSID=t3bhat3dr45n24mkrif1oghlv4');
     },
   })
 )
-
-// app.use(cookieParser())
-// app.get('http://songhwwww.yind123.com/', function(req, res) {
-//   console.log('Cookies: ', req.cookies)
-// })
 
 app.use(bundler.middleware())
 app.listen(Number(process.env.PORT || 1234))

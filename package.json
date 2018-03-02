@@ -56,7 +56,6 @@
     "babel-eslint": "^8.2.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-vue": "^2.0.0",
-    "cookie-parser": "^1.4.3",
     "cross-env": "^5.0.5",
     "eslint": "^4.17.0",
     "eslint-config-airbnb-base": "^12.1.0",
