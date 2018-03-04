@@ -13,10 +13,10 @@
     "webegdevelopment": "cross-env NODE_ENV=development parcel src/examples/web/index.html",
     "appegdevelopment": "cross-env NODE_ENV=development parcel src/examples/app/index.html",
     "webstart": "cross-env NODE_ENV=development node server/index.js web --no-cache",
-    "appstart": "cross-env NODE_ENV=development node server/index.js app --no-cache",
-    "webegstart": "cross-env NODE_ENV=development node server/index.js webeg --no-cache",
-    "appegstart": "cross-env NODE_ENV=development node server/index.js appeg --no-cache",
-    "webbuild": "cross-env NODE_ENV=production parcel build src/web/index.html  --no-minify",
+    "appstart": "concurrently \"cross-env NODE_ENV=development node server/index.js app --no-cache\"  \"npm run contribution\"",
+    "webegstart": "concurrently \"cross-env NODE_ENV=development node server/index.js webeg --no-cache\"  \"npm run contribution\"",
+    "appegstart": "concurrently \"cross-env NODE_ENV=development node server/index.js appeg --no-cache\"  \"npm run contribution\"",
+    "webbuild": "concurrently \"cross-env NODE_ENV=production parcel build src/web/index.html  --no-minify\"  \"npm run contribution\"",
     "webbuildmin": "cross-env NODE_ENV=production parcel build src/web/index.html",
     "appbuild": "cross-env NODE_ENV=production parcel build src/app/index.html --no-minify",
     "appbuildmin": "cross-env NODE_ENV=production parcel build src/app/index.html",
@@ -25,7 +25,8 @@
     "appegbuild": "cross-env NODE_ENV=production parcel build src/examples/app/index.html --no-minify",
     "appegbuildmin": "cross-env NODE_ENV=production parcel build src/examples/app/index.html",
     "dist": "npm run webbuild && npm run appbuild",
-    "cleardepe": "rm -rf node_modules/"
+    "cleardepe": "rm -rf node_modules/",
+    "contribution": "node -e \"console.log('\\u001b[35m\\u001b[1mInterested in YDTemplate? Help me improve by sharing your feedback.\\u001b[22m\\u001b[39m\\n 🎨 \\u001b[34mhttps://github.com/l-hammer/YDTemplate\\u001b[0m')\""
   },
   "repository": {
     "type": "git",
@@ -56,6 +57,7 @@
     "babel-eslint": "^8.2.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-vue": "^2.0.0",
+    "concurrently": "^3.5.1",
     "cross-env": "^5.0.5",
     "eslint": "^4.17.0",
     "eslint-config-airbnb-base": "^12.1.0",
