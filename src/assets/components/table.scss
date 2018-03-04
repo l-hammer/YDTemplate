@@ -1,0 +1,90 @@
+/**
+ * Created by LHammer on 18/03/04.
+ * Table 公用样式
+ */
+.table-container {
+    width: 1000px;
+    margin: 52px auto 0;
+    .table {
+        width: 608px;
+        background: $primary-color;
+        margin: auto;
+        border-radius: 36px;
+        color: white;
+        font: {
+            size: 18px;
+            weight: 500;
+        }
+        overflow: hidden;
+        .header {
+            font: {
+                size: 20px;
+                weight: 900;
+            }
+        }
+        span {
+            float: left;
+            width: 33.333333%; height: 60px;
+            padding: 10px 0;
+            line-height: 40px;
+            text-align: center;
+            border: 3px solid white {
+                top-width: 0;
+                left-width: 0;
+            }
+        }
+        span.lineend {
+            border-right-width: 0;
+        }
+        span.last {
+            border-bottom-width: 0;
+        }
+        .footer {
+            span.all {
+                width: 66.666667%;
+            }
+        }
+        .norecord {
+          text-align: center;
+	        line-height: 120px;
+        }
+    }
+}
+
+/*
+ * Html template
+ *
+<div class="table-container cash clearfix">
+    <div class="table">
+        <div class="row header">
+            <span>出借时间</span>
+            <span>出借金额（元）</span>
+            <span class="lineend">返现金额（元）</span>
+        </div>
+        <div id="recordTbody" class="recordTbody clearfix">
+            <div class="row">
+                <span>2017-11-1 11:00</span>
+                <span><i class="icon gold_bag"></i> 10000</span>
+                <span class="lineend">30</span>
+            </div>
+            <div class="row">
+                <span>2017-11-1 11:00</span>
+                <span><i class="icon gold_bag"></i> 20000</span>
+                <span class="lineend">60</span>
+            </div>
+            <div class="row">
+                <span>2017-11-1 11:00</span>
+                <span><i class="icon gold_bag"></i> 100000</span>
+                <span class="lineend ">100</span>
+            </div>
+            <!-- <div class="norecord">
+                暂无返现记录
+            </div> -->
+        </div>
+        <div class="row footer">
+            <span class="all last">总计</span>
+            <span class="sum lineend last">199</span>
+        </div>
+    </div>
+</div>
+ */
