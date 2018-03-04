@@ -33,7 +33,7 @@ app.use(
      * @param target -> http://songhwwww.yind123.com 测试环境
      * @param target -> https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/xxxxxx mock环境
      */
-    target: 'https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/example/',
+    target: 'https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/example',
     pathRewrite: { 
       '^/api': '' 
     },
@@ -41,10 +41,13 @@ app.use(
       /**
        * 订阅http-proxy的proxyReq事件
        * 在转发请求前设置请求头，将PHPSESSID附加到cookie
-       * @class https://www.yindou.com -> 'PHPSESSID=8tufrvnd97s353qtd7df3m7bg2'
-       * @class http://songhwwww.yind123.com/ -> 'PHPSESSID=t3bhat3dr45n24mkrif1oghlv4'
+       * @class https://www.yindou.com -> 'PHPSESSID=n0q2uv73c2v7qd43feag8hntq5'
+       * @class http://songhwwww.yind123.com/ -> 'PHPSESSID=uitu7f6l86enb81t70iveku2v7'
        */
-      proxyReq.setHeader('cookie', 'PHPSESSID=t3bhat3dr45n24mkrif1oghlv4');
+      proxyReq.setHeader('cookie', 'PHPSESSID=uitu7f6l86enb81t70iveku2v7');
+      // for (let prop of Object.getOwnPropertySymbols(proxyReq)) {
+      //   console.log(proxyReq[prop]);  
+      // }
     },
   })
 )
