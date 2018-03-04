@@ -11,10 +11,12 @@ module.exports = {
         "camelcase": 2, 
         "prefer-template": 0,
         "prefer-arrow-callback": 0,
+        "prefer-rest-params": 0,
         "object-curly-newline": 0,
         "no-unused-expressions": 0,
         // "quotes": ["error", "single", { "avoidEscape": true }],
-        "one-var": ["error", "always"],
+        "one-var": ["error", {"var": "always", "const": "never"}],
+        "one-var-declaration-per-line": ["error", "initializations"],
         "no-mixed-operators": [
             "error",
             {
@@ -36,9 +38,10 @@ module.exports = {
         }],
         "no-eval": ["error"],
         "no-param-reassign": ["error", { "props": false }],
-        "arrow-body-style": ["error", "always"],
         "import/no-named-as-default": 0,
         "import/no-named-as-default-member": 0,
+        "no-underscore-dangle": 0,
+        "no-sequences": 0
     },
     /* globals document */
     "globals": {
