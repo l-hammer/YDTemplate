@@ -12,11 +12,11 @@
     "appdevelopment": "cross-env NODE_ENV=development parcel src/app/index.html",
     "webegdevelopment": "cross-env NODE_ENV=development parcel src/examples/web/index.html",
     "appegdevelopment": "cross-env NODE_ENV=development parcel src/examples/app/index.html",
-    "webstart": "cross-env NODE_ENV=development node server/index.js web --no-cache",
-    "appstart": "concurrently \"cross-env NODE_ENV=development node server/index.js app --no-cache\"  \"npm run contribution\"",
-    "webegstart": "concurrently \"cross-env NODE_ENV=development node server/index.js webeg --no-cache\"  \"npm run contribution\"",
-    "appegstart": "concurrently \"cross-env NODE_ENV=development node server/index.js appeg --no-cache\"  \"npm run contribution\"",
-    "webbuild": "concurrently \"cross-env NODE_ENV=production parcel build src/web/index.html  --no-minify\"  \"npm run contribution\"",
+    "webstart": "concurrently \"cross-env NODE_ENV=development node server/index.js web --no-cache\" \"npm run contribution\"",
+    "appstart": "concurrently \"cross-env NODE_ENV=development node server/index.js app --no-cache\" \"npm run contribution\"",
+    "webegstart": "concurrently \"cross-env NODE_ENV=development node server/index.js webeg --no-cache\" \"npm run contribution\"",
+    "appegstart": "concurrently \"cross-env NODE_ENV=development node server/index.js appeg --no-cache\" \"npm run contribution\"",
+    "webbuild": "cross-env NODE_ENV=production parcel build src/web/index.html  --no-minify",
     "webbuildmin": "cross-env NODE_ENV=production parcel build src/web/index.html",
     "appbuild": "cross-env NODE_ENV=production parcel build src/app/index.html --no-minify",
     "appbuildmin": "cross-env NODE_ENV=production parcel build src/app/index.html",
@@ -77,7 +77,7 @@
     "parcel-plugin-eslint": "^1.0.3"
   },
   "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 8.0.0",
+    "npm": ">= 5.0.0"
   }
 }
