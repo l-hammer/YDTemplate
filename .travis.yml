@@ -10,7 +10,8 @@ install:
   - npm install
 
 script:
-  - npm run dist
+  # - npm run dist // parcel-plugin-eslint bug
+  - npm run webbuild
 
 branches:
   only:
