@@ -14,7 +14,7 @@ if __name__ == "__main__":
 	lineEnd = 0
 
 	# cp js -> template.tpl{{jsCode}}
-	jsCon = ''
+	jsCon = '\n'
 	filePath = './src/'+filearg+'/index.js'
 	templateFilePath = './src/'+filearg+'/template.tpl'
 
@@ -22,7 +22,7 @@ if __name__ == "__main__":
 		file_object = open(filePath, 'r')
 		for (num,value) in enumerate(file_object):
 			if filearg.find("web") is not -1:
-				if value.find("var YD = YD || {};") is not -1:
+				if value.find("var YD = {},") is not -1:
 					lineStart = num
 			else:
 				if value.find("this is a mark line") is not -1:
@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
 		file_object = open(filePath, 'r') 
 		for i in file_object.readlines()[lineStart:lineEnd]:
-			jsCon = jsCon + i
+			jsCon = jsCon + '    ' + i
 		file_object.close()
 
 		with open(templateFilePath, 'r') as r:
