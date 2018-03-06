@@ -84,6 +84,7 @@ if __name__ == "__main__":
 				w.write(l.replace('{{jsCode}}',jsCon))
 
 	# cp css -> template.tpl{{cssCode}}
+	cssCon = ''
 	filedir = './dist'
 	files = os.listdir(filedir)
 	for file in files:
