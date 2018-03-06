@@ -10,8 +10,10 @@ install:
   - npm install
 
 script:
-  # - npm run dist // parcel-plugin-eslint bug
-  - npm run webbuild
+  # - npm run appbuildmin // parcel-plugin-eslint bug
+  - npm run webbuildmin
+  - npm run appegbuildmin
+  - npm run webegbuildmin
 
 branches:
   only:
