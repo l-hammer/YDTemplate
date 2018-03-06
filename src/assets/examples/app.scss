@@ -1,6 +1,5 @@
 @import "../normalize/index.scss";  /* resets */
 @import "../mixins/index.scss";  /* mixin */
-@import "../perfect-scrollbar/index.scss";  /* 常用动画 */
 
 .clearfix {
     @include clearfix();
