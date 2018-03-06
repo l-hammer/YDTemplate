@@ -426,20 +426,15 @@ html, body{
 	line-height: 39px;
 	text-align: center;
 	color: #ffffff;
-
 }
 .float_menu .menu_item:hover, .float_menu .menu_item.active{
 	color: #f38635;
 }
-.floor2 .table-container.cash .recordTbody{width:100%; height: 177px;overflow-x: hidden;overflow-y: auto;
-    border-bottom-left-radius: 8px; 
-    border-bottom-right-radius: 8px;
-	position: relative; }
-	
-.ps-container>.ps-scrollbar-y-rail{ width: 12px; }
-.ps-container>.ps-scrollbar-y-rail>.ps-scrollbar-y{ width: 4px; background-color: #b41118; }
-.ps-container:hover>.ps-scrollbar-y-rail:hover>.ps-scrollbar-y{ width: 8px; background-color: #b41118; }
-
+.floor2 .table-container.cash .recordTbody{
+    width:100%; 
+    height: 177px;
+    position: relative; 
+}
 .floor2 .table-container.cash .norecord{
 	text-align: center;
 	line-height: 176px;

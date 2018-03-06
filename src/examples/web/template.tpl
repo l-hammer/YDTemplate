@@ -28,5 +28,4 @@
 </style>
 <{/block}>
 
-
 <!-- 线上代码 http://118.190.126.206:8888/back-end/yindou_02/blob/master/application/views/web/events/2018/01/fourth_annual.tpl -->
