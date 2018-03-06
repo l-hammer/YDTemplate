@@ -34,7 +34,9 @@ YD.FouthAnnual = function () {
         // 对话框
         // this.YDModel();
         // 滚动条
-        new PerfectScrollbar('#recordTbody');
+        new PerfectScrollbar('#recordTbody', {
+            wheelPropagation: true,
+        });
         $(window).scroll(function () {
             var wst = $(window).scrollTop() + ($(window).height() / 2),
                 i;
