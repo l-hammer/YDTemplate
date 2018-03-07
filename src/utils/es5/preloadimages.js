@@ -43,11 +43,11 @@ function Preloadimages(configs) {
     this.total = this.option.resources.length || 0; // 资源总数
     this.currentIndex = 0; // 当前加载资源索引
     this.option = {
-        baseUrl: './',
-        resources: [],
-        onStart: null,
-        onProgress: null,
-        onComplete: null,
+        baseUrl: './', // 资源基准url, 默认'./'
+        resources: [], // 图片资源
+        onStart: null, // 加载开始回调
+        onProgress: null, // 正在加载回调，回传参数currentIndex, total
+        onComplete: null, // 加载完成回调
     };
     if (configs) {
         for (var prop in configs) {
@@ -100,6 +100,7 @@ function Preloadimages(configs) {
 
 /**
  * e.g.
+ * @param {baseUrl|String} 资源基准url, 默认'./'
  * @param {resources|Array} 图片资源
  * @param {onStart|Function} 加载开始回调
  * @param {onProgress|Function} 正在加载回调，回传参数currentIndex, total
