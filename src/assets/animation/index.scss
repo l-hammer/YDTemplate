@@ -33,10 +33,10 @@
         transform: scale(1)
     }
 }
-.v-dialog-fade-enter-active {
+.dialog-fade-enter-active {
     animation: dialog-fadein .4s
 }
 
-.v-dialog-fade-enter-active .v-dialog-container {
+.dialog-fade-enter-active .dialog-container {
     animation: dialog-zoom .4s
 }

@@ -5,6 +5,7 @@
 @import "../mixins/index.scss";  /* mixins */
 
 @include font-size(12px, ".ft-12");
+@include font-size(13px, ".ft-13");
 @include font-size(14px, ".ft-14");
 @include font-size(15px, ".ft-15");
 @include font-size(16px, ".ft-16");

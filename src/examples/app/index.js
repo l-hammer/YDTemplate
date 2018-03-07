@@ -159,7 +159,7 @@ pageSignApp = Vue.extend({
                     self.start_count_down();
                 }, 1000);
             } else if (diff < 0) {
-                self.page_show = 3;
+                self.page_show = 4;
                 if (self.timer) {
                     clearInterval(self.timer);
                     self.timer = null;

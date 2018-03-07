@@ -123,25 +123,19 @@
                     <p v-animate-css="transitionFadeInUp400"><span class="txt ft-13">4.询问现场工作人员。</span></p>
             </div>
             <div class="bot-block" ></div>
-            <transition name="cube-dialog-fade">
-                <div class="cube-popup cube-dialog" v-cloak v-show="showDialog">
-                    <div class="cube-popup-mask"></div>
-                    <div class="cube-popup-container cube-popup-center">
-                        <div class="cube-popup-content">
-                            <div class="cube-dialog-main">
-                                <div class="cube-dialog-confirm">
-                                    <div class="cube-dialog-content ft-15">
-                                        <div class="cube-dialog-content-def">
-                                            <p>如果这是您自己的操作，请点击“取消”</p>
-                                            <p>并出示给工作人员协助完成</p>
-                                            <p>否则礼品会与您擦肩而过哦</p>
-                                        </div>
-                                    </div>
-                                    <div class="cube-dialog-btns border-right-1px">
-                                        <a href="javascript:;" @click="restart" class="cube-dialog-btn border-top-1px cube-dialog-btn_highlight ft-18">继续开启</a>
-                                        <a href="javascript:;" @click="cancelDialog" class="cube-dialog-btn border-top-1px ft-18">取消</a>
-                                    </div>
-                                </div>
+            <transition name="dialog-fade">
+                <div class="dialog" v-cloak v-show="showDialog">
+                    <div class="dialog-mask"></div>
+                    <div class="dialog-main">
+                        <div class="dialog-container">
+                            <div class="dialog-content ft-15">
+                                <p>如果这是您自己的操作，请点击“取消”</p>
+                                <p>并出示给工作人员协助完成</p>
+                                <p>否则礼品会与您擦肩而过哦</p>
+                            </div>
+                            <div class="dialog-btns border-right-1px">
+                                <a href="javascript:;" @click="restart" class="dialog-btn border-top-1px dialog-btn_highlight ft-18">继续开启</a>
+                                <a href="javascript:;" @click="cancelDialog" class="dialog-btn border-top-1px ft-18">取消</a>
                             </div>
                         </div>
                     </div>
