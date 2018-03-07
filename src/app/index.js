@@ -12,7 +12,7 @@ new Vue({
     template: `
         <div id="app" class="main">\
             <img src="https://caiyunupload.b0.upaiyun.com/newweb/imgs/logo.png" alt="银豆网">\
-            <p v-html="message"></p>\
+            <p class="ft-15" v-html="message"></p>\
         </div>
     `,
     data() {

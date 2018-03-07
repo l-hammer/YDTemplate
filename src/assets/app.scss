@@ -4,26 +4,10 @@
  */
 @import "normalize/index.scss";  /* resets */
 @import "animation/index.scss";  /* 常用动画 */
-@import "mixins/index.scss";  /* mixins */
+@import "basics/index.scss";  /* base */
 
-@include font-size(16px, "p");
 @include font-size(69px, ".main i");
 
-* {
-    box-sizing: border-box;
-}
-.clearfix {
-    @include clearfix();
-}
-::-webkit-input-placeholder { /* WebKit browsers */ 
-    line-height: 1;
-}
-html, body {
-    height: 100%;
-    line-height: 1;
-    font-family: 'Microsoft Yahei Mono';
-    -webkit-font-smoothing: antialiased;
-}
 .main {
     height: 100%;
     color: #333333;
@@ -35,7 +19,7 @@ html, body {
         width: 15em;
         overflow: hidden;
         white-space: nowrap;
-        margin-top: .266667rem;
+        margin-top: .52rem;
         border-right: 1px solid transparent;
         animation: typing 5s steps(15), caret 1s steps(1) infinite;
     }
