@@ -1,0 +1,33 @@
+/**
+ * Created by LHammer on 18/03/07.
+ * base.scss
+ */
+@import "../mixins/index.scss";  /* mixins */
+
+@include font-size(12px, ".ft-12");
+@include font-size(14px, ".ft-14");
+@include font-size(15px, ".ft-15");
+@include font-size(16px, ".ft-16");
+@include font-size(18px, ".ft-18");
+
+* {
+    box-sizing: border-box;
+}
+.clearfix {
+    @include clearfix();
+}
+::-webkit-input-placeholder { /* WebKit browsers */ 
+    line-height: 1;
+}
+li {
+    list-style: none;
+}
+a, a:hover, a:active, a:visited{
+    text-decoration: none;
+}
+html, body {
+    height: 100%;
+    line-height: 1;
+    font-family: 'Lantinghei SC', 'Microsoft Yahei Mono';
+    -webkit-font-smoothing: antialiased;
+}
