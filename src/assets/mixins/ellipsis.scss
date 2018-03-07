@@ -1,12 +1,13 @@
 ._ellipsis{
     overflow: hidden;
     white-space: nowrap;
-    // word-wrap: normal;
+    word-wrap: normal;
     text-overflow: ellipsis;
 }
-@mixin text-ellipsis ($width) {
+@mixin text-ellipsis ($width: 100%) {
     width: $width;
     @extend ._ellipsis;
+    @content;
 }
 
 @mixin text-hide() {
