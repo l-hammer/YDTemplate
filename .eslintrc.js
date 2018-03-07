@@ -21,7 +21,8 @@ module.exports = {
             "error",
             {
                 "groups": [
-                    ["+", "-", "*", "/", "%", "**"],
+                    ["+", "-"],
+                    ["*", "/", "%", "**"],
                     ["&", "|", "^", "~", "<<", ">>", ">>>"],
                     ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
                     ["&&", "||"],
@@ -41,7 +42,9 @@ module.exports = {
         "import/no-named-as-default": 0,
         "import/no-named-as-default-member": 0,
         "no-underscore-dangle": 0,
-        "no-sequences": 0
+        "no-sequences": 0,
+        "no-restricted-properties": 0,
+        "no-restricted-syntax": 0,
     },
     /* globals document */
     "globals": {
