@@ -20,8 +20,9 @@ switch (arguments[0]) {
   default: break;
 }
 
-let bundler = new Bundler(proxypath)
 let app = express()
+let bundler = new Bundler(proxypath)
+let port = Number(process.env.PORT || 1234);
 
 app.use(
   '/webapi',
@@ -52,5 +53,11 @@ app.use(
   })
 )
 
+const feedback = 'Interested in YDTemplate? Help me improve by sharing your feedback.';
+const github = 'https://github.com/l-hammer/YDTemplate';
+console.log(`\n\x1B[35m${feedback}\x1B[22m\x1B[39m\n\x1B[34m${github}\x1B[0m\n`);
+
 app.use(bundler.middleware())
-app.listen(Number(process.env.PORT || 1234))
+app.listen(port, () => {
+  console.log(`Server running at \x1B[36mhttp://localhost:${port}\x1B[0m\n`);
+})
