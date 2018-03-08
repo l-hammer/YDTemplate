@@ -56,8 +56,7 @@ function Preloadimages(configs) {
             }
         }
     } else {
-        console.error('参数错误');
-        return;
+        throw new Error('参数错误');
     }
     function isFunction(fn) {
         return Object.prototype.toString.call(fn) === '[object Function]';
@@ -81,7 +80,7 @@ function Preloadimages(configs) {
             };
             cacheImage[idx].onerror = function () {
                 self.loaded();
-                console.error('图片路径' + _url + '错误');
+                throw new Error('图片路径' + _url + '错误');
             };
             cacheImage[idx].src = _url;
         });

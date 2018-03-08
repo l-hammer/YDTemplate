@@ -21,8 +21,7 @@ class Preloadimages {
                 }
             }
         } else {
-            console.error('参数错误');
-            return;
+            throw new Error('参数错误');
         }
         this.isFunction = fn => Object.prototype.toString.call(fn) === '[object Function]';
     }
@@ -45,7 +44,7 @@ class Preloadimages {
             };
             cacheImage[idx].onerror = () => {
                 self.loaded();
-                console.error(`图片路径${_url}错误`);
+                throw new Error('图片路径' + _url + '错误');
             };
             cacheImage[idx].src = _url;
         });
