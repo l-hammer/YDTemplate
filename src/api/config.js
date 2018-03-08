@@ -16,7 +16,7 @@ axios.interceptors.request.use((config) => {
     }
     return config;
 }, (error) => {
-    return Promise.reject(error);
+    Promise.reject(error);
 });
 
 // http response 拦截器
@@ -27,7 +27,7 @@ axios.interceptors.response.use((res) => {
     return res.data;
 }, (error) => {
     // 404等错误处理
-    return Promise.reject(error);
+    Promise.reject(error);
 });
 
 export default axios;

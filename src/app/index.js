@@ -3,10 +3,11 @@
  * build时autocopy脚本会自动拷贝dist目录下生成文件到template.tpl
  */
 import Vue from 'vue/dist/vue';
-import axios from '../api/index';
+// import axios from '../api/index';
+import format from '../utils/es6/moment';
 import '../assets/app.scss';
 
-Vue.prototype.$axios = axios;
+// Vue.prototype.$axios = axios;
 
 new Vue({
     template: `
@@ -21,14 +22,16 @@ new Vue({
         };
     },
     mounted() {
-        const data = {
-            username: 'LHammer',
-        };
-        this.$axios.test(data).then(function (res) {
-            console.log(res);
-        }).catch(function (error) {
-            console.log(error);
-        });
+        // const data = {
+        //     username: 'LHammer',
+        // };
+        // this.$axios.test(data).then(function (res) {
+        //     console.log(res);
+        // }).catch(function (error) {
+        //     console.log(error);
+        // });
+        console.log(format);
+        console.log(format.format(new Date(), 'yyyy-MM-dd'));
     },
 }).$mount('#app');
 

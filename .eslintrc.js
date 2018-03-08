@@ -45,12 +45,17 @@ module.exports = {
         "no-sequences": 0,
         "no-restricted-properties": 0,
         "no-restricted-syntax": 0,
+        "no-restricted-globals": 0,
+        "wrap-iife": ["error", "inside"],
+        "strict": ["error", "function"],
+        "no-param-reassign": 0
     },
     /* globals document */
     "globals": {
         "window": false,
         "document": true,
         "Image": true,
-        "alert": true
+        "alert": true,
+        "define": true
     }
 };
