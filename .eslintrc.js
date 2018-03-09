@@ -50,7 +50,8 @@ module.exports = {
         "strict": ["error", "function"],
         "no-param-reassign": 0,
         "no-confusing-arrow": 0,
-        "arrow-body-style": 0
+        "arrow-body-style": 0,
+        "no-bitwise": ["error", { "allow": ["~"] }],
     },
     /* globals document */
     "globals": {
