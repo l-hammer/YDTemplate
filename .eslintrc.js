@@ -48,7 +48,9 @@ module.exports = {
         "no-restricted-globals": 0,
         "wrap-iife": ["error", "inside"],
         "strict": ["error", "function"],
-        "no-param-reassign": 0
+        "no-param-reassign": 0,
+        "no-confusing-arrow": 0,
+        "arrow-body-style": 0
     },
     /* globals document */
     "globals": {
