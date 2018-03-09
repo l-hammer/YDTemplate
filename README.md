@@ -75,7 +75,7 @@ YDTemplate/
 ## Technology
 
 - App `Vue 2.x` + `Axios`
-- Web `Jquery`
+- Web `Jquery` + `handlebars`
 
 ## Browser Support
 
