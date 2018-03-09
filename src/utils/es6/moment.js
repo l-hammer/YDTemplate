@@ -196,7 +196,7 @@ export default {
  * e.g.
  * @param Date @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date
  *
- * @requires import { format } from '../utils/es6/moment';
+ * @requires import { format, parse } from '../utils/es6/moment';
  *
  * @example format(new Date());
  * @returns 2018-03-09 00:00:00 // 默认格式
