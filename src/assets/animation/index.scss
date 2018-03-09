@@ -9,3 +9,34 @@
 @keyframes caret {
     50% { border-right-color: currentColor}
 }
+
+/**
+ * fadein
+ */
+@keyframes dialog-fadein {
+    0% {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes dialog-zoom {
+    0% {
+        transform: scale(0)
+    }
+    50% {
+        transform: scale(1.1)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+.v-dialog-fade-enter-active {
+    animation: dialog-fadein .4s
+}
+
+.v-dialog-fade-enter-active .v-dialog-container {
+    animation: dialog-zoom .4s
+}
