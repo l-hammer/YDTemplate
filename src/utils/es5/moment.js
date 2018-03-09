@@ -6,36 +6,10 @@
 (function (main) {
     var moment = {},
         formatFlags = {},
-        literal = /\[([^]*?)\]/gm,
+        parseFlags = {},
+        twoDigits = /\d\d?/,
+        fourDigits = /\d{4}/,
         token = /d{1,2}|M{1,2}|yy(?:yy)?|([HhMsDm])\1?|[aA]|"[^"]*"|'[^']*'/g;
-
-    moment.i18n = {
-        dayNames: [],
-        weeks: {
-            sun: '日',
-            mon: '一',
-            tue: '二',
-            wed: '三',
-            thu: '四',
-            fri: '五',
-            sat: '六',
-        },
-        monthNames: {
-            jan: '一月',
-            feb: '二月',
-            mar: '三月',
-            apr: '四月',
-            may: '五月',
-            jun: '六月',
-            jul: '七月',
-            aug: '八月',
-            sep: '九月',
-            oct: '十月',
-            nov: '十一月',
-            dec: '十二月',
-        },
-        amPm: ['am', 'pm'],
-    };
 
     function pad(val, len) {
         val = String(val);
@@ -60,10 +34,10 @@
             return pad(dateObj.getMonth() + 1);
         },
         d: function (dateObj) {
-            return dateObj.getDay();
+            return dateObj.getDate();
         },
         dd: function (dateObj) {
-            return pad(dateObj.getDay());
+            return pad(dateObj.getDate());
         },
         h: function (dateObj) {
             return dateObj.getHours() % 12 || 12;
@@ -89,24 +63,16 @@
         ss: function (dateObj) {
             return pad(dateObj.getSeconds());
         },
-        a: function (dateObj, i18n) {
-            return dateObj.getHours() < 12 ? i18n.amPm[0] : i18n.amPm[1];
-        },
-        A: function (dateObj, i18n) {
-            return dateObj.getHours() < 12 ? i18n.amPm[0].toUpperCase() : i18n.amPm[1].toUpperCase();
-        },
     };
 
     moment.masks = {
         default: 'yyyy-MM-dd HH:mm:ss',
-        enShortDate: 'M/d/yy',
         date: 'yyyy-MM-dd',
         datetime: 'yyyy-MM-dd HH:mm:ss',
         time: 'HH:mm:ss',
-        daterange: 'yyyy-MM-dd',
-        datetimerange: 'yyyy-MM-dd HH:mm:ss',
-        timerange: 'HH:mm:ss',
         year: 'yyyy',
+        enDate: 'M/d/yy',
+        cnDate: 'yyyy 年 MM 月 dd 日',
     };
 
     /**
@@ -114,12 +80,8 @@
      * @method format
      * @param {Date|number} dateObj
      * @param {String} mask Format of the date
-     * @param {i18nSettings}
      */
-    moment.format = function (dateObj, mask, i18nSettings) {
-        var i18n = i18nSettings || moment.i18n,
-            literals = [];
-
+    moment.format = function (dateObj, mask) {
         if (typeof dateObj === 'number') {
             dateObj = new Date(dateObj);
         }
@@ -130,18 +92,103 @@
 
         mask = moment.masks[mask] || mask || moment.masks.default;
 
-        mask = mask.replace(literal, function ($0, $1) {
-            literals.push($1);
-            return '??';
-        });
-
         mask = mask.replace(token, function ($0) {
-            return $0 in formatFlags ? formatFlags[$0](dateObj, i18n) : $0.slice(1, $0.length - 1);
+            return $0 in formatFlags ? formatFlags[$0](dateObj) : $0.slice(1, $0.length - 1);
         });
 
-        return mask.replace(/\?\?/g, function () {
-            return literals.shift();
+        return mask;
+    };
+
+    parseFlags = {
+        yyyy: [fourDigits, function (d, v) {
+            d.year = v;
+        }],
+        yy: [twoDigits, function (d, v) {
+            var da = new Date(),
+                cent = +('' + da.getFullYear()).substr(0, 2);
+            d.year = '' + (v > 68 ? cent - 1 : cent) + v;
+        }],
+        M: [twoDigits, function (d, v) {
+            d.month = v - 1;
+        }],
+        d: [twoDigits, function (d, v) {
+            d.day = v;
+        }],
+        h: [twoDigits, function (d, v) {
+            d.hour = v;
+        }],
+        m: [twoDigits, function (d, v) {
+            d.minute = v;
+        }],
+        s: [twoDigits, function (d, v) {
+            d.second = v;
+        }],
+    };
+    parseFlags.MM = parseFlags.M;
+    parseFlags.dd = parseFlags.d;
+    parseFlags.hh = parseFlags.h;
+    parseFlags.H = parseFlags.h;
+    parseFlags.HH = parseFlags.h;
+    parseFlags.mm = parseFlags.m;
+    parseFlags.ss = parseFlags.s;
+
+    /**
+     * Format a date
+     * @method parse
+     * @param {String} dateStr Date String e.g. '2018-02-09 09:29:29' or '2018 年 02 月 09 日'
+     * @param {String} mask Parse of the format date e.g. 'yyyy-MM-dd HH:mm:ss' or 'cnDate'
+     * @param {Date}
+     */
+    moment.parse = function (dateStr, mask) {
+        var isVaild = true,
+            dateInfo = {},
+            today = new Date();
+
+        if (typeof dateStr !== 'string') {
+            throw new Error('Invalid format in fecha.parse');
+        }
+
+        mask = moment.masks[mask] || mask || moment.masks.default;
+        /**
+         * @function replace @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace;
+         * @param {String} $0 匹配的子串
+         */
+        mask.replace(token, function ($0) {
+            if (parseFlags[$0]) {
+                /**
+                 * 搜索匹配到子串(e.g. yyyy)对应flag(fourDigits)的位置
+                 * @function search 未匹配到时返回-1，即按位取反为0时表示没有对应的flag
+                 */
+                var flag = parseFlags[$0],
+                    index = dateStr.search(flag[0]);
+                if (!~index) {
+                    isVaild = false;
+                } else {
+                    /**
+                     * 为避免重复返回，将已经返回的值result从dateStr中删除
+                     */
+                    dateStr.replace(flag[0], function (result) {
+                        flag[1](dateInfo, result);
+                        dateStr = dateStr.substr(index + result.length);
+                        return result;
+                    });
+                }
+            }
+            return parseFlags[$0] ? '' : $0.slice(1, $0.length - 1);
         });
+
+        if (!isVaild) {
+            return false;
+        }
+
+        return new Date(
+            dateInfo.year || today.getFullYear(),
+            dateInfo.month || 0,
+            dateInfo.day || 1,
+            dateInfo.hour || 0,
+            dateInfo.minute || 0,
+            dateInfo.second || 0,
+        );
     };
 
     /**
@@ -157,3 +204,27 @@
         main.moment = moment;
     }
 })(this);
+
+/**
+ * e.g.
+ *
+ * @requires import moment from '../utils/es6/moment';
+ *
+ * @example moment.format(new Date());
+ * @returns 2018-03-09 00:00:00 // 默认格式
+ *
+ * @example moment.format(new Date(), 'yyyy-MM-dd');
+ * @returns 2018-03-09
+ *
+ * @example moment.format(new Date(2018, 1, 9), 'yyyy 年 MM 月 dd 日');
+ * @returns 2018 年 03 月 09 日
+ *
+ * @example moment.parse('2018-02-09 09:29:29');
+ * @returns Fri Feb 09 2018 09:29:29 GMT+0800 (CST) // 默认格式，等同于'yyyy-MM-dd HH:mm:ss'
+ *
+ * @example moment.parse('2018-02-09 09:29:29', 'yyyy-MM-dd HH:mm:ss');
+ * @returns Fri Feb 09 2018 09:29:29 GMT+0800 (CST)
+ *
+ * @example moment.parse('2018 年 02 月 09 日', 'cnDate');
+ * @returns Fri Feb 09 2018 00:00:00 GMT+0800 (CST)
+ */
