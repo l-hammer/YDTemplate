@@ -1,20 +1,20 @@
 
 <br><br>
 <p align="center">
-  	<a href="https://getbootstrap.com/">
+    <a href="https://getbootstrap.com/">
         <img src="./static/construction.jpeg" width="99">
-  	</a>
-	<h3 align="center">YDTemplate</h3>
-	<p align="center">
-		<a href="https://github.com/l-hammer/YDTemplate/issues"><img src="https://travis-ci.org/l-hammer/YDTemplate.svg?branch=master"></a>
-		<img src="https://img.shields.io/github/issues/l-hammer/YDTemplate.svg">
-		<img src="https://img.shields.io/badge/devDependencies-up%20to%20date-blue.svg">
-		<a href="https://github.com/l-hammer/YDTemplate/blob/master/LICENSE"><img src="https://img.shields.io/github/license/l-hammer/YDTemplate.svg"></a>
-	</p>
-	<p align="center">
-		Yindou Web and App special development template~
-		<br>
-	</p>
+    </a>
+    <h3 align="center">YDTemplate</h3>
+    <p align="center">
+        <img src="https://travis-ci.org/l-hammer/YDTemplate.svg?branch=master">
+        <a href="https://github.com/l-hammer/YDTemplate/issues"><img src="https://img.shields.io/github/issues/l-hammer/YDTemplate.svg"></a>
+        <img src="https://img.shields.io/badge/devDependencies-up%20to%20date-blue.svg">
+        <a href="https://github.com/l-hammer/YDTemplate/blob/master/LICENSE"><img src="https://img.shields.io/github/license/l-hammer/YDTemplate.svg"></a>
+    </p>
+    <p align="center">
+        Yindou Web and App special development template~
+        <br>
+    </p>
 </p>
 
 ## Quick start
