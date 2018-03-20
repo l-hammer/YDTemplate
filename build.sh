@@ -9,11 +9,18 @@
 # 打包成功后自动拷贝
 
 month=$(date +%m)
+prevMonth=$((month-1))
 host=songhw@118.190.101.187
 www=www@10.30.214.232:/home/www/
-wx=yindou_02/application/views/wx/events/2018/$month/
-h5=yindou_02/application/views/h5/events/2018/$month/
-web=yindou_02/application/views/web/events/2018/$month/
+wx=yindou_02/application/views/wx/events/2018/
+h5=yindou_02/application/views/h5/events/2018/
+web=yindou_02/application/views/web/events/2018/
+
+if [ $prevMonth -lt 10 ]; then
+    prevMonth=0$prevMonth
+elif [ $prevMonth -eq 1 ]; then
+    prevMonth=12
+fi
 
 if [ ! $1 ]; then
     echo -e "\033[33m > 🚨  warning: 请输入参数@param1 @param2 (@param1:web/app/webeg/appeg; @param2:--no-minify) \033[0m"
@@ -21,29 +28,38 @@ else
     rm -rf dist/ && \
     git co *.tpl && \
     if [[ $1 == "web" && ! $2 ]]; then
-        files=./src/web/*.tpl
+        tempFile=./src/web/*.tpl
+        tempFileBase=`basename $tempFile`
         npm run webbuildmin && \
         python ./bin/autocopy.py $1 && \
+
         # see https://linux.cn/article-7456-1.html && http://man.linuxde.net/scp
-        scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $files $www$web
-        for file in ${files} 
-        do    
-            temp_file=`basename $file`    
-            echo -e "\n\033[32m🚚  Scp $temp_file to $web done \033[0m\n" 
-        done
+        scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $www$web$prevMonth ./src/web  && \
+        prevMonthFiles=./src/web/$prevMonth/*.tpl
+        if [ -e ./src/web/$prevMonth/$tempFileBase ]; then
+            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$web$prevMonth
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$prevMonth done \033[0m\n"
+        else
+            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$web$month
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$month done \033[0m\n"
+        fi
     elif [[ $1 == "web" && $2 == "--no-minify" ]]; then
         npm run webbuild && \
         python ./bin/autocopy.py web
     elif [[ $1 == "app" && ! $2 ]]; then
-        files=./src/app/*.tpl
+        tempFile=./src/app/*.tpl
+        tempFileBase=`basename $tempFile`
         npm run appbuildmin && \
         python ./bin/autocopy.py $1 && \
-        scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $files $www$wx
-        for file in ${files} 
-        do    
-            temp_file=`basename $file`    
-            echo -e "\n\033[32m🚚  Scp $temp_file to $wx done \033[0m\n" 
-        done
+        scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $www$h5$prevMonth ./src/app  && \
+        prevMonthFiles=./src/app/$prevMonth/*.tpl
+        if [ -e ./src/app/$prevMonth/$tempFileBase ]; then
+            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$h5$prevMonth
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $h5$prevMonth done \033[0m\n"
+        else
+            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$h5$month
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $h5$month done \033[0m\n"
+        fi
     elif [[ $1 == "app" && $2 == "--no-minify" ]]; then
         npm run appbuild && \
         python ./bin/autocopy.py $1
