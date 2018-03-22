@@ -16,7 +16,11 @@ if __name__ == "__main__":
 	# cp js -> template.tpl{{jsCode}}
 	jsCon = '\n'
 	filePath = './src/'+filearg+'/index.js'
-	templateFilePath = './src/'+filearg+'/template.tpl'
+	dirFiles = os.listdir('./src/'+filearg)
+	for file in dirFiles:
+		res = re.search(r'(.*).tpl', file, re.M|re.I)
+		if res:
+			templateFilePath = './src/'+filearg+'/'+res.group()
 
 	if filearg != 'app':
 		file_object = open(filePath, 'r')
