@@ -1,20 +1,18 @@
+#--------------------------------------------
 #!/usr/bin/env bash
 # @describe:
 # @author:   LHammer(LHammering@gmail.com)
-
-#set -x
-
+#--------------------------------------------
+# set -x
 # vim:set ts=4 sw=4 et fdm=marker:
 
 # 打包成功后自动拷贝
 
+source ./configs/init.ini
+
 month=$(date +%m)
 prevMonth=$((month-1))
-host=songhw@118.190.101.187
-www=www@10.30.214.232:/home/www/
-wx=yindou_02/application/views/wx/events/2018/
-h5=yindou_02/application/views/h5/events/2018/
-web=yindou_02/application/views/web/events/2018/
+pType=yindou_02/application/views/$type/events/2018/
 
 if [ $prevMonth -lt 10 ]; then
     prevMonth=0$prevMonth
@@ -34,14 +32,14 @@ else
         python ./bin/autocopy.py $1 && \
 
         # see https://linux.cn/article-7456-1.html && http://man.linuxde.net/scp
-        scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $www$web$prevMonth ./src/web && \
+        scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$prevMonth ./src/web && \
         prevMonthDir=./src/web/$prevMonth
         if [ -e $prevMonthDir/$tempFileBase ]; then
-            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$web$prevMonth && \
-            echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$prevMonth done \033[0m\n"
+            scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$prevMonth && \
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$prevMonth done \033[0m\n"
         else
-            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$web$month && \
-            echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$month done \033[0m\n"
+            scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$month && \
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$month done \033[0m\n"
         fi
         rm -rf $prevMonthDir
     elif [[ $1 == "web" && $2 == "--no-minify" ]]; then
@@ -52,14 +50,14 @@ else
         tempFileBase=`basename $tempFile`
         npm run appbuildmin && \
         python ./bin/autocopy.py $1 && \
-        scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $www$h5$prevMonth ./src/app && \
+        scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$prevMonth ./src/app && \
         prevMonthDir=./src/app/$prevMonth
         if [ -e $prevMonthDir/$tempFileBase ]; then
-            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$h5$prevMonth && \
-            echo -e "\n\033[32m🚚  Scp $tempFileBase to $h5$prevMonth done \033[0m\n"
+            scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$prevMonth && \
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$prevMonth done \033[0m\n"
         else
-            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$h5$month && \
-            echo -e "\n\033[32m🚚  Scp $tempFileBase to $h5$month done \033[0m\n"
+            scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$month && \
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$month done \033[0m\n"
         fi
         rm -rf $prevMonthDir
     elif [[ $1 == "app" && $2 == "--no-minify" ]]; then
