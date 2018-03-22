@@ -34,15 +34,16 @@ else
         python ./bin/autocopy.py $1 && \
 
         # see https://linux.cn/article-7456-1.html && http://man.linuxde.net/scp
-        scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $www$web$prevMonth ./src/web  && \
-        prevMonthFiles=./src/web/$prevMonth/*.tpl
-        if [ -e ./src/web/$prevMonth/$tempFileBase ]; then
-            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$web$prevMonth
+        scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $www$web$prevMonth ./src/web && \
+        prevMonthDir=./src/web/$prevMonth
+        if [ -e $prevMonthDir/$tempFileBase ]; then
+            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$web$prevMonth && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$prevMonth done \033[0m\n"
         else
-            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$web$month
+            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$web$month && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$month done \033[0m\n"
         fi
+        rm -rf $prevMonthDir
     elif [[ $1 == "web" && $2 == "--no-minify" ]]; then
         npm run webbuild && \
         python ./bin/autocopy.py web
@@ -51,15 +52,16 @@ else
         tempFileBase=`basename $tempFile`
         npm run appbuildmin && \
         python ./bin/autocopy.py $1 && \
-        scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $www$h5$prevMonth ./src/app  && \
-        prevMonthFiles=./src/app/$prevMonth/*.tpl
-        if [ -e ./src/app/$prevMonth/$tempFileBase ]; then
-            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$h5$prevMonth
+        scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $www$h5$prevMonth ./src/app && \
+        prevMonthDir=./src/app/$prevMonth
+        if [ -e $prevMonthDir/$tempFileBase ]; then
+            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$h5$prevMonth && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $h5$prevMonth done \033[0m\n"
         else
-            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$h5$month
+            scp -P 38 -rq -o ProxyCommand='ssh '$host' -p 21222 -A -W %h:%p' $tempFile $www$h5$month && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $h5$month done \033[0m\n"
         fi
+        rm -rf $prevMonthDir
     elif [[ $1 == "app" && $2 == "--no-minify" ]]; then
         npm run appbuild && \
         python ./bin/autocopy.py $1
