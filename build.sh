@@ -13,6 +13,7 @@ source ./configs/init.ini
 month=$(date +%m)
 prevMonth=$((month-1))
 pType=yindou_02/application/views/$type/events/2018/
+web=yindou_02/application/views/web/events/2018/
 proxy=$proxyUser@118.190.101.187
 server=www@10.30.214.232:/home/www/
 
@@ -34,14 +35,14 @@ else
         python ./bin/autocopy.py $1 && \
 
         # see https://linux.cn/article-7456-1.html && http://man.linuxde.net/scp
-        scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$prevMonth ./src/web && \
+        scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$web$prevMonth ./src/web && \
         prevMonthDir=./src/web/$prevMonth
         if [ -e $prevMonthDir/$tempFileBase ]; then
-            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$prevMonth && \
-            echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$prevMonth done \033[0m\n"
+            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$web$prevMonth && \
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$prevMonth done \033[0m\n"
         else
-            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$month && \
-            echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$month done \033[0m\n"
+            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$web$month && \
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$month done \033[0m\n"
         fi
         rm -rf $prevMonthDir
     elif [[ $1 == "web" && $2 == "--no-minify" ]]; then

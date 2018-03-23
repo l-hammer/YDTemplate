@@ -7,6 +7,7 @@ import '../assets/web.scss';
 
 /**
  * 开发JS,上线直接拷贝一下内容到./template.tpl
+ * this is a mark line(以此线为标准，autocopy脚本会自动拷贝其之后的代码，请勿删除)
  */
 var YD = {},
     template;

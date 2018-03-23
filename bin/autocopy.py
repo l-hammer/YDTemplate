@@ -25,12 +25,8 @@ if __name__ == "__main__":
 	if filearg != 'app':
 		file_object = open(filePath, 'r')
 		for (num,value) in enumerate(file_object):
-			if filearg.find("web") is not -1:
-				if value.find("var YD = {},") is not -1:
-					lineStart = num
-			else:
-				if value.find("this is a mark line") is not -1:
-					lineStart = num + 2
+			if value.find("this is a mark line") is not -1:
+				lineStart = num + 2
 			if value.find("if (module.hot)") is not -1:
 				lineEnd = num - 4
 		file_object.close()
