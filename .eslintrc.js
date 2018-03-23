@@ -1,7 +1,15 @@
 module.exports = {
     extends: 'airbnb-base',
     parser: 'babel-eslint',
+    globals: {
+        "window": false,
+        "document": true,
+        "Image": true,
+        "alert": true,
+        "define": true
+    },
     rules: {
+        // 0 = off, 1 = warn, 2 = error
         "indent": ["error", 4],
         "no-var": 0,
         "no-new": 0,
@@ -34,9 +42,7 @@ module.exports = {
         "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
         "no-alert": 0,
         "vars-on-top": 0,
-        "max-len": [1, 129, {
-            "ignoreComments": true
-        }],
+        "max-len": [1, 129, { "ignoreComments": true }],
         "no-eval": ["error"],
         "no-param-reassign": ["error", { "props": false }],
         "import/no-named-as-default": 0,
@@ -53,12 +59,4 @@ module.exports = {
         "arrow-body-style": 0,
         "no-bitwise": ["error", { "allow": ["~"] }],
     },
-    /* globals document */
-    "globals": {
-        "window": false,
-        "document": true,
-        "Image": true,
-        "alert": true,
-        "define": true
-    }
 };
