@@ -19,13 +19,13 @@ function initProject {
 	projectType=${val:-$type}
 	sed -i "" "s/$type/$projectType/g" $file
 
-	read -p "Proxy($proxy) " val
-	newProxy=${val:-$proxy}
-	sed -i "" "s/$proxy/$newProxy/g" $file
+	read -p "ProxyUser($proxyUser) " val
+	newProxyUser=${val:-$proxyUser}
+	sed -i "" "s/$proxyUser/$newProxyUser/g" $file
 
-	read -p "Server($server) " val
-	newServer=${val:-$server}
-	sed -i "" "s#$server#$newServer#g" $file
+	read -p "ServerPort($serverPort) " val
+	newServerPort=${val:-$serverPort}
+	sed -i "" "s#$serverPort#$newServerPort#g" $file
 }
 
 initProject

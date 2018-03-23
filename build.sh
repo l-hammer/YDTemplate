@@ -13,6 +13,8 @@ source ./configs/init.ini
 month=$(date +%m)
 prevMonth=$((month-1))
 pType=yindou_02/application/views/$type/events/2018/
+proxy=$proxyUser@118.190.101.187
+server=www@10.30.214.232:/home/www/
 
 if [ $prevMonth -lt 10 ]; then
     prevMonth=0$prevMonth
@@ -32,13 +34,13 @@ else
         python ./bin/autocopy.py $1 && \
 
         # see https://linux.cn/article-7456-1.html && http://man.linuxde.net/scp
-        scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$prevMonth ./src/web && \
+        scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$prevMonth ./src/web && \
         prevMonthDir=./src/web/$prevMonth
         if [ -e $prevMonthDir/$tempFileBase ]; then
-            scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$prevMonth && \
+            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$prevMonth && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$prevMonth done \033[0m\n"
         else
-            scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$month && \
+            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$month && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$month done \033[0m\n"
         fi
         rm -rf $prevMonthDir
@@ -50,13 +52,13 @@ else
         tempFileBase=`basename $tempFile`
         npm run appbuildmin && \
         python ./bin/autocopy.py $1 && \
-        scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$prevMonth ./src/app && \
+        scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$prevMonth ./src/app && \
         prevMonthDir=./src/app/$prevMonth
         if [ -e $prevMonthDir/$tempFileBase ]; then
-            scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$prevMonth && \
+            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$prevMonth && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$prevMonth done \033[0m\n"
         else
-            scp -P 38 -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$month && \
+            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$month && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$month done \033[0m\n"
         fi
         rm -rf $prevMonthDir
