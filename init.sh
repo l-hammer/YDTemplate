@@ -31,14 +31,12 @@ function initProject {
 	newServerPort=${val:-$serverPort}
 	sed -i "" "s#$serverPort#$newServerPort#g" $file
 
-	echo -e "\n"
-
     rm -rf .git && \
-    sourch ./bin/cddevdir.sh && \
 	git add ./ && \
     git commit -m ':tada:initialization template……' && \
 	git pull origin master && \
     git push -u origin master && \
+    cd ../YD$projectName && \
 
 	echo -e "\n# ========================"
 	echo -e "\x1B[36mproject: { \n    name: $projectName,\n    type: $projectType,\n    proxyUser: $newProxyUser,\n    serverPort: $newServerPort\n}\x1B[0m"
