@@ -93,7 +93,7 @@ iOS 7
 - Push to the branch: `git push origin new-branch`
 - Submit a pull request
 
-## license
+## License
 
 [MIT](https://github.com/l-hammer/YDTemplate/blob/master/LICENSE) © 2018 LHammer
 
