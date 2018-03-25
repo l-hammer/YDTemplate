@@ -16,12 +16,7 @@
     </p>
 </p>
 
-
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fl-hammer%2FYDTemplate.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fl-hammer%2FYDTemplate?ref=badge_large)
-
 ## Quick start
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fl-hammer%2FYDTemplate.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fl-hammer%2FYDTemplate?ref=badge_shield)
-
 
 Several quick start options are available:
 
@@ -97,3 +92,9 @@ iOS 7
 - Commit your changes: `git commit -am 'Add some feature'`
 - Push to the branch: `git push origin new-branch`
 - Submit a pull request
+
+## license
+
+[MIT](https://github.com/l-hammer/YDTemplate/blob/master/LICENSE) © 2018 LHammer
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fl-hammer%2FYDTemplate.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fl-hammer%2FYDTemplate?ref=badge_large)
