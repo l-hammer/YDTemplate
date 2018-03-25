@@ -20,14 +20,15 @@
 
 Several quick start options are available:
 
+- Initialize template run: `. init.sh`
 - Clone the repo: `https://github.com/l-hammer/YDTemplate.git`
 - Install dependencies with [npm](https://www.npmjs.com/): `npm install`
-- Web development Run ~~`npm run webdev`~~ `npm run webstart`
-- App development Run ~~`npm run appdev`~~ `npm run appstart`
-- Open web example Run ~~`npm run webegdev`~~ `npm run webegstart`
-- Open app example Run ~~`npm run appegdev`~~ `npm run appegstart`
-- Build Run `bash build.sh @param1 @param2` (@param1:`web`,`app`,`webeg`,`appeg`; @param2:`--no-minify`)
-- Move useless codes Run `python bin/mvuseless.py @param` (@param:`web`,`app`,`examples`)
+- Web development run ~~`npm run webdev`~~ `npm run webstart`
+- App development run ~~`npm run appdev`~~ `npm run appstart`
+- Open web example run ~~`npm run webegdev`~~ `npm run webegstart`
+- Open app example run ~~`npm run appegdev`~~ `npm run appegstart`
+- Build run `bash build.sh @param1 @param2` (@param1:`web`,`app`,`webeg`,`appeg`; @param2:`--no-minify`)
+- Move useless codes run `python bin/mvuseless.py @param` (@param:`web`,`app`,`examples`)
 - Open `http://localhost:1234` in your browser.
 
 ## What's included
@@ -39,6 +40,8 @@ YDTemplate/
 │   └── mvuseless.py    // 🚚删除开发非相关代码for强迫症用户
 ├── server/
 │   └── index.js    // 💡node proxy
+├── configs/
+│   └── init.ini    // 🎉初始化配置
 ├── src/
 │   ├── api/
 │   │   ├── config.js/    // axios配置
@@ -67,7 +70,7 @@ YDTemplate/
 │   │   ├── index.html    // web开发页
 │   │   ├── index.js    // web开发脚本
 │   │   └── template.tpl    // web上线模板
-│   └── utils/    // 常用工具函数
+│   └── utils/    // 🗃常用工具函数
 ├── clearcache.sh    // ♻️清除缓冲
 ├── build.sh    // 📦打包
 └── push.sh    // 🔥强烈建议使用此脚本替换git push
@@ -87,11 +90,11 @@ iOS 7
 
 ## Contributing
 
-- Fork it!
-- Create your branch: `git checkout -b new-branch`
-- Commit your changes: `git commit -am 'Add some feature'`
-- Push to the branch: `git push origin new-branch`
-- Submit a pull request
+- :fork_and_knife:Fork it!
+- :wrench:Create your branch: `git checkout -b new-branch`
+- :memo:Commit your changes: `git commit -am 'Add some feature'`
+- :rocket:Push to the branch: `git push origin new-branch`
+- :tada:Submit a pull request
 
 ## License
 
