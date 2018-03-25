@@ -31,10 +31,11 @@ function initProject {
 	newServerPort=${val:-$serverPort}
 	sed -i "" "s#$serverPort#$newServerPort#g" $file
 
+	cd ../YD$projectName && \
 	git init && \
 	rm -rf ./.git && \
 	git remote add origin ssh://git@139.129.97.36:10022/back-end/fe-dev.git && \
-	# git push -u origin master && \
+	git push -u origin master && \
 
 
 	echo -e "\n# ========================"
