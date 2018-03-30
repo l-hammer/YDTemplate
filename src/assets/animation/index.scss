@@ -11,6 +11,26 @@
 }
 
 /**
+ * loading
+ */
+ @keyframes progress-loading{
+    to {
+        background-position: 200% 0;
+    }
+}
+@keyframes circle-loading {
+    from { 
+        transform: rotate(0deg);
+    }
+    50%  { 
+        transform: rotate(180deg);
+    }
+    to   { 
+        transform: rotate(360deg);
+    }
+}
+
+/**
  * fadein
  */
 @keyframes dialog-fadein {

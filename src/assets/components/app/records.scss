@@ -60,7 +60,7 @@ $records-prefix-cls: 'records';
             padding: 1.226667rem;
             > span[class*=loading] {
                 color: #821cf6;
-                animation: loading-circle 1s linear infinite;
+                animation: circle-loading 1s linear infinite;
             }
         }
     }

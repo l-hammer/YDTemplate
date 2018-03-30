@@ -59,7 +59,7 @@ $progress-prefix-cls: 'progress';
             #73228f 0, #73228f 75%, #5c136b 0) repeat-x;
             border-radius: .133334rem;
             background-size: .426667rem .426667rem;
-            animation: loading 20s linear infinite;
+            animation: progress-loading 20s linear infinite;
         }
     }
 }
