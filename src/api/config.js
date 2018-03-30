@@ -20,9 +20,11 @@ axios.interceptors.request.use((config) => {
 });
 
 // http response 拦截器
+// http response 拦截器
 axios.interceptors.response.use((res) => {
-    if (res.data.code) {
-        return Promise.reject(res);
+    // 统一处理未登录
+    if (res.data.code === 400135) {
+        window.location.href = '/wx/index?goto_url=<{$g_www_domain}>/wx/xxxxxx';
     }
     return res.data;
 }, (error) => {

@@ -7,7 +7,11 @@ import axios from './config';
 export function fetch(url, params) {
     return new Promise((resolve, reject) => {
         axios.post(url, params).then((response) => {
-            resolve(response.data);
+            if (response.code === 0) {
+                resolve(response.data);
+            } else {
+                alert(response.message);
+            }
         }).catch((error) => {
             reject(error);
         });
