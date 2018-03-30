@@ -20,7 +20,6 @@ axios.interceptors.request.use((config) => {
 });
 
 // http response 拦截器
-// http response 拦截器
 axios.interceptors.response.use((res) => {
     // 统一处理未登录
     if (res.data.code === 400135) {
