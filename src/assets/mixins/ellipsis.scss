@@ -9,7 +9,6 @@
     @extend ._ellipsis;
     @content;
 }
-
 @mixin text-hide() {
     font: 0/0 a;
     color: transparent;
