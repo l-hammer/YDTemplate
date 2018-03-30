@@ -1,0 +1,65 @@
+/** 
+ * Created by LHammer on 18/03/30.
+ * Progress 进度条公共样式
+ */
+$progress-prefix-cls: 'progress';
+
+.#{$progress-prefix-cls} {
+    &-block {
+        position: absolute;
+        width: 100%; height: 100%;
+        padding: 0 1.386667rem;
+        background: #25213c url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/tenBilRedPacket/loading-bg.jpg') no-repeat left top / 100% 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 999999;
+    }
+    &-outer {
+        border: 1px solid rgba(255, 255, 255, .8);
+        border-radius: .24rem;
+        position: relative;
+        .tooltip {
+            width: 1.866667rem;
+            min-height: .533333rem;
+            padding-top: .106667rem;
+            text-align: center;
+            position: absolute;
+            top: -.786667rem;
+            margin-left: -.96rem;
+            left: calc(10%);
+            background: linear-gradient(-45deg, 
+            #73228f  48%, #5c136b 0, #5c136b 50%,
+            #73228f 0, #73228f 96%, #5c136b 0);
+            border-radius: .266667rem;
+            background-size: .213333rem .213333rem; 
+            color: #ccc;
+            font-weight: 500;
+            filter: drop-shadow(.026667rem .026667rem .026667rem rgba(92,19,107,.9));
+            &:after {
+                content: '';
+                position: absolute;
+                width: 0; height: 0;
+                top: .52rem; left: .8rem;
+                border: .16rem solid transparent;
+                border-top-color: #73228f;
+                border-bottom-width: 0;
+            }
+        }
+    }
+    &-enter {
+        height: .266667rem;
+        background: #5c136b;
+        border-radius: .133334rem;
+        .#{$progress}bg {
+            width: 10%;
+            height: .266667rem;
+            background: linear-gradient(-45deg, 
+            #73228f  25%, #5c136b 0, #5c136b 50%,
+            #73228f 0, #73228f 75%, #5c136b 0) repeat-x;
+            border-radius: .133334rem;
+            background-size: .426667rem .426667rem;
+            animation: loading 20s linear infinite;
+        }
+    }
+}
