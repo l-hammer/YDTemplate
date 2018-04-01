@@ -12,22 +12,19 @@ source ./configs/init.ini
 
 month=$(date +%m)
 prevMonth=$((month-1))
-nextMonth=$((month+1))
 pType=yindou_02/application/views/$type/events/2018/
 web=yindou_02/application/views/web/events/2018/
 proxy=$proxyUser@118.190.101.187
 server=www@10.30.214.232:/home/www/
 
+if [[ $month -gt 0 && $month -lt 10 ]]; then
+    month=0$month
+fi
+
 if [[ $prevMonth -gt 0 && $prevMonth -lt 10 ]]; then
     prevMonth=0$prevMonth
 elif [ $prevMonth -eq 0 ]; then
     prevMonth=12
-fi
-
-if [[ $nextMonth -gt 0 && $nextMonth -lt 10 ]]; then
-    nextMonth=0$nextMonth
-elif [ $nextMonth -eq 13 ]; then
-    nextMonth=01
 fi
 
 if [ ! $1 ]; then
@@ -44,22 +41,22 @@ else
         # see https://linux.cn/article-7456-1.html && http://man.linuxde.net/scp
         scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$web$prevMonth ./src/web && \
         prevMonthDir=./src/web/$prevMonth
-        scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$web$nextMonth ./src/web && \
-        nextMonthDir=./src/web/$nextMonth
+        scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$web$month ./src/web && \
         if [ -e $prevMonthDir/$tempFileBase ]; then
             scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$web$prevMonth && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$prevMonth done \033[0m\n"
-        elif [ ! -d $nextMonthDir ]; then
-            mkdir $nextMonthDir && \
-            cp $tempFile $nextMonthDir && \
-            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $nextMonthDir $server$web && \
-            echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$nextMonth done \033[0m\n"
+        elif [ ! -d $monthDir ]; then
+            mkdir -p "./src/web/$month" && \
+            monthDir=./src/web/$month
+            cp $tempFile "$monthDir" && \
+            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $monthDir $server$web && \
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$month done \033[0m\n"
         else
             scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$web$month && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$month done \033[0m\n"
         fi
         rm -rf $prevMonthDir
-        rm -rf $nextMonthDir
+        rm -rf $monthDir
     elif [[ $1 == "web" && $2 == "--no-minify" ]]; then
         npm run webbuild && \
         python ./bin/autocopy.py web
@@ -70,22 +67,22 @@ else
         python ./bin/autocopy.py $1 && \
         scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$prevMonth ./src/app && \
         prevMonthDir=./src/app/$prevMonth
-        scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$nextMonth ./src/app && \
-        nextMonthDir=./src/app/$nextMonth
+        scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$month ./src/app && \
         if [ -e $prevMonthDir/$tempFileBase ]; then
             scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$prevMonth && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$prevMonth done \033[0m\n"
-        elif [ ! -d $nextMonthDir ]; then
-            mkdir $nextMonthDir && \
-            cp $tempFile $nextMonthDir && \
-            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $nextMonthDir $server$pType && \
-            echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$nextMonth done \033[0m\n"
+        elif [ ! -d "./src/app/$month" ]; then
+            mkdir -p "./src/app/$month" && \
+            monthDir=./src/app/$month
+            cp $tempFile "$monthDir" && \
+            scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $monthDir $server$pType && \
+            echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$month done \033[0m\n"
         else
             scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$month && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$month done \033[0m\n"
         fi
         rm -rf $prevMonthDir
-        rm -rf $nextMonthDir
+        rm -rf $monthDir
     elif [[ $1 == "app" && $2 == "--no-minify" ]]; then
         npm run appbuild && \
         python ./bin/autocopy.py $1
