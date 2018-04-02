@@ -27,7 +27,7 @@ Several quick start options are available:
 - App development run ~~`npm run appdev`~~ `npm run appstart`
 - Open web example run ~~`npm run webegdev`~~ `npm run webegstart`
 - Open app example run ~~`npm run appegdev`~~ `npm run appegstart`
-- Build run `bash build.sh @param1 @param2` (@param1:`web`,`app`,`webeg`,`appeg`; @param2:`--no-minify`)
+- Build run `. build.sh @param1 @param2` (@param1:`web`,`app`,`webeg`,`appeg`; @param2:`--no-minify`)
 - Move useless codes run `python bin/mvuseless.py @param` (@param:`web`,`app`,`examples`)
 - Open `http://localhost:1234` in your browser.
 
@@ -49,6 +49,8 @@ YDTemplate/
 │   ├── assets/
 │   │   ├── normalize/
 │   │   │   └── index.scss    // 统一浏览器默认样式
+│   │   ├── basics/
+│   │   │   └── index.scss    // base.scss
 │   │   ├── iconfonts/
 │   │   │   └── index.scss    // 内联字体&&字体图标
 │   │   ├── animation/
@@ -56,7 +58,7 @@ YDTemplate/
 │   │   ├── mixins/
 │   │   │   └── index.scss    // 可重用的代码块@mixin
 │   │   ├── components/
-│   │   │   └── index.scss    // 常用组件样式@dialog
+│   │   │   └── index.scss    // 常用组件样式@dialog @progress @records page @onepx-border
 │   │   ├── app.scss    // app开发样式入口
 │   │   └── web.scss    // web开发样式入口
 │   ├── examples/
@@ -71,8 +73,15 @@ YDTemplate/
 │   │   ├── index.js    // web开发脚本
 │   │   └── template.tpl    // web上线模板
 │   └── utils/    // 🗃常用工具函数
+│       ├── scrollToTop.js    // 返回顶部
+│       ├── moment.js    // 解析日期、日期格式化
+│       ├── arrayPull.js    // 删除数组指定值
+│       ├── distinctValuesOfArray.js    // 数组去重
+│       ├── preloadimages.js    // 图片预加载
+│       └── wxShare.tpl    // 微信分享
 ├── clearcache.sh    // ♻️清除缓冲
 ├── build.sh    // 📦打包
+├── init.sh    // 🎉初始化项目
 └── push.sh    // 🔥强烈建议使用此脚本替换git push
 ```
 ## Technology
