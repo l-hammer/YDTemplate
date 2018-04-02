@@ -79,8 +79,9 @@ else
             scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$month && \
             echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$month done \033[0m\n"
         fi
-        rm -rf $prevMonthDir
-        rm -rf $monthDir
+        rm -rf $prevMonthDir && \
+        rm -rf $monthDir && \
+        git co *.tpl
     elif [[ $1 == "app" && $2 == "--no-minify" ]]; then
         npm run appbuild && \
         python ./bin/autocopy.py $1
