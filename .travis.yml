@@ -10,7 +10,7 @@ install:
   - npm install
 
 script:
-  # - npm run appbuildmin // parcel-plugin-eslint bug
+  - npm run appbuildmin
   - npm run webbuildmin
   - npm run appegbuildmin
   - npm run webegbuildmin
