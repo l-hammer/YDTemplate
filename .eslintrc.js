@@ -58,5 +58,6 @@ module.exports = {
         "no-confusing-arrow": 0,
         "arrow-body-style": 0,
         "no-bitwise": ["error", { "allow": ["~"] }],
+        "no-cond-assign": 0,
     },
 };
