@@ -67,7 +67,7 @@
     "http-proxy-middleware": "^0.17.4",
     "node-sass": "^4.7.2",
     "parcel-bundler": "^1.7.0",
-    "parcel-plugin-eslint": "git+ssh://git@github.com:BoltDoggy/parcel-plugin-eslint.git#405ae09bc1aeb05ca1ca60bd678a814083851000"
+    "parcel-plugin-eslint": "^1.0.4"
   },
   "engines": {
     "node": ">= 8.0.0",
