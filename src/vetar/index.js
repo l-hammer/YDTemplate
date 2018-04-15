@@ -6,14 +6,20 @@
 import Dep from './dep';
 import Watcher from './watcher';
 
+const replace = Symbol('private');
+
 class Vetar {
     constructor(options = {}) {
         this.$options = options;
         this.data = this.$options.data;
         this.observe();
+        this.proxy();
         this.compile();
     }
-    replace(node) {
+    /**
+     * @method replace 私有方法
+     */
+    [replace](node) {
         const con = node.textContent;
         const reg = /\{\{(.*?)\}\}/;
         // 元素节点
@@ -39,7 +45,7 @@ class Vetar {
             new Watcher(this, node, val.trim());
         }
         if (node.childNodes && node.childNodes.length) {
-            this.replace(node.childNodes, this);
+            this[replace](node.childNodes, this);
         }
     }
     /**
@@ -67,6 +73,25 @@ class Vetar {
         }
     }
     /**
+     * @method observe 数据代理
+     * @description 遍历data，将data上的属性代理到vm实例上
+     */
+    proxy() {
+        for (const key in this.data) {
+            if ({}.hasOwnProperty.call(this.data, key)) {
+                Object.defineProperty(this, key, {
+                    configurable: true,
+                    get() {
+                        return this.data[key];
+                    },
+                    set(newVal) {
+                        this.data[key] = newVal;
+                    },
+                });
+            }
+        }
+    }
+    /**
      * @method compile 模板编译
      */
     compile() {
@@ -77,7 +102,7 @@ class Vetar {
         // 挂载el到示例上方便调用
         this.$el = document.querySelector(this.$options.el);
         while (child = this.$el.firstChild) {
-            this.replace(child, this);
+            this[replace](child, this);
             flag.appendChild(child);
         }
         this.$el.appendChild(flag);
