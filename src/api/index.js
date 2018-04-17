@@ -24,6 +24,6 @@ export default {
      * @param {*} data username
      */
     test(data) {
-        return fetch('/webapi/test', data);
+        return fetch('/webapi/uc_my_userinfo', data);
     },
 };

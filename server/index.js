@@ -24,6 +24,7 @@ let app = express()
 let bundler = new Bundler(proxypath)
 let port = Number(process.env.PORT || 1234);
 
+app.locals.cookie = [];
 app.use(
   '/webapi',
   proxy({
@@ -34,11 +35,11 @@ app.use(
      * @param target -> http://songhwwww.yind123.com 测试环境
      * @param target -> https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/xxxxxx mock环境
      */
-    target: 'https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/example',
+    target: 'http://songhwwww.yind123.com',
     pathRewrite: { 
       '^/api': '' 
     },
-    onProxyReq: function (proxyReq, req, res) {
+    onProxyReq: function (proxyReq, req) {
       /**
        * 订阅http-proxy的proxyReq事件
        * 在转发请求前设置请求头，将PHPSESSID附加到cookie
@@ -46,10 +47,16 @@ app.use(
        * @class http://songhwwww.yind123.com/ -> 'PHPSESSID=uitu7f6l86enb81t70iveku2v7'
        */
       proxyReq.setHeader('cookie', 'PHPSESSID=uitu7f6l86enb81t70iveku2v7');
-      // for (let prop of Object.getOwnPropertySymbols(proxyReq)) {
-      //   console.log(proxyReq[prop]);  
+      // if(app.locals.cookie) {
+      //   proxyReq.setHeader('cookie', app.locals.cookie);
       // }
     },
+    // onProxyRes: function (proxyRes, req, res) {
+    //   const proxyCookie = proxyRes.headers["set-cookie"];
+    //   if (proxyCookie) {
+    //     app.locals.cookie = proxyCookie;
+    //   }
+    // }
   })
 )
 
