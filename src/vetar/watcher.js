@@ -6,23 +6,28 @@
 import Dep from './dep';
 /**
  * @param {Object} vm vm实例
- * @param {Object} node 节点对象
- * @param {String|Number} val 监听对象
+ * @param {Object} exp 键名、方法名
+ * @param {String|Number} cb 回调函数
  */
 export default class Watcher {
-    constructor(vm, node, val) {
+    constructor(vm, exp, cb) {
         this.vm = vm;
-        this.node = node;
-        this.val = val;
-        Dep.target = this;
-        this.update();
-        Dep.target = null;
+        this.exp = exp;
+        this.cb = cb;
+        this.value = this.get();
     }
     update() {
-        this.get();
-        this.node.textContent = this.value;
+        const value = this.get(); // 取到最新值
+        const oldVal = this.value;
+        if (oldVal !== value) {
+            this.value = value;
+            this.cb.call(this.vm, value, oldVal);
+        }
     }
     get() {
-        this.value = this.vm.data[this.val];
+        Dep.target = this; // 缓冲自己
+        const value = this.vm.data[this.exp];
+        Dep.target = null; // 释放自己
+        return value;
     }
 }
