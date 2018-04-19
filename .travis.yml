@@ -10,10 +10,10 @@ install:
   - npm install
 
 script:
-  - npm run appbuildmin
-  - npm run webbuildmin
-  - npm run appegbuildmin
-  - npm run webegbuildmin
+  - npm run build:min
+  - npm run build:web:min
+  - npm run build:appeg:min
+  - npm run build:webeg:min
 
 branches:
   only:
