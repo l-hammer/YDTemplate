@@ -31,7 +31,7 @@ else
     if [[ $1 == "web" && ! $2 ]]; then
         tempFile=./src/web/*.tpl
         tempFileBase=`basename $tempFile`
-        npm run webbuildmin && \
+        npm run build:web:min && \
         python ./bin/autocopy.py $1 && \
 
         # see https://linux.cn/article-7456-1.html && http://man.linuxde.net/scp
@@ -55,12 +55,12 @@ else
         rm -rf $prevMonthDir
         rm -rf $monthDir
     elif [[ $1 == "web" && $2 == "--no-minify" ]]; then
-        npm run webbuild && \
+        npm run build:web && \
         python ./bin/autocopy.py web
     elif [[ $1 == "app" && ! $2 ]]; then
         tempFile=./src/app/*.tpl
         tempFileBase=`basename $tempFile`
-        npm run appbuildmin && \
+        npm run build:min && \
         python ./bin/autocopy.py $1 && \
         scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$prevMonth ./src/app && \
         prevMonthDir=./src/app/$prevMonth
@@ -83,19 +83,19 @@ else
         rm -rf $monthDir && \
         git co *.tpl
     elif [[ $1 == "app" && $2 == "--no-minify" ]]; then
-        npm run appbuild && \
+        npm run build && \
         python ./bin/autocopy.py $1
     elif [[ $1 == "webeg" && ! $2 ]]; then
-        npm run webegbuildmin && \
+        npm run build:webeg:min && \
         python ./bin/autocopy.py examples/web
     elif [[ $1 == "webeg" && $2 == "--no-minify" ]]; then
-        npm run webegbuild && \
+        npm run build:webeg && \
         python ./bin/autocopy.py examples/web
     elif [[ $1 == "appeg" && ! $2 ]]; then
-        npm run appegbuildmin && \
+        npm run build:appeg:min && \
         python ./bin/autocopy.py examples/app
     elif [[ $1 == "appeg" && $2 == "--no-minify" ]]; then
-        npm run appegbuild && \
+        npm run build:appeg && \
         python ./bin/autocopy.py examples/app
     else
         echo -e "\033[31m > 💥  error: 参数输入错误，请重新输入……  \033[0m"

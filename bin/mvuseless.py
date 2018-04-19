@@ -11,20 +11,18 @@ if __name__ == "__main__":
 
     packageFile = './package.json'
     mvwebarr = [
-        "webdev",
-        "webstart",
-        "webeg",
-        "webbuild"
+        "dev:web",
+        "start:web",
+        "build:web"
     ]
     mvapparr = [
-        "appdev",
-        "appstart",
-        "appeg",
-        "appbuild"
+        "src/app/index",
+        "app --no-cache",
+        ":appeg",
     ]
     mvegarr = [
-        "webeg",
-        "appeg"
+        ":webeg",
+        ":appeg"
     ]
 
     def isInArray (array, line):  
