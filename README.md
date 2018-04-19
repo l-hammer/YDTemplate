@@ -101,10 +101,11 @@ IE 8
 iOS 7
 ```
 
-## Contributing
+## Contributing ![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?longCache=true&style=flat-square)
 
 - :fork_and_knife:Fork it!
-- :wrench:Create your branch: `git checkout -b new-branch`
+- :twisted_rightwards_arrows:Create your branch: `git checkout -b new-branch`
+- :wrench:Make your changes
 - :memo:Commit your changes: `git commit -am 'Add some feature'`
 - :rocket:Push to the branch: `git push origin new-branch`
 - :tada:Submit a pull request
