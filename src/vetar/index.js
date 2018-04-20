@@ -27,9 +27,10 @@ class Vetar {
         this.methods = this.$options.methods;
         if (this.computed) this.initComputed();
         if (this.methods) this.initMethods();
-        this.observe();
+        this.observe(this.data);
         this.proxy();
         this.compile();
+        options.mounted.call(this);
     }
     /**
      * @method replace 私有方法
@@ -69,10 +70,16 @@ class Vetar {
         // 文本节点 + 子元素为文本节点的节点
         if ((node.nodeType === 1 || node.nodeType === 3) && reg.test(con)) {
             const key = RegExp.$1; // 键名
-            node.textContent = con.replace(reg, this.data[key]).trim();
+            if (~key.search(/\./)) {
+                const obj = key.split('.')[0];
+                const prop = key.split('.')[1];
+                node.textContent = con.replace(reg, this.data[obj][prop]);
+            } else {
+                node.textContent = con.replace(reg, this.data[key]);
+            }
             // 订阅消息
             new Watcher(this, key, (newVal, oldVal) => {
-                node.textContent = node.textContent.replace(oldVal, newVal).trim();
+                node.textContent = node.textContent.replace(oldVal, newVal);
             });
         }
         if (node.childNodes && node.childNodes.length) {
@@ -115,22 +122,28 @@ class Vetar {
     }
     /**
      * @method observe 数据劫持
-     * @description Deep response: 给所有对象增加Object.defineProperty()
+     * @description 数据的观察者，给所有对象增加Object.defineProperty()，让数据对象的读写操作都处于自己的监管之下
      */
-    observe() {
+    observe(data) {
         const dep = new Dep();
-        for (const key in this.data) {
-            if ({}.hasOwnProperty.call(this.data, key)) {
-                let val = this.data[key];
+        for (const key in data) {
+            if ({}.hasOwnProperty.call(data, key)) {
+                let val = data[key];
+                if (val && typeof val === 'object') {
+                    this.observe(val);
+                }
                 sharedPropertyDefinition.get = () => {
-                    if (Dep.target) dep.addSub(Dep.target);
+                    if (Dep.target) dep.depend();
                     return val;
                 };
                 sharedPropertyDefinition.set = (newVal) => {
                     val = newVal;
-                    dep.notify(); // 发出通知
+                    if (newVal && typeof newVal === 'object') {
+                        this.observe(newVal);
+                    }
+                    dep.notify(); // 通知订阅者
                 };
-                Object.defineProperty(this.data, key, sharedPropertyDefinition);
+                Object.defineProperty(data, key, sharedPropertyDefinition);
             }
         }
     }
@@ -177,7 +190,14 @@ export default Vetar;
 <body>
     <div id="app">
         <input type="text" placeholder="Entering……" v-model="message">
-        <span>{{message}}</span>
+        <p>message: {{message}}</p>
+        <button v-on:click="reverseMessage">reverseMessage</button>
+        <h3>About Vetar:</h3>
+        <p>Author: {{Vetar.author}}</p>
+        <p>Version: {{Vetar.version}}</p>
+        <p>Description: {{Vetar.description}}</p>
+        <button v-on:click="updateVetar">updateVetar</button>
+        <p>Now: {{now}}</p>
     </div>
     <script src="./vetar.js"></script>
     <script>
@@ -185,16 +205,29 @@ export default Vetar;
             el: '#app',
             data: {
                 message: 'Hello World~',
+                Vetar: {
+                    author: 'LHammer',
+                    version: '1.0.0',
+                    description: 'A extremely easy MVVM library',
+                },
             },
             computed: {
-                name() {
-                    return 'Vetar';
+                now() {
+                    return new Date();
                 },
             },
             methods: {
                 reverseMessage() {
                     this.message = this.message.split('').reverse().join('');
                 },
+                updateVetar() {
+                    this.Vetar.version = ((+this.Vetar.version.split('.').join('') + 1) + '').split('').join('.');
+                },
+            },
+            mounted() {
+                window.setInterval(() => {
+                    this.now = new Date();
+                }, 1000);
             },
         });
     </script>
