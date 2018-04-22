@@ -1,5 +1,5 @@
 /**
- * Created by LHammer on 18/03/30.
+ * Created by LHammer on 18/04/21.
  * ES6 version
  * @method ViewType
  * @description Get the native type of a JavaScript value.
@@ -20,11 +20,15 @@ const isArray = (val) => {
 };
 
 const isObject = (val) => {
+    return val !== null && typeof val === 'object';
+};
+
+const isPlainObject = (val) => {
     return toString.call(val) === '[object Object]';
 };
 
 const isRegexp = (val) => {
-    return val instanceof RegExp;
+    return toString.call(val) === '[object RegExp]';
 };
 
 const isGeneratorFn = (val) => {
@@ -77,6 +81,7 @@ const viewType = (val) => {
 viewType.isNull = isNull;
 viewType.isArray = isArray;
 viewType.isObject = isObject;
+viewType.isPlainObject = isPlainObject;
 viewType.isRegexp = isRegexp;
 viewType.isArguments = isArguments;
 viewType.isFunction = isFunction;
