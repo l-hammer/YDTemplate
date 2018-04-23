@@ -116,8 +116,8 @@ const viewType = (val) => {
 
     if (isArray(val)) return 'array';
     if (isArguments(val)) return 'arguments';
-    if (isObject(val)) return 'object';
     if (isRegexp(val)) return 'regexp';
+    if (isPlainObject(val)) return 'object';
 
     if (ctorName(val)) {
         return ctorName(val).toLowerCase();
