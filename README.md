@@ -82,6 +82,9 @@ YDTemplate/
 │       ├── arrayPull.js    // 删除数组指定值
 │       ├── distinctValuesOfArray.js    // 数组去重
 │       ├── preloadimages.js    // 图片预加载
+│       ├── viewType.js    // 判断数据类型
+│       ├── clone.js    // 拷贝（Object, Array or Primitive）
+│       ├── deepClone.js    // 深拷贝 (Object, Array, RegExp, Date or Primitives)
 │       └── wxShare.tpl    // 微信分享
 ├── clearcache.sh    // ♻️清除缓冲
 ├── build.sh    // 📦打包
