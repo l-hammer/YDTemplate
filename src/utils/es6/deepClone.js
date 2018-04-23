@@ -4,7 +4,7 @@
  * @method deepClone
  * @description Make a deep clone of JavaScript native types, like Object, Array, RegExp, Date as well as primitives.
  */
-import clone from './shadowClone';
+import clone from './clone';
 import viewType from './viewType';
 
 let deepcloneArray, deepcloneObject;

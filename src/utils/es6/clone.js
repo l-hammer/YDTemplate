@@ -1,7 +1,7 @@
 /**
  * Created by LHammer on 18/04/22.
  * ES6 version
- * @method shadowClone
+ * @method clone
  * @description Make a shallow clone of an object, array or primitive(Undefined、Null、Boolean、Number、String).
  */
 import viewType from './viewType';
@@ -12,7 +12,7 @@ const cloneRegexp = (val) => {
     return re;
 };
 
-const shadowClone = (val) => {
+const clone = (val) => {
     switch (viewType(val)) {
         case 'object':
             return Object.assign({}, val);
@@ -31,7 +31,7 @@ const shadowClone = (val) => {
     }
 };
 
-export default shadowClone;
+export default clone;
 
 /**
  * e.g. test
