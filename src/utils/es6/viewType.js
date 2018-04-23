@@ -75,9 +75,9 @@ const isPrimitive = (val) => {
         case 'number':
         case 'symbol':
             return true;
-        default: break;
+        default:
+            return false;
     }
-    return false;
 };
 
 const isArguments = (val) => {
@@ -98,13 +98,20 @@ const viewType = (val) => {
 
     const type = typeof val;
     switch (type) {
-        case 'undefined': return 'undefined';
-        case 'boolean': return 'boolean';
-        case 'string': return 'string';
-        case 'number': return 'number';
-        case 'symbol': return 'symbol';
-        case 'function': return isGeneratorFn(val) ? 'generatorfunction' : 'function';
-        default: break;
+        case 'undefined':
+            return 'undefined';
+        case 'boolean':
+            return 'boolean';
+        case 'string':
+            return 'string';
+        case 'number':
+            return 'number';
+        case 'symbol':
+            return 'symbol';
+        case 'function':
+            return isGeneratorFn(val) ? 'generatorfunction' : 'function';
+        default:
+            break;
     }
 
     if (isArray(val)) return 'array';
