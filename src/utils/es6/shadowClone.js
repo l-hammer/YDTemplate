@@ -40,26 +40,20 @@ export default shadowClone;
  * console.log(clone(0) === 0); // true
  * console.log(clone('foo')); // 'foo'
  * console.log(clone('foo') === 'foo'); // true
- * const qux = { foo: 1 };
- * console.log(clone(qux)); // {foo: 1}
- * console.log(clone(qux) === qux); // false
- * const obj = Object.create(qux, { // qux.foo为继承属性（无法复制）
- *     bar: { // bar为不可枚举属性（无法复制）
- *         value: 2,
- *     },
- *     baz: { // baz为可枚举属性
- *         value: 3,
- *         enumerable: true,
- *     },
- * });
- * console.log(clone(obj)); // {baz: 3}
+ *
+ * const obj = { foo: 1 };
+ * const cloneObj = clone(obj);
+ * obj.foo = 2;
+ * console.log(cloneObj); // {foo: 1}
+ * console.log(clone(obj)); // {foo: 2}
  * console.log(clone(obj) === obj); // false
+ *
  * const a = [1, 2, 3];
  * const clonea = clone(a);
  * a.push(5);
- * console.log(clone(a) === a); // false
  * console.log(clonea); // [1, 2, 3]
  * console.log(clone(a)); // [1, 2, 3, 5]
+ * console.log(clone(a) === a); // false
  * const foo = function () {};
  * console.log(clone(foo));
  * console.log(clone(foo) === foo);
