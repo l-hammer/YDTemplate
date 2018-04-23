@@ -14,6 +14,31 @@ const isNull = (val) => {
     return val === null;
 };
 
+const isUndef = (val) => {
+    return val === undefined || val === null;
+};
+
+const isNumber = (num) => {
+    const number = +num;
+
+    if ((number - number) !== 0) {
+        return false;
+    }
+
+    if (number === num) {
+        return true;
+    }
+
+    if (typeof num === 'string') {
+        // +'' === 0 && +' ' === 0
+        if (number === 0 && num.trim() === '') {
+            return false;
+        }
+        return true;
+    }
+    return false;
+};
+
 const isArray = (val) => {
     if (Array.isArray) return Array.isArray(val);
     return val instanceof Array;
@@ -37,6 +62,22 @@ const isGeneratorFn = (val) => {
 
 const isFunction = (val) => {
     return typeof val === 'function';
+};
+
+const isPrimitive = (val) => {
+    if (val === null) return true;
+
+    const type = typeof val;
+    switch (type) {
+        case 'undefined':
+        case 'boolean':
+        case 'string':
+        case 'number':
+        case 'symbol':
+            return true;
+        default: break;
+    }
+    return false;
 };
 
 const isArguments = (val) => {
@@ -79,6 +120,8 @@ const viewType = (val) => {
 };
 
 viewType.isNull = isNull;
+viewType.isUndef = isUndef;
+viewType.isNumber = isNumber;
 viewType.isArray = isArray;
 viewType.isObject = isObject;
 viewType.isPlainObject = isPlainObject;
@@ -86,6 +129,7 @@ viewType.isRegexp = isRegexp;
 viewType.isArguments = isArguments;
 viewType.isFunction = isFunction;
 viewType.isGeneratorFn = isGeneratorFn;
+viewType.isPrimitive = isPrimitive;
 
 export default viewType;
 
@@ -108,6 +152,8 @@ export default viewType;
  * console.log(viewType(/exp/)); // regexp
  * console.log(viewType(new RegExp('foo'))); // regexp
  * console.log(viewType.isNull(null)); // true
+ * console.log(viewType.isUndef(null)); // true
+ * console.log(viewType.isUndef(undefined)); // true
  * console.log(viewType.isArray([1, 2, 3])); // true
  * console.log(viewType.isObject({})); // true
  * console.log(viewType.isObject(Object.create(null))); // true
@@ -116,4 +162,43 @@ export default viewType;
  * console.log(viewType.isArguments(arguments)); // true
  * console.log(viewType.isFunction(function () {})); // true
  * console.log(viewType.isGeneratorFn(function *(...arg) { yield arg[0]; })); // true
+ *
+ * console.log(viewType.isNumber(5e3)); // true
+ * console.log(viewType.isNumber(0xff)); // true
+ * console.log(viewType.isNumber(-1.1)); // true
+ * console.log(viewType.isNumber(0)); // true
+ * console.log(viewType.isNumber(1)); // true
+ * console.log(viewType.isNumber(1.1)); // true
+ * console.log(viewType.isNumber(10)); // true
+ * console.log(viewType.isNumber(10.10)); // true
+ * console.log(viewType.isNumber(100)); // true
+ * console.log(viewType.isNumber('-1.1')); // true
+ * console.log(viewType.isNumber('0')); // true
+ * console.log(viewType.isNumber('012')); // true
+ * console.log(viewType.isNumber('0xff')); // true
+ * console.log(viewType.isNumber('1')); // true
+ * console.log(viewType.isNumber('1.1')); // true
+ * console.log(viewType.isNumber('10')); // true
+ * console.log(viewType.isNumber('10.10')); // true
+ * console.log(viewType.isNumber('5e3')); // true
+ * console.log(viewType.isNumber(parseInt('012', 10))); // true
+ * console.log(viewType.isNumber(parseFloat('012'))); // true
+ *
+ * console.log(viewType.isNumber('foo')); // false
+ * console.log(viewType.isNumber([1])); // false
+ * console.log(viewType.isNumber([])); // false
+ * console.log(viewType.isNumber(function () {})); // false
+ * console.log(viewType.isNumber(Infinity)); // false
+ * console.log(viewType.isNumber(NaN)); // false
+ * console.log(viewType.isNumber(Buffer.from('abc'))); // false
+ * console.log(viewType.isNumber(null)); // false
+ * console.log(viewType.isNumber(undefined)); // false
+ * console.log(viewType.isNumber({ abc: 'abc' })); // false
+ *
+ * console.log(viewType.isPrimitive(null)); // true
+ * console.log(viewType.isPrimitive(undefined)); // true
+ * console.log(viewType.isPrimitive(123)); // true
+ * console.log(viewType.isPrimitive(true)); // true
+ * console.log(viewType.isPrimitive('foo')); // true
+ * console.log(viewType.isPrimitive(Symbol(''))); // true
  */
