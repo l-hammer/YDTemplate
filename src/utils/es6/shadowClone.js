@@ -6,16 +6,26 @@
  */
 import viewType from './viewType';
 
+const cloneRegexp = (val) => {
+    const re = new val.constructor(val.source, val.flags);
+    re.lastIndex = val.lastIndex;
+    return re;
+};
+
 const shadowClone = (val) => {
     switch (viewType(val)) {
         case 'object':
             return Object.assign({}, val);
         case 'array':
             return val.slice();
+        case 'date':
+            return new val.constructor(val.getTime());
         case 'set':
             return new Set(val);
         case 'map':
             return new Map(val);
+        case 'regexp':
+            return cloneRegexp(val);
         default:
             return val;
     }
@@ -53,9 +63,15 @@ export default shadowClone;
  * const foo = function () {};
  * console.log(clone(foo));
  * console.log(clone(foo) === foo);
- * const d = new Date('2018/04/22');
- * console.log(clone(d)); // Sun Apr 22 2018 00:00:00 GMT+0800 (CST)
- * console.log(clone(d) === d); // true
+ *
+ * const date = new Date('2018/04/22');
+ * const cloneDate = clone(date);
+ * console.log(cloneDate); // Sun Apr 22 2018 00:00:00 GMT+0800 (CST)
+ * date.setMonth(9);
+ * console.log(cloneDate); // Sun Apr 22 2018 00:00:00 GMT+0800 (CST)
+ * console.log(date); // Mon Oct 22 2018 00:00:00 GMT+0800 (CST)
+ * console.log(clone(date) === date); // false
+ *
  * const set = new Set([1, 2]);
  * const cloneSet = clone(set);
  * set.add(3);
@@ -79,6 +95,6 @@ export default shadowClone;
  * console.log(clone(buffer)); // Uint8Array[]
  * console.log(clone(buffer) === buffer); // true
  * const re = /\\w+/; // /\\w+/
- * console.log(clone(re));
- * console.log(clone(re) === re);
+ * console.log(clone(re)); // /\\w+/
+ * console.log(clone(re) === re);  // false
  */
