@@ -1,10 +1,10 @@
 /**
  * Created by LHammer on 18/03/07.
  * ES5 version
- * @class moment parse or format dates
+ * @class date parse or format date
  */
 (function (main) {
-    var moment = {},
+    var date = {},
         formatFlags = {},
         parseFlags = {},
         twoDigits = /\d\d?/,
@@ -65,7 +65,7 @@
         },
     };
 
-    moment.masks = {
+    date.masks = {
         default: 'yyyy-MM-dd HH:mm:ss',
         date: 'yyyy-MM-dd',
         datetime: 'yyyy-MM-dd HH:mm:ss',
@@ -81,16 +81,16 @@
      * @param {Date|number} dateObj
      * @param {String} mask Format of the date
      */
-    moment.format = function (dateObj, mask) {
+    date.format = function (dateObj, mask) {
         if (typeof dateObj === 'number') {
             dateObj = new Date(dateObj);
         }
 
         if (Object.prototype.toString.call(dateObj) !== '[object Date]' || isNaN(dateObj.getTime())) {
-            throw new Error('Invalid Date in moment.format');
+            throw new Error('Invalid Date in date.format');
         }
 
-        mask = moment.masks[mask] || mask || moment.masks.default;
+        mask = date.masks[mask] || mask || date.masks.default;
 
         mask = mask.replace(token, function ($0) {
             return $0 in formatFlags ? formatFlags[$0](dateObj) : $0.slice(1, $0.length - 1);
@@ -139,16 +139,16 @@
      * @param {String} mask Parse of the format date e.g. 'yyyy-MM-dd HH:mm:ss' or 'cnDate'
      * @param {Date}
      */
-    moment.parse = function (dateStr, mask) {
+    date.parse = function (dateStr, mask) {
         var isVaild = true,
             dateInfo = {},
             today = new Date();
 
         if (typeof dateStr !== 'string') {
-            throw new Error('Invalid format in fecha.parse');
+            throw new Error('Invalid format in date.parse');
         }
 
-        mask = moment.masks[mask] || mask || moment.masks.default;
+        mask = date.masks[mask] || mask || date.masks.default;
         /**
          * @function replace @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace;
          * @param {String} $0 匹配的子串
@@ -195,36 +195,36 @@
      * Module exports
      */
     if (typeof module !== 'undefined' && module.exports) {
-        module.exports = moment;
+        module.exports = date;
     } else if (typeof define === 'function' && define.amd) {
         define(function () {
-            return moment;
+            return date;
         });
     } else {
-        main.moment = moment;
+        main.date = date;
     }
 })(this);
 
 /**
  * e.g.
  *
- * @requires import moment from '../utils/es6/moment';
+ * @requires import date from '../utils/es6/date';
  *
- * @example moment.format(new Date());
+ * @example date.format(new Date());
  * @returns 2018-03-09 00:00:00 // 默认格式
  *
- * @example moment.format(new Date(), 'yyyy-MM-dd');
+ * @example date.format(new Date(), 'yyyy-MM-dd');
  * @returns 2018-03-09
  *
- * @example moment.format(new Date(2018, 1, 9), 'yyyy 年 MM 月 dd 日');
+ * @example date.format(new Date(2018, 1, 9), 'yyyy 年 MM 月 dd 日');
  * @returns 2018 年 03 月 09 日
  *
- * @example moment.parse('2018-02-09 09:29:29');
+ * @example date.parse('2018-02-09 09:29:29');
  * @returns Fri Feb 09 2018 09:29:29 GMT+0800 (CST) // 默认格式，等同于'yyyy-MM-dd HH:mm:ss'
  *
- * @example moment.parse('2018-02-09 09:29:29', 'yyyy-MM-dd HH:mm:ss');
+ * @example date.parse('2018-02-09 09:29:29', 'yyyy-MM-dd HH:mm:ss');
  * @returns Fri Feb 09 2018 09:29:29 GMT+0800 (CST)
  *
- * @example moment.parse('2018 年 02 月 09 日', 'cnDate');
+ * @example date.parse('2018 年 02 月 09 日', 'cnDate');
  * @returns Fri Feb 09 2018 00:00:00 GMT+0800 (CST)
  */

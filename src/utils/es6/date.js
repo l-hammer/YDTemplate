@@ -1,7 +1,7 @@
 /**
  * Created by LHammer on 18/03/07.
  * ES6 version
- * @class moment parse or format dates
+ * @class date parse or format date
  */
 const twoDigits = /\d\d?/;
 const fourDigits = /\d{4}/;
@@ -82,7 +82,7 @@ export const format = (dateObj, mask) => {
     }
 
     if (Object.prototype.toString.call(dateObj) !== '[object Date]' || isNaN(dateObj.getTime())) {
-        throw new Error('Invalid Date in moment.format');
+        throw new Error('Invalid Date in date.format');
     }
     mask = masks[mask] || mask || masks.default;
 
@@ -196,7 +196,7 @@ export default {
  * e.g.
  * @param Date @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date
  *
- * @requires import { format, parse } from '../utils/es6/moment';
+ * @requires import { format, parse } from '../utils/es6/date';
  *
  * @example format(new Date());
  * @returns 2018-03-09 00:00:00 // 默认格式
@@ -219,23 +219,23 @@ export default {
 /**
  * e.g. 默认导出
  *
- * @requires import moment from '../utils/es6/moment';
+ * @requires import date from '../utils/es6/date';
  *
- * @example moment.format(new Date());
+ * @example date.format(new Date());
  * @returns 2018-03-09 00:00:00 // 默认格式
  *
- * @example moment.format(new Date(), 'yyyy-MM-dd');
+ * @example date.format(new Date(), 'yyyy-MM-dd');
  * @returns 2018-03-09
  *
- * @example moment.format(new Date(2018, 1, 9), 'yyyy 年 MM 月 dd 日');
+ * @example date.format(new Date(2018, 1, 9), 'yyyy 年 MM 月 dd 日');
  * @returns 2018 年 03 月 09 日
  *
- * @example moment.parse('2018-02-09 09:29:29');
+ * @example date.parse('2018-02-09 09:29:29');
  * @returns Fri Feb 09 2018 09:29:29 GMT+0800 (CST) // 默认格式，等同于'yyyy-MM-dd HH:mm:ss'
  *
- * @example moment.parse('2018-02-09 09:29:29', 'yyyy-MM-dd HH:mm:ss');
+ * @example date.parse('2018-02-09 09:29:29', 'yyyy-MM-dd HH:mm:ss');
  * @returns Fri Feb 09 2018 09:29:29 GMT+0800 (CST)
  *
- * @example moment.parse('2018 年 02 月 09 日', 'cnDate');
+ * @example date.parse('2018 年 02 月 09 日', 'cnDate');
  * @returns Fri Feb 09 2018 00:00:00 GMT+0800 (CST)
  */
