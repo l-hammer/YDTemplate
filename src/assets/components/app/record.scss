@@ -3,6 +3,9 @@
  * Records 记录页公共样式
  */
 $records-prefix-cls: 'records';
+$record-table-bg: #821cf6;
+$record-table-border-color: #621d8c;
+
 .#{$records-prefix-cls} {
     height: 100%;
     background: #a82891 url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/tenBilRedPacket/records-bg.jpg') no-repeat center top / 100%;
@@ -12,7 +15,7 @@ $records-prefix-cls: 'records';
         background: #fff;
         font-size: .32rem;
         &-header {
-            background: #821cf6;
+            background: $record-table-bg;
             color: #fef3dd;
             display: flex;
             > span {
@@ -20,9 +23,9 @@ $records-prefix-cls: 'records';
                 flex: 1;
                 text-align: center;
                 line-height: .8rem;
-                border-bottom: 1px solid #621d8c;
+                border-bottom: 1px solid $record-table-border-color;
                 &:not(:last-child) {
-                    border-right: 1px solid #621d8c;
+                    border-right: 1px solid $record-table-border-color;
                 }
             }
         }
@@ -40,9 +43,9 @@ $records-prefix-cls: 'records';
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border-bottom: 1px solid #621d8c;
+                    border-bottom: 1px solid $record-table-border-color;
                     &:not(:last-child){
-                        border-right: 1px solid #621d8c;
+                        border-right: 1px solid $record-table-border-color;
                     }
                 }
             }
@@ -59,7 +62,7 @@ $records-prefix-cls: 'records';
             text-align: center;
             padding: 1.226667rem;
             > span[class*=loading] {
-                color: #821cf6;
+                color: $record-table-bg;
                 animation: circle-loading 1s linear infinite;
             }
         }

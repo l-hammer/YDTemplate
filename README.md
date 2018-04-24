@@ -64,9 +64,15 @@ YDTemplate/
 │   ├── examples/
 │   │   ├── web/    // web examples
 │   │   └── app/    // app examples
-│   ├── app/
-│   │   ├── index.html    // app开发页
-│   │   ├── index.js    // app开发脚本
+│   ├── app/    // SPA
+│   │   ├── views/    // page
+│   │   │   ├── index.vue    // 首页
+│   │   │   └── xxx.vue    // 其它页
+│   │   ├── App.vue    // 根组件
+│   │   ├── index.html    // app 根页面
+│   │   ├── bus.js    // 事件总线，非父子间通信
+│   │   ├── main.js    // 入口文件
+│   │   ├── router.js    // 配置路由
 │   │   └── template.tpl    // 上线模板
 │   │── web/
 │   │   ├── index.html    // web开发页
