@@ -4,8 +4,12 @@
  * @type 2: error会抛出错误
  */
 module.exports = {
-    extends: 'airbnb-base',
-    parser: 'babel-eslint',
+    extends: ['airbnb-base', 'plugin:vue/recommended'],
+    parserOptions: {
+        "parser": "babel-eslint",
+        "ecmaVersion": 2017,
+        "sourceType": "module"
+    },
     globals: {
         "window": false,
         "document": true,
@@ -13,6 +17,7 @@ module.exports = {
         "alert": true,
         "define": true
     },
+    plugins: ["vue"],
     rules: {
         // 0 = off, 1 = warn, 2 = error
         "indent": [2, 4, { "SwitchCase": 1 }],
@@ -64,6 +69,16 @@ module.exports = {
         "arrow-body-style": 0,
         "no-bitwise": [2, { "allow": ["~"] }],
         "no-cond-assign": 0,
-        "generator-star-spacing": [2, {"before": true, "after": false}]
+        "generator-star-spacing": [2, {
+            "before": true,
+            "after": false
+        }],
+        // vue
+        "vue/html-self-closing": ["error", {
+            "html": {
+                "normal": "never",
+                "component": "always"
+            },
+        }]
     },
 };
