@@ -1,12 +1,19 @@
 <template>
-    <div class="main" v-if="!loading">
-         <img src="https://caiyunupload.b0.upaiyun.com/newweb/imgs/logo.png" alt="银豆网">
-         <p class="ft-15" v-html="message"></p>
-    </div>
+  <div
+    v-if="!loading"
+    class="main">
+    <img
+      src="https://caiyunupload.b0.upaiyun.com/newweb/imgs/logo.png"
+      alt="银豆网">
+    <p
+      class="ft-15"
+      v-html="message"></p>
+  </div>
 </template>
 
 <script>
 import bus from '../bus';
+
 export default {
     data() {
         return {
@@ -16,7 +23,7 @@ export default {
     computed: {
         loading() {
             return bus.loading;
-        }
+        },
     },
     mounted() {
         const data = {
@@ -26,5 +33,5 @@ export default {
             console.log(res);
         });
     },
-}
+};
 </script>

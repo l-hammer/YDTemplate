@@ -5,10 +5,9 @@
 @import "normalize/index.scss";  /* resets */
 @import "animation/index.scss";  /* 常用动画 */
 @import "basics/index.scss";  /* base */
+@import "iconfonts/index.scss";  /* iconfonts */
 @import "components/app/progress.scss";  /* loading */
 @import "components/app/record.scss";  /* record page */
-
-@include font-size(69px, ".main i");
 
 #app {
     height: 100%;
