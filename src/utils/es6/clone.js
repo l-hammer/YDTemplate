@@ -7,28 +7,28 @@
 import viewType from './viewType';
 
 const cloneRegexp = (val) => {
-    const re = new val.constructor(val.source, val.flags);
-    re.lastIndex = val.lastIndex;
-    return re;
+  const re = new val.constructor(val.source, val.flags);
+  re.lastIndex = val.lastIndex;
+  return re;
 };
 
 const clone = (val) => {
-    switch (viewType(val)) {
-        case 'object':
-            return Object.assign({}, val);
-        case 'array':
-            return val.slice();
-        case 'date':
-            return new val.constructor(val.getTime());
-        case 'set':
-            return new Set(val);
-        case 'map':
-            return new Map(val);
-        case 'regexp':
-            return cloneRegexp(val);
-        default:
-            return val;
-    }
+  switch (viewType(val)) {
+    case 'object':
+      return Object.assign({}, val);
+    case 'array':
+      return val.slice();
+    case 'date':
+      return new val.constructor(val.getTime());
+    case 'set':
+      return new Set(val);
+    case 'map':
+      return new Map(val);
+    case 'regexp':
+      return cloneRegexp(val);
+    default:
+      return val;
+  }
 };
 
 export default clone;

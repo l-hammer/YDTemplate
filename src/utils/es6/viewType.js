@@ -7,123 +7,123 @@
 const { toString } = {};
 
 const ctorName = (val) => {
-    return val.constructor ? val.constructor.name : null;
+  return val.constructor ? val.constructor.name : null;
 };
 
 const isNull = (val) => {
-    return val === null;
+  return val === null;
 };
 
 const isUndef = (val) => {
-    return val === undefined || val === null;
+  return val === undefined || val === null;
 };
 
 const isNumber = (num) => {
-    const number = +num;
+  const number = +num;
 
-    if ((number - number) !== 0) {
-        return false;
-    }
-
-    if (number === num) {
-        return true;
-    }
-
-    if (typeof num === 'string') {
-        // +'' === 0 && +' ' === 0
-        if (number === 0 && num.trim() === '') {
-            return false;
-        }
-        return true;
-    }
+  if ((number - number) !== 0) {
     return false;
+  }
+
+  if (number === num) {
+    return true;
+  }
+
+  if (typeof num === 'string') {
+    // +'' === 0 && +' ' === 0
+    if (number === 0 && num.trim() === '') {
+      return false;
+    }
+    return true;
+  }
+  return false;
 };
 
 const isArray = (val) => {
-    if (Array.isArray) return Array.isArray(val);
-    return val instanceof Array;
+  if (Array.isArray) return Array.isArray(val);
+  return val instanceof Array;
 };
 
 const isObject = (val) => {
-    return val !== null && typeof val === 'object';
+  return val !== null && typeof val === 'object';
 };
 
 const isPlainObject = (val) => {
-    return toString.call(val) === '[object Object]';
+  return toString.call(val) === '[object Object]';
 };
 
 const isRegexp = (val) => {
-    return toString.call(val) === '[object RegExp]';
+  return toString.call(val) === '[object RegExp]';
 };
 
 const isGeneratorFn = (val) => {
-    return ctorName(val) === 'GeneratorFunction';
+  return ctorName(val) === 'GeneratorFunction';
 };
 
 const isFunction = (val) => {
-    return typeof val === 'function';
+  return typeof val === 'function';
 };
 
 const isPrimitive = (val) => {
-    if (val === null) return true;
+  if (val === null) return true;
 
-    const type = typeof val;
-    switch (type) {
-        case 'undefined':
-        case 'boolean':
-        case 'string':
-        case 'number':
-        case 'symbol':
-            return true;
-        default:
-            return false;
-    }
+  const type = typeof val;
+  switch (type) {
+    case 'undefined':
+    case 'boolean':
+    case 'string':
+    case 'number':
+    case 'symbol':
+      return true;
+    default:
+      return false;
+  }
 };
 
 const isArguments = (val) => {
-    try {
-        if (typeof val.length === 'number' && typeof val.callee === 'function') {
-            return true;
-        }
-    } catch (error) {
-        if (error.message.indexOf('callee') !== -1) {
-            return true;
-        }
+  try {
+    if (typeof val.length === 'number' && typeof val.callee === 'function') {
+      return true;
     }
-    return false;
+  } catch (error) {
+    if (error.message.indexOf('callee') !== -1) {
+      return true;
+    }
+  }
+  return false;
 };
 
 const viewType = (val) => {
-    if (val === null) return 'null';
+  if (val === null) return 'null';
 
-    const type = typeof val;
-    switch (type) {
-        case 'undefined':
-            return 'undefined';
-        case 'boolean':
-            return 'boolean';
-        case 'string':
-            return 'string';
-        case 'number':
-            return 'number';
-        case 'symbol':
-            return 'symbol';
-        case 'function':
-            return isGeneratorFn(val) ? 'generatorfunction' : 'function';
-        default:
-            break;
-    }
+  const type = typeof val;
+  switch (type) {
+    case 'undefined':
+      return 'undefined';
+    case 'boolean':
+      return 'boolean';
+    case 'string':
+      return 'string';
+    case 'number':
+      return 'number';
+    case 'symbol':
+      return 'symbol';
+    case 'function':
+      return isGeneratorFn(val) ? 'generatorfunction' : 'function';
+    default:
+      break;
+  }
 
-    if (isArray(val)) return 'array';
-    if (isArguments(val)) return 'arguments';
-    if (isRegexp(val)) return 'regexp';
-    if (isPlainObject(val)) return 'object';
+  if (isArray(val)) return 'array';
+  if (isArguments(val)) return 'arguments';
+  if (isRegexp(val)) return 'regexp';
+  if (isPlainObject(val)) return 'object';
 
-    if (ctorName(val)) {
-        return ctorName(val).toLowerCase();
-    }
+  if (ctorName(val)) {
+    return ctorName(val).toLowerCase();
+  }
 
-    return '';
+  return '';
 };
 
 viewType.isNull = isNull;

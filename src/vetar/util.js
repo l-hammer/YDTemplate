@@ -3,7 +3,7 @@
  * @param {String} attr 属性
  */
 export function isDirective(attr) {
-    return attr.indexOf('v-') === 0;
+  return attr.indexOf('v-') === 0;
 }
 
 /**
@@ -11,5 +11,5 @@ export function isDirective(attr) {
  * @param {String} dir v-on:click
  */
 export function isEventDirective(dir) {
-    return dir.indexOf('on:') === 0;
+  return dir.indexOf('on:') === 0;
 }

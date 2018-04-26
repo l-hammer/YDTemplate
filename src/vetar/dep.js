@@ -6,28 +6,28 @@
 let uid = 0;
 
 export default class Dep {
-    constructor() {
-        uid += 1;
-        this.subs = [];
-        this.id = uid;
-    }
-    /**
-     * 保存watcher实例到订阅池中
-     * @param {*} sub watcher实例
-     */
-    addSub(sub) {
-        this.subs.push(sub);
-    }
-    /**
-     * Dep.target 为当前需要操作的watcher实例，调用
-     */
-    depend() {
-        Dep.target.addDep(this);
-    }
-    /**
-     * 数据变化是通知订阅池中的watcher执行相应的操作
-     */
-    notify() {
-        this.subs.forEach(sub => sub.update());
-    }
+  constructor() {
+    uid += 1;
+    this.subs = [];
+    this.id = uid;
+  }
+  /**
+   * 保存watcher实例到订阅池中
+   * @param {*} sub watcher实例
+   */
+  addSub(sub) {
+    this.subs.push(sub);
+  }
+  /**
+   * Dep.target 为当前需要操作的watcher实例，调用
+   */
+  depend() {
+    Dep.target.addDep(this);
+  }
+  /**
+   * 数据变化是通知订阅池中的watcher执行相应的操作
+   */
+  notify() {
+    this.subs.forEach(sub => sub.update());
+  }
 }

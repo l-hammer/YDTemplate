@@ -1,5 +1,6 @@
 test
 karma.sauce.js
 server/*
+dist/*
 bin/*
 package.json

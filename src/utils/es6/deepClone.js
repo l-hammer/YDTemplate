@@ -10,33 +10,35 @@ import viewType from './viewType';
 let deepcloneArray, deepcloneObject;
 
 const deepClone = (val) => {
-    switch (viewType(val)) {
-        case 'object':
-            return deepcloneObject(val);
-        case 'array':
-            return deepcloneArray(val);
-        default:
-            return clone(val);
-    }
+  switch (viewType(val)) {
+    case 'object':
+      return deepcloneObject(val);
+    case 'array':
+      return deepcloneArray(val);
+    default:
+      return clone(val);
+  }
 };
 
 deepcloneObject = (object) => {
-    const res = new object.constructor();
-    for (const key in object) {
-        if (key in object) {
-            res[key] = deepClone(object[key]);
-        }
+  const res = new object.constructor();
+  for (const key in object) {
+    if (key in object) {
+      res[key] = deepClone(object[key]);
     }
-    return res;
+  }
+  return res;
 };
 
 deepcloneArray = (array) => {
-    const { length } = array;
-    const res = new array.constructor(length);
-    for (let i = 0; i < length; i++) {
-        res[i] = deepClone(array[i]);
-    }
-    return res;
+  const {
+    length,
+  } = array;
+  const res = new array.constructor(length);
+  for (let i = 0; i < length; i++) {
+    res[i] = deepClone(array[i]);
+  }
+  return res;
 };
 
 export default deepClone;
