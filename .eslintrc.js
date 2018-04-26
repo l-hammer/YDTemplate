@@ -20,7 +20,7 @@ module.exports = {
     plugins: ["vue"],
     rules: {
         // 0 = off, 1 = warn, 2 = error
-        "indent": [2, 4, { "SwitchCase": 1 }],
+        "indent": [2, 2, { "SwitchCase": 1 }],
         "no-var": 0,
         "no-new": 0,
         "object-shorthand": 0, // http://eslint.cn/docs/rules/object-shorthand

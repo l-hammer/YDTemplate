@@ -6,16 +6,16 @@ import record from './views/record.vue';
 Vue.use(Router);
 
 export default new Router({
-    routes: [
-        {
-            path: '/',
-            name: 'index',
-            component: index,
-        },
-        {
-            name: 'record',
-            path: '/record',
-            component: record,
-        },
-    ],
+  routes: [
+    {
+      path: '/',
+      name: 'index',
+      component: index,
+    },
+    {
+      name: 'record',
+      path: '/record',
+      component: record,
+    },
+  ],
 });
