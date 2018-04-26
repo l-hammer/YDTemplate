@@ -6,9 +6,12 @@ import Vue from 'vue/dist/vue';
 import axios from '../api/index';
 import router from './router';
 import App from './App.vue';
+import LoadingBar from '../components/loading-bar';
 
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
+
+Vue.use(LoadingBar);
 
 new Vue({
   el: '#app',
