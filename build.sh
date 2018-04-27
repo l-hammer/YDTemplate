@@ -58,7 +58,7 @@ else
         npm run build:web && \
         python ./bin/autocopy.py web
     elif [[ $1 == "app" && ! $2 ]]; then
-        tempFile=./src/app/*.tpl
+        tempFile=./src/app/template/*.tpl
         tempFileBase=`basename $tempFile`
         npm run build:min && \
         python ./bin/autocopy.py $1 && \
@@ -125,4 +125,3 @@ fi
 #$jsCon" $templateFile
 
 #sed -i "" "s/{{jsCode}}/$jsCon/" $templateFile
-
