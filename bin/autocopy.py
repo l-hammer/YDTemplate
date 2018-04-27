@@ -48,7 +48,6 @@ if __name__ == "__main__":
       res = re.search(r'(.*).tpl', file, re.M|re.I)
       if res:
         templateFilePath = './src/'+filearg+'/template/'+res.group()
-    print(templateFilePath)
 
   # cp html -> template.tpl{{htmlCode}}
   htmlCon = ''
