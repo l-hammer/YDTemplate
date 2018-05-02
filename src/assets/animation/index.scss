@@ -68,3 +68,61 @@
 .dialog-fade-enter-active .dialog-container {
   animation: dialog-zoom .4s
 }
+
+/**
+ * wave
+ */
+@keyframes wave {
+  to {
+      background-position: 200% 0;
+  }
+}
+@keyframes wave-reverse{
+  to {
+      background-position: -200% 0;
+  }
+}
+
+/**
+ * rotate
+ */
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/**
+ * zoom
+ */
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+}
+
+.zoom-enter,
+.zoom-enter-active {
+  animation: zoomIn .25s linear;
+}
+
+.zoom-leave-active,
+.zoom-leave-to {
+  animation: zoomOut .25s linear;
+}

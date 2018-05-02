@@ -12,19 +12,23 @@ if __name__ == "__main__":
   filearg = sys.argv[1]
   lineStart = 0
   lineEnd = 0
-
-  # cp js -> template.tpl{{jsCode}}
   jsCon = '\n'
-  filePath = './src/'+filearg+'/index.js'
   dirFiles = os.listdir('./src/'+filearg)
   tplFiles = os.listdir('./src/'+filearg+'/template')
 
-  if filearg != 'app':
+  if filearg == 'app' or filearg == 'examples/app':
+    for file in tplFiles:
+      res = re.search(r'(.*).tpl', file, re.M|re.I)
+      if res:
+        templateFilePath = './src/'+filearg+'/template/'+res.group()
+  else:
+    filePath = './src/'+filearg+'/index.js'
     for file in dirFiles:
       res = re.search(r'(.*).tpl', file, re.M|re.I)
       if res:
         templateFilePath = './src/'+filearg+'/'+res.group()
-
+    
+    # !app or examples/app? cp js -> template.tpl{{jsCode}}
     file_object = open(filePath, 'r')
     for (num,value) in enumerate(file_object):
       if value.find("this is a mark line") is not -1:
@@ -37,17 +41,11 @@ if __name__ == "__main__":
     for i in file_object.readlines()[lineStart:lineEnd]:
       jsCon = jsCon + '    ' + i
     file_object.close()
-
     with open(templateFilePath, 'r') as r:
       lines=r.readlines()
     with open(templateFilePath, 'w') as w:
       for l in lines:
         w.write(l.replace('{{jsCode}}',jsCon))
-  elif filearg == 'app':
-    for file in tplFiles:
-      res = re.search(r'(.*).tpl', file, re.M|re.I)
-      if res:
-        templateFilePath = './src/'+filearg+'/template/'+res.group()
 
   # cp html -> template.tpl{{htmlCode}}
   htmlCon = ''
@@ -72,8 +70,8 @@ if __name__ == "__main__":
     for l in lines:
       w.write(l.replace('{{htmlCode}}',htmlCon))
 
-  #app? : cp js -> template.tpl{{jsCode}}
-  if filearg == 'app':
+  #app or examples/app? : cp js -> template.tpl{{jsCode}}
+  if filearg == 'app' or filearg == 'examples/app':
     filedir = './dist'
     files = os.listdir(filedir)
     for file in files:

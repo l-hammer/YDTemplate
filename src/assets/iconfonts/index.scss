@@ -8,11 +8,11 @@ $ydicons-prefix: "yds-icon-";
 
 @font-face {
   font-family: $ydicons-font-family;  /* project id 275379 */
-  src: url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.eot');
-  src: url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.svg#YDS-ifont') format('svg');
+  src: url('//at.alicdn.com/t/font_564005_kuf4qt41tyrmgqfr.eot');
+  src: url('//at.alicdn.com/t/font_564005_kuf4qt41tyrmgqfr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_564005_kuf4qt41tyrmgqfr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_564005_kuf4qt41tyrmgqfr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_564005_kuf4qt41tyrmgqfr.svg#YDS-ifont') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -31,7 +31,7 @@ $ydicons-prefix: "yds-icon-";
 }
 
 .YDSICON {
-  @include yds-icon;
+    @include yds-icon;
 }
 
 .#{$ydicons-prefix}clear:before{ content: "\e600"; }
@@ -43,11 +43,23 @@ $ydicons-prefix: "yds-icon-";
 .#{$ydicons-prefix}arrow-right-a:before{ content: "\e63d"; }
 .#{$ydicons-prefix}arrow-down-a:before{ content: "\e657"; }
 .#{$ydicons-prefix}arrow-left-a:before{ content: "\e655"; }
- 
+
 .#{$ydicons-prefix}arrow-up-b:before{ content: "\e642"; }
 .#{$ydicons-prefix}arrow-down-b:before{ content: "\e641"; }
- 
+
 .#{$ydicons-prefix}arrow-double-up-a:before{ content: "\e64c"; }
 .#{$ydicons-prefix}arrow-double-right-a:before{ content: "\e640"; }
 .#{$ydicons-prefix}arrow-double-down-a:before{ content: "\e64d"; }
 .#{$ydicons-prefix}arrow-double-left-a:before{ content: "\e64b"; }
+
+.#{$ydicons-prefix}hand-down:before{ content: "\e60c"; }
+
+// examples app
+@font-face {
+  font-family: 'HYXiaoMaiTiJ';  /* project id 275379 */
+  src: url("https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/riseseason/fonts/HYXiaoMaiTiJ-Regular.woff?v=2") format("woff"), /* chrome、firefox */
+  url("https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/riseseason/fonts/HYXiaoMaiTiJ-Regular.ttf?v=2") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+  url("https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/riseseason/fonts/HYXiaoMaiTiJ-Regular.svg#ydhkpp?v=2") format("svg"); /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}

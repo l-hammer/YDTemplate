@@ -4,14 +4,13 @@
  */
 
 $progress-prefix-cls: 'progress';
-$progress-deep-bg: #FF8819;
-$progress-shadow-bg: rgba($progress-deep-bg, .8);
+$progress-bg: #fcf4c7;
+$progress-deep-bg: darken($progress-bg, 15%);
 .#{$progress-prefix-cls} {
   &-block {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba($progress-deep-bg, .1), rgba($progress-deep-bg, .3));
     padding: 0 .999999rem;
     display: flex;
     justify-content: center;
@@ -31,12 +30,12 @@ $progress-shadow-bg: rgba($progress-deep-bg, .8);
       top: -.786667rem;
       margin-left: -.86rem;
       left: 2%;
-      background: linear-gradient(-45deg, $progress-shadow-bg 48%, $progress-deep-bg 0, $progress-deep-bg 50%, $progress-shadow-bg 0, $progress-shadow-bg 96%, $progress-deep-bg 0);
+      background: linear-gradient(-45deg, $progress-deep-bg 48%, $progress-bg 0, $progress-bg 50%, $progress-deep-bg 0, $progress-deep-bg 96%, $progress-bg 0);
       border-radius: .266667rem;
       background-size: .213333rem .213333rem;
       color: white;
       font-weight: 500;
-      filter: drop-shadow(.026667rem .026667rem .026667rem rgba($progress-deep-bg, .6));
+      filter: drop-shadow(.026667rem .026667rem .026667rem rgba($progress-bg, .6));
       &:after {
         content: '';
         position: absolute;
@@ -45,7 +44,7 @@ $progress-shadow-bg: rgba($progress-deep-bg, .8);
         top: .52rem;
         left: .7rem;
         border: .16rem solid transparent;
-        border-top-color: $progress-shadow-bg;
+        border-top-color: $progress-deep-bg;
         border-bottom-width: 0;
       }
     }
@@ -56,7 +55,7 @@ $progress-shadow-bg: rgba($progress-deep-bg, .8);
     .#{$progress-prefix-cls}-bg {
       width: 10%;
       height: .266667rem;
-      background: linear-gradient(-45deg, $progress-shadow-bg 25%, $progress-deep-bg 0, $progress-deep-bg 50%, $progress-shadow-bg 0, $progress-shadow-bg 75%, $progress-deep-bg 0) repeat-x;
+      background: linear-gradient(-45deg, $progress-deep-bg 25%, $progress-bg 0, $progress-bg 50%, $progress-deep-bg 0, $progress-deep-bg 75%, $progress-bg 0) repeat-x;
       border-radius: .133334rem;
       background-size: .426667rem .426667rem;
       animation: progress-loading 20s linear infinite;
