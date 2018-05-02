@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Loading-bar :imgs="imgs"/>
-    <router-view/>
+    <Loading-bar :imgs="imgs"></Loading-bar>
+    <router-view></router-view>
   </div>
 </template>
 

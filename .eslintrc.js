@@ -75,10 +75,13 @@ module.exports = {
         }],
         // vue
         "vue/html-self-closing": ["error", {
-            "html": {
-                "normal": "never",
-                "component": "always"
-            },
+          "html": {
+            "void": "never",
+            "normal": "never",
+            "component": "never"
+          },
+          "svg": "never",
+          "math": "never"
         }]
     },
 };
