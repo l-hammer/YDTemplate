@@ -3,51 +3,51 @@
  *
  * 图标定义: .@{$ydicons-prefix}clear:before{ content: "\e600"; }
  */
- $ydicons-font-family: "YDS-ifont";
- $ydicons-prefix: "yds-icon-";
-  
- @font-face {
-     font-family: $ydicons-font-family;  /* project id 275379 */
-     src: url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.eot');
-     src: url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.eot?#iefix') format('embedded-opentype'),
-     url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.woff') format('woff'),
-     url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.ttf') format('truetype'),
-     url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.svg#YDS-ifont') format('svg');
-     font-weight: normal;
-     font-style: normal;
- }
- @mixin yds-icon() {
-     display: inline-block;
-     font-family: $ydicons-font-family;
-     speak: none;
-     font-style: normal;
-     font-weight: normal;
-     font-variant: normal;
-     text-transform: none;
-     text-rendering: auto;
-     line-height: 1;
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
- }
-  
- .YDSICON {
-     @include yds-icon;
- }
+$ydicons-font-family: "YDS-ifont";
+$ydicons-prefix: "yds-icon-";
+
+@font-face {
+  font-family: $ydicons-font-family;  /* project id 275379 */
+  src: url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.eot');
+  src: url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_564005_jwgeho6aij3piudi.svg#YDS-ifont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin yds-icon() {
+  display: inline-block;
+  font-family: $ydicons-font-family;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.YDSICON {
+  @include yds-icon;
+}
+
+.#{$ydicons-prefix}clear:before{ content: "\e600"; }
+.#{$ydicons-prefix}close:before{ content: "\e61e"; }
+.#{$ydicons-prefix}loading:before{ content: "\e79e"; }
+.#{$ydicons-prefix}checkmark:before{ content: "\e633"; }
+
+.#{$ydicons-prefix}arrow-up-a:before{ content: "\e656"; }
+.#{$ydicons-prefix}arrow-right-a:before{ content: "\e63d"; }
+.#{$ydicons-prefix}arrow-down-a:before{ content: "\e657"; }
+.#{$ydicons-prefix}arrow-left-a:before{ content: "\e655"; }
  
- .#{$ydicons-prefix}clear:before{ content: "\e600"; }
- .#{$ydicons-prefix}close:before{ content: "\e61e"; }
- .#{$ydicons-prefix}loading:before{ content: "\e79e"; }
- .#{$ydicons-prefix}checkmark:before{ content: "\e633"; }
+.#{$ydicons-prefix}arrow-up-b:before{ content: "\e642"; }
+.#{$ydicons-prefix}arrow-down-b:before{ content: "\e641"; }
  
- .#{$ydicons-prefix}arrow-up-a:before{ content: "\e656"; }
- .#{$ydicons-prefix}arrow-right-a:before{ content: "\e63d"; }
- .#{$ydicons-prefix}arrow-down-a:before{ content: "\e657"; }
- .#{$ydicons-prefix}arrow-left-a:before{ content: "\e655"; }
- 
- .#{ydicons-prefix}arrow-up-b:before{ content: "\e642"; }
- .#{ydicons-prefix}arrow-down-b:before{ content: "\e641"; }
- 
- .#{ydicons-prefix}arrow-double-up-a:before{ content: "\e64c"; }
- .#{ydicons-prefix}arrow-double-right-a:before{ content: "\e640"; }
- .#{ydicons-prefix}arrow-double-down-a:before{ content: "\e64d"; }
- .#{ydicons-prefix}arrow-double-left-a:before{ content: "\e64b"; }
+.#{$ydicons-prefix}arrow-double-up-a:before{ content: "\e64c"; }
+.#{$ydicons-prefix}arrow-double-right-a:before{ content: "\e640"; }
+.#{$ydicons-prefix}arrow-double-down-a:before{ content: "\e64d"; }
+.#{$ydicons-prefix}arrow-double-left-a:before{ content: "\e64b"; }
