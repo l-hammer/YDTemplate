@@ -1,71 +1,78 @@
 .jquery-modal.blocker {
-    position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
-    width: 100%; height: 100%;
-    overflow: auto;
-    z-index: 1;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.75);
-    text-align: center;
-    &:before{
-        content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.75);
+  text-align: center;
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.05em;
+  }
+  .modal {
+    display: none;
+    position: relative;
+    z-index: 2;
+    width: 600px;
+    color: #333;
+    background: #fff;
+    padding: 0px 20px 29px;
+    text-align: left;
+    border-radius: 3px;
+    box-shadow: 0 0 10px #000;
+    h3.modal-header {
+      text-align: left;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 59px;
+    }
+    .modal-content {
+      margin-top: 59px;
+      font-size: 14px;
+      margin-bottom: 39px;
+    }
+    & a.close-modal {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      font-size: 19px;
+      width: 54px;
+      height: 54px;
+      line-height: 54px;
+      color: #999;
+      text-align: center;
+    }
+    a.hover,
+    a.active {
+      color: #ff8809;
+    }
+    .modal-footer {
+      margin-top: 29px;
+      .btn {
+        float: right;
         display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-        margin-right: -0.05em;
-    }
-    .modal {
-        display: none;
-        position: relative;
-        z-index: 2;
-        width: 600px;
-        color: #333;
-        background: #fff;
-        padding: 0px 20px 29px;
-        text-align: left;
+        padding: 8px 39px;
+        background: #ff8819;
+        margin-left: 12px;
+        color: #fff;
         border-radius: 3px;
-        box-shadow: 0 0 10px #000;
-        h3.modal-header{
-            text-align: left;
-            font-size: 18px;
-            font-weight: 400;
-            margin-bottom: 59px;
+        font-size: 13px;
+        cursor: pointer;
+        &.cancel {
+          background: #ccc;
         }
-        .modal-content{
-            margin-top: 59px;
-            font-size: 14px;
-            margin-bottom: 39px;
-        }
-        & a.close-modal {
-            position: absolute;
-            top: 0px; right: 0px;
-            font-size: 19px;
-            width: 54px; height: 54px;
-            line-height: 54px;
-            color: #999;
-            text-align: center;
-        }
-        a.hover, a.active{
-            color: #ff8809;
-        }
-        .modal-footer{
-            margin-top: 29px;
-            .btn{
-                float: right;
-                display: inline-block;
-                padding: 8px 39px;
-                background: #ff8819;
-                margin-left: 12px;
-                color: #fff;
-                border-radius: 3px;
-                font-size: 13px;
-                cursor: pointer;
-                &.cancel{
-                    background: #ccc;
-                }
-            }
-        }
+      }
     }
+  }
 }

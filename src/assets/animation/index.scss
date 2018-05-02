@@ -1,62 +1,70 @@
 /**
  * 打字效果
  */
+
 @keyframes typing {
-    from {
-        width: 0;
-    }
+  from {
+    width: 0;
+  }
 }
+
 @keyframes caret {
-    50% { border-right-color: currentColor}
+  50% {
+    border-right-color: currentColor
+  }
 }
 
 /**
  * loading
  */
- @keyframes progress-loading{
-    to {
-        background-position: 200% 0;
-    }
+
+@keyframes progress-loading {
+  to {
+    background-position: 200% 0;
+  }
 }
+
 @keyframes circle-loading {
-    from { 
-        transform: rotate(0deg);
-    }
-    50%  { 
-        transform: rotate(180deg);
-    }
-    to   { 
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /**
  * fadein
  */
+
 @keyframes dialog-fadein {
-    0% {
-        opacity: 0
-    }
-    to {
-        opacity: 1
-    }
+  0% {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
 }
 
 @keyframes dialog-zoom {
-    0% {
-        transform: scale(0)
-    }
-    50% {
-        transform: scale(1.1)
-    }
-    to {
-        transform: scale(1)
-    }
+  0% {
+    transform: scale(0)
+  }
+  50% {
+    transform: scale(1.1)
+  }
+  to {
+    transform: scale(1)
+  }
 }
+
 .dialog-fade-enter-active {
-    animation: dialog-fadein .4s
+  animation: dialog-fadein .4s
 }
 
 .dialog-fade-enter-active .dialog-container {
-    animation: dialog-zoom .4s
+  animation: dialog-zoom .4s
 }

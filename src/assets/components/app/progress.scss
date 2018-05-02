@@ -2,65 +2,64 @@
  * Created by LHammer on 18/03/30.
  * Progress 进度条公共样式
  */
+
 $progress-prefix-cls: 'progress';
 $progress-deep-bg: #FF8819;
 $progress-shadow-bg: rgba($progress-deep-bg, .8);
-
 .#{$progress-prefix-cls} {
-    &-block {
+  &-block {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba($progress-deep-bg, .1), rgba($progress-deep-bg, .3));
+    padding: 0 .999999rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 999999;
+  }
+  &-outer {
+    border: 1px solid rgba(255, 255, 255, .8);
+    border-radius: .24rem;
+    position: relative;
+    .tooltip {
+      width: 1.666667rem;
+      min-height: .533333rem;
+      padding-top: .106667rem;
+      text-align: center;
+      position: absolute;
+      top: -.786667rem;
+      margin-left: -.86rem;
+      left: 2%;
+      background: linear-gradient(-45deg, $progress-shadow-bg 48%, $progress-deep-bg 0, $progress-deep-bg 50%, $progress-shadow-bg 0, $progress-shadow-bg 96%, $progress-deep-bg 0);
+      border-radius: .266667rem;
+      background-size: .213333rem .213333rem;
+      color: white;
+      font-weight: 500;
+      filter: drop-shadow(.026667rem .026667rem .026667rem rgba($progress-deep-bg, .6));
+      &:after {
+        content: '';
         position: absolute;
-        width: 100%; height: 100%;
-        background: linear-gradient(to bottom, rgba($progress-deep-bg, .1), rgba($progress-deep-bg, .3));
-        padding: 0 .999999rem;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        z-index: 999999;
+        width: 0;
+        height: 0;
+        top: .52rem;
+        left: .7rem;
+        border: .16rem solid transparent;
+        border-top-color: $progress-shadow-bg;
+        border-bottom-width: 0;
+      }
     }
-    &-outer {
-        border: 1px solid rgba(255, 255, 255, .8);
-        border-radius: .24rem;
-        position: relative;
-        .tooltip {
-            width: 1.666667rem;
-            min-height: .533333rem;
-            padding-top: .106667rem;
-            text-align: center;
-            position: absolute;
-            top: -.786667rem;
-            margin-left: -.86rem;
-            left: 2%;
-            background: linear-gradient(-45deg, 
-            $progress-shadow-bg 48%, $progress-deep-bg 0, $progress-deep-bg 50%,
-            $progress-shadow-bg 0, $progress-shadow-bg 96%, $progress-deep-bg 0);
-            border-radius: .266667rem;
-            background-size: .213333rem .213333rem; 
-            color: white;
-            font-weight: 500;
-            filter: drop-shadow(.026667rem .026667rem .026667rem rgba($progress-deep-bg, .6));
-            &:after {
-                content: '';
-                position: absolute;
-                width: 0; height: 0;
-                top: .52rem; left: .7rem;
-                border: .16rem solid transparent;
-                border-top-color: $progress-shadow-bg;
-                border-bottom-width: 0;
-            }
-        }
+  }
+  &-enter {
+    height: .266667rem;
+    border-radius: .133334rem;
+    .#{$progress-prefix-cls}-bg {
+      width: 10%;
+      height: .266667rem;
+      background: linear-gradient(-45deg, $progress-shadow-bg 25%, $progress-deep-bg 0, $progress-deep-bg 50%, $progress-shadow-bg 0, $progress-shadow-bg 75%, $progress-deep-bg 0) repeat-x;
+      border-radius: .133334rem;
+      background-size: .426667rem .426667rem;
+      animation: progress-loading 20s linear infinite;
     }
-    &-enter {
-        height: .266667rem;
-        border-radius: .133334rem;
-        .#{$progress-prefix-cls}-bg {
-            width: 10%;
-            height: .266667rem;
-            background: linear-gradient(-45deg, 
-            $progress-shadow-bg 25%, $progress-deep-bg 0, $progress-deep-bg 50%,
-            $progress-shadow-bg 0, $progress-shadow-bg 75%, $progress-deep-bg 0) repeat-x;
-            border-radius: .133334rem;
-            background-size: .426667rem .426667rem;
-            animation: progress-loading 20s linear infinite;
-        }
-    }
+  }
 }

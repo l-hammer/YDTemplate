@@ -6,34 +6,40 @@
 $float-menu-prefix-cls: 'float-menu';
 $menu-item-color: white;
 $menu-item-hover-color: #ff8819;
-
 .#{$float-menu-prefix-cls} {
-    display: none;
-    position: fixed;
-    top: 50%; left: 50%;
-    width: 233px; height: 278px;
-    margin: {
-        top: -139px; left: 425px;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 233px;
+  height: 278px;
+  margin: {
+    top: -139px;
+    left: 425px;
+  }
+  padding: {
+    top: 112px;
+    left: 36px;
+  }
+  font: {
+    size: 20px;
+    weight: 500;
+  }
+  z-index: 99;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/spring_gift/pc/float_menu.png') no-repeat center;
+  &-item {
+    display: inline-block;
+    width: 143px;
+    line-height: 39px;
+    text-align: center;
+    color: $menu-item-color;
+    &:hover,
+    &.active {
+      color: $menu-item-hover-color;
     }
-    padding: {
-        top: 112px; left: 36px;
-    }
-    font: {
-        size: 20px; weight: 500;
-    }
-    z-index: 99;
-    background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/spring_gift/pc/float_menu.png') no-repeat center;
-    &-item {
-        display: inline-block;
-        width: 143px;
-        line-height: 39px;
-        text-align: center;
-        color: $menu-item-color;
-        &:hover, &.active{
-            color: $menu-item-hover-color;
-        }
-    }
+  }
 }
+
 /**
  * Html template e.g.
  *

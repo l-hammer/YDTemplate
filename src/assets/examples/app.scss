@@ -1,137 +1,171 @@
-@import "../normalize/index.scss";  /* resets */
-@import "../animation/index.scss";  /* 常用动画 */
-@import "../basics/index.scss";  /* base */
-@import "../components/app/dialog.scss";  /* dialog */
-@import "../components/app/border-onepx.scss";  /* onepx */
+@import "../normalize/index.scss";
+/* resets */
+
+@import "../animation/index.scss";
+/* 常用动画 */
+
+@import "../basics/index.scss";
+/* base */
+
+@import "../components/app/dialog.scss";
+/* dialog */
+
+@import "../components/app/border-onepx.scss";
+/* onepx */
 
 @include font-size(21px, ".ft-21");
 @include font-size(64px, ".ft-64");
+.img100 {
+  width: 100%;
+}
 
-.img100{
-    width: 100%;
+.progress-block {
+  width: 100%;
+  height: 100%;
+  padding: 0 1.386667rem;
+  background: #0c0a0b url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/progress.jpg?v=1') no-repeat left top / 100% 100%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
-.progress-block{
-    width: 100%;
-    height: 100%;
-    padding: 0 1.386667rem;
-    background: #0c0a0b url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/progress.jpg?v=1') no-repeat left top / 100% 100%;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+
+.progress-outer {
+  width: 100%;
+  padding: .08rem;
+  border: 1px solid rgba(255, 255, 255, .8);
+  border-radius: .24rem;
+  position: relative;
 }
-.progress-outer{
-    width: 100%;
-    padding: .08rem;
-    border: 1px solid rgba(255, 255, 255, .8);
-    border-radius: .24rem;
-    position: relative;
+
+.progress-enter {
+  width: 100%;
+  height: .266667rem;
+  background: #713f0e;
+  border-radius: .133334rem;
 }
-.progress-enter{
-    width: 100%;
-    height: .266667rem;
-    background: #713f0e;
-    border-radius: .133334rem;
+
+.progress-bg {
+  width: 10%;
+  height: .266667rem;
+  background: linear-gradient(-45deg, #fbe900 25%, #f8d400 0, #f8d400 50%, #fbe900 0, #fbe900 75%, #f8d400 0) repeat-x;
+  border-radius: .133334rem;
+  background-size: .426667rem .426667rem;
+  animation: panoramic 20s linear infinite;
 }
-.progress-bg{
-    width: 10%;
-    height: .266667rem;
-    background: linear-gradient(-45deg, 
-    #fbe900  25%, #f8d400 0, #f8d400 50%,
-    #fbe900 0, #fbe900 75%, #f8d400 0) repeat-x;
-    border-radius: .133334rem;
-    background-size: .426667rem .426667rem;
-    animation: panoramic 20s linear infinite;
+
+.tooltip {
+  width: 1.866667rem;
+  min-height: .533333rem;
+  padding: .066667rem;
+  text-align: center;
+  background: linear-gradient(-45deg, #fbe900 48%, #e8c709 0, #e8c709 50%, #fbe900 0, #fbe900 96%, #e8c709 0);
+  border-radius: .266667rem;
+  background-size: .213333rem .213333rem;
+  position: absolute;
+  top: -.786667rem;
+  margin-left: -.96rem;
+  left: calc(10%);
+  color: #532c0c;
 }
-.tooltip{
-    width: 1.866667rem;
-    min-height: .533333rem;
-    padding: .066667rem;
-    text-align: center;
-    background: linear-gradient(-45deg, 
-    #fbe900  48%, #e8c709 0, #e8c709 50%,
-    #fbe900 0, #fbe900 96%, #e8c709 0);
-    border-radius: .266667rem;
-    background-size: .213333rem .213333rem; 
-    position: absolute;
-    top: -.786667rem;
-    margin-left: -.96rem;
-    left: calc(10%);
-    color: #532c0c;
+
+.tooltip:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: .52rem;
+  left: .8rem;
+  border: .16rem solid transparent;
+  border-top-color: #fbe900;
+  border-bottom-width: 0;
 }
-.tooltip:after{
-    content: '';
-    position: absolute;
-    width: 0; height: 0;
-    top: .52rem; left: .8rem;
-    border: .16rem solid transparent;
-    border-top-color: #fbe900;
-    border-bottom-width: 0;
+
+#app {
+  width: 100%;
+  height: 100%;
 }
-#app{
-    width: 100%;
-    height: 100%;
+
+.page {
+  width: 100%;
+  min-height: 100%;
+  background: #0c0a0b url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/page01bg_bai.jpg?v=1') no-repeat left top / 100% 100%;
+  /* background-size: cover;  */
+  display: flex;
+  flex-direction: column;
+  font-family: "Lantinghei SC";
+  position: relative;
+  overflow: hidden;
 }
-.page{
-    width: 100%;
-    min-height: 100%;
-    background: #0c0a0b url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/page01bg_bai.jpg?v=1') no-repeat left top / 100% 100%;
-    /* background-size: cover;  */
-    display: flex;
-    flex-direction: column;
-    font-family: "Lantinghei SC";
-    position: relative;
-    overflow: hidden;
-}
+
 /* .page_h{
     height: auto;
     min-height: 100% !important;
 } */
-.page01, .page02, .page03, .page04, .page05, page06, .progress-block{
-    flex: 1;
-    /* overflow: hidden; */
+
+.page01,
+.page02,
+.page03,
+.page04,
+.page05,
+page06,
+.progress-block {
+  flex: 1;
+  /* overflow: hidden; */
 }
-.page .top-block{
-    width: 100%;
-    /* background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/starsbg_min.png') no-repeat left bottom;
+
+.page .top-block {
+  width: 100%;
+  /* background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/starsbg_min.png') no-repeat left bottom;
     background-size: cover; */
-    /* background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/page01_text_ydzy_min.png') no-repeat left 1.306667rem / 100% auto; */
-    
+  /* background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/page01_text_ydzy_min.png') no-repeat left 1.306667rem / 100% auto; */
 }
-.page .top-block img.ydzy{
-    margin-top: 1.306667rem;
+
+.page .top-block img.ydzy {
+  margin-top: 1.306667rem;
 }
-.page .bot-block, .page06 .bot-block{
-    width: 100%;
-    height: 1.96rem;
-    background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/citybg.png') repeat -10rem bottom / 100% 100%;
-    animation: panoramic 20s linear infinite;
+
+.page .bot-block,
+.page06 .bot-block {
+  width: 100%;
+  height: 1.96rem;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/citybg.png') repeat -10rem bottom / 100% 100%;
+  animation: panoramic 20s linear infinite;
 }
-@keyframes panoramic{
-    to {
-        background-position: 200% 0;
-    }
+
+@keyframes panoramic {
+  to {
+    background-position: 200% 0;
+  }
 }
-.page .btn:active{
-    background: linear-gradient(to right, rgba(210, 169, 83, .85), rgba(254, 224, 123, .85), rgba(230, 179, 83, .85)) !important;
+
+.page .btn:active {
+  background: linear-gradient(to right, rgba(210, 169, 83, .85), rgba(254, 224, 123, .85), rgba(230, 179, 83, .85)) !important;
 }
-.page01 .top-block{
-    height: 5.933333rem;
+
+.page01 .top-block {
+  height: 5.933333rem;
 }
-.page01 .mid-block{
-    /* flex: 1; */
-    /* background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/page01_text_zsqh_min.png') no-repeat left center / 100% auto; */
-    position: relative;
+
+.page01 .mid-block {
+  /* flex: 1; */
+  /* background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/page01_text_zsqh_min.png') no-repeat left center / 100% auto; */
+  position: relative;
 }
+
 /* .page02{
     background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/planet_light_min.png') no-repeat left center / 100% auto;
 } */
-.page01 .top-block .date, .page02 .top-block .date{
-    margin-top: .266667rem;
+
+.page01 .top-block .date,
+.page02 .top-block .date {
+  margin-top: .266667rem;
 }
-.page01 .top-block .date{
-    margin-top: .133334rem;
+
+.page01 .top-block .date {
+  margin-top: .133334rem;
 }
+
 /* .page01 .mid-block .btn,
 .page02 .mid-block .btn{
     display: inline-block;
@@ -143,174 +177,208 @@
     margin-left: -1.666667rem;
     background: linear-gradient(to right, #d2a953, #fee07b, #e6b353);
 } */
+
 .page01 .mid-block span.btn,
-.page02 .mid-block span.btn{
-    display: inline-block;
-    color: #5f4506;
-    padding: .186667rem .386667rem;
-    border-radius: .106667rem;
-    background: linear-gradient(to right, #d2a953, #fee07b, #e6b353);
+.page02 .mid-block span.btn {
+  display: inline-block;
+  color: #5f4506;
+  padding: .186667rem .386667rem;
+  border-radius: .106667rem;
+  background: linear-gradient(to right, #d2a953, #fee07b, #e6b353);
 }
-.page01 .mid-block img.zsqh{
-    position: absolute;
-    top: -.2rem;
+
+.page01 .mid-block img.zsqh {
+  position: absolute;
+  top: -.2rem;
 }
+
 /* .page01 .mid-block .btn{
     top: 7.84rem;
 } */
-.page02 .top-block .bjdl{
-    position: absolute;
-    top: 4.16rem;
-    z-index: 9;
+
+.page02 .top-block .bjdl {
+  position: absolute;
+  top: 4.16rem;
+  z-index: 9;
 }
-.page02 .mid-block{
-    position: relative;
+
+.page02 .mid-block {
+  position: relative;
 }
-.page02 .mid-block .planet{
-    position: absolute;
-    top: -.693333rem;
+
+.page02 .mid-block .planet {
+  position: absolute;
+  top: -.693333rem;
 }
-.page02 .mid-block .zsqh{
-    position: absolute;
-    top: 3rem;
+
+.page02 .mid-block .zsqh {
+  position: absolute;
+  top: 3rem;
 }
+
 /* .page02 .mid-block .btn{
     position: absolute;
     top: 7.4rem;
 } */
-.page02 .mid-block .countdown{
-    display: block;
-    width: 100%;
-    color: #fee07b;
-    font-family: 'Songti TC';
-    text-align: center;
-    position: absolute;
-    top: 4.733333rem;
+
+.page02 .mid-block .countdown {
+  display: block;
+  width: 100%;
+  color: #fee07b;
+  font-family: 'Songti TC';
+  text-align: center;
+  position: absolute;
+  top: 4.733333rem;
 }
-.page03 .top-block img{
-    margin-top: 1.413333rem;
+
+.page03 .top-block img {
+  margin-top: 1.413333rem;
 }
-.page03 .mid-block{
-    position: relative;
+
+.page03 .mid-block {
+  position: relative;
 }
-.page03 .mid-block .input-wraper{
-    position: relative;
-    vertical-align: hidden;
+
+.page03 .mid-block .input-wraper {
+  position: relative;
+  vertical-align: hidden;
 }
-.page03 .mid-block .v-input{
-    display: block;
-    width: 8.426667rem;
-    padding: .253333rem .32rem .253333rem 1.493333rem;
-    outline: none;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, .1);
-    color: #fee17c;
-    border: 1px solid #fee17c;
-    border-radius: .133333rem;
+
+.page03 .mid-block .v-input {
+  display: block;
+  width: 8.426667rem;
+  padding: .253333rem .32rem .253333rem 1.493333rem;
+  outline: none;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, .1);
+  color: #fee17c;
+  border: 1px solid #fee17c;
+  border-radius: .133333rem;
 }
-.page03 .mid-block .v-input.first{
-    /* margin-top: 1.44rem;
+
+.page03 .mid-block .v-input.first {
+  /* margin-top: 1.44rem;
     margin-bottom: .973333rem; */
-    margin-top: 1rem;
-    margin-bottom: .873333rem;
+  margin-top: 1rem;
+  margin-bottom: .873333rem;
 }
-.page03 .mid-block .v-input:focus{
-    box-shadow: 0 0 0 .026667rem rgba(233, 183, 87, .5);
+
+.page03 .mid-block .v-input:focus {
+  box-shadow: 0 0 0 .026667rem rgba(233, 183, 87, .5);
 }
-.page03 .mid-block .icon.name{
-    width: .56rem; 
-    height: .653333rem;
-    background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/icon_name.png') no-repeat 0 0 / 100% 100%;
-    position: absolute;
-    top: .253333rem; left: 1.266667rem;
+
+.page03 .mid-block .icon.name {
+  width: .56rem;
+  height: .653333rem;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/icon_name.png') no-repeat 0 0 / 100% 100%;
+  position: absolute;
+  top: .253333rem;
+  left: 1.266667rem;
 }
-.page03 .mid-block .icon.phone{
-    width: .56rem; 
-    height: .653333rem;
-    background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/icon_phone.png') no-repeat 0 0 / 100% 100%;
-    position: absolute;
-    top: .253333rem; left: 1.266667rem;
+
+.page03 .mid-block .icon.phone {
+  width: .56rem;
+  height: .653333rem;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/icon_phone.png') no-repeat 0 0 / 100% 100%;
+  position: absolute;
+  top: .253333rem;
+  left: 1.266667rem;
 }
-.page03 .mid-block .btn{
-    display: block;
-    width: 5.466667rem;
-    text-align: center;
-    /* margin: 1.253333rem auto 1.573333rem; */
-    margin: 1rem auto 1.2rem;
-    padding: .306667rem;
-    color: #5f4506;
-    background: linear-gradient(to right, #d2a953, #fee07b, #e6b353);
-    border-radius: .133333rem;
+
+.page03 .mid-block .btn {
+  display: block;
+  width: 5.466667rem;
+  text-align: center;
+  /* margin: 1.253333rem auto 1.573333rem; */
+  margin: 1rem auto 1.2rem;
+  padding: .306667rem;
+  color: #5f4506;
+  background: linear-gradient(to right, #d2a953, #fee07b, #e6b353);
+  border-radius: .133333rem;
 }
-.page03 .mid-block .process{
-    display: inline-block;
-    color: #fbd975;
-    position: relative;
-    margin-left: 3.626667rem;
+
+.page03 .mid-block .process {
+  display: inline-block;
+  color: #fbd975;
+  position: relative;
+  margin-left: 3.626667rem;
 }
-.page03 .mid-block .process:after{
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: -.04rem;
-    border-bottom: .026667rem solid #fbd975;
+
+.page03 .mid-block .process:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -.04rem;
+  border-bottom: .026667rem solid #fbd975;
 }
-.page04 .top-block img.wkh, .page04 .top-block img.ykh{
-    margin-top: 1.453333rem;
-}   
-.page04 .top-block img.lqlwts{
-    position: absolute;
-    margin-top: .92rem;
-    z-index: 9;
-    /* animation: 3s elastic-grow infinite; */
+
+.page04 .top-block img.wkh,
+.page04 .top-block img.ykh {
+  margin-top: 1.453333rem;
 }
-@keyframes elastic-grow{
-    from {
-        transform: scale(1);
-    }
-    70% {
-        transform: scale(1.1);
-        animation-timing-function: cubic-bezier(.1, .25, .1, .25);
-    }
+
+.page04 .top-block img.lqlwts {
+  position: absolute;
+  margin-top: .92rem;
+  z-index: 9;
+  /* animation: 3s elastic-grow infinite; */
 }
-.page04 .top-block img.ykw_top{
-    position: absolute;
-    margin-top: .733333rem;
+
+@keyframes elastic-grow {
+  from {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.1);
+    animation-timing-function: cubic-bezier(.1, .25, .1, .25);
+  }
 }
-.page04 .top-block .name{
-    display: inline-block;
-    color: #fedf7a;
-    text-indent: .68rem;
-    position: absolute;
-    margin-top: .746667rem;
+
+.page04 .top-block img.ykw_top {
+  position: absolute;
+  margin-top: .733333rem;
 }
-.page04 .mid-block img.giftbox{
-    position: absolute;
-    top: 5.893333rem;
+
+.page04 .top-block .name {
+  display: inline-block;
+  color: #fedf7a;
+  text-indent: .68rem;
+  position: absolute;
+  margin-top: .746667rem;
 }
-.page04 .mid-block img.giftbox_open{
-    position: absolute;
-    top: 6.333333rem;
+
+.page04 .mid-block img.giftbox {
+  position: absolute;
+  top: 5.893333rem;
 }
-.page04 .mid-block span.btn{
-    display: block;
-    width: 4.52rem;
-    text-align: center;
-    margin: 0 auto;
-    padding: .2rem 0;
-    color: #5f4506;
-    background: linear-gradient(to right, #d2a953, #fee07b, #e6b353);
-    border-radius: .133333rem;
+
+.page04 .mid-block img.giftbox_open {
+  position: absolute;
+  top: 6.333333rem;
 }
-.page04 .mid-block .tabel_num{
-    display: block;
-    width: 8.56rem;
-    line-height: 1.493333rem;
-    text-align: center;
-    margin: 0 auto;
-    color: #5f4506;
-    background: linear-gradient(to right, #d1a852, #fee17d, #e6b253);
-    border-radius: .746667rem;
-    font-size: .8rem;
+
+.page04 .mid-block span.btn {
+  display: block;
+  width: 4.52rem;
+  text-align: center;
+  margin: 0 auto;
+  padding: .2rem 0;
+  color: #5f4506;
+  background: linear-gradient(to right, #d2a953, #fee07b, #e6b353);
+  border-radius: .133333rem;
+}
+
+.page04 .mid-block .tabel_num {
+  display: block;
+  width: 8.56rem;
+  line-height: 1.493333rem;
+  text-align: center;
+  margin: 0 auto;
+  color: #5f4506;
+  background: linear-gradient(to right, #d1a852, #fee17d, #e6b253);
+  border-radius: .746667rem;
+  font-size: .8rem;
 }
 
 /* .animation_scale{
@@ -322,100 +390,120 @@
         transform: scale3d(0, 0, 0);
     }
 } */
-.fade-enter-active, .fade-leave-active {
-    transition: opacity .5s
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
-    opacity: 0
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s
 }
 
-.page05 img.fail{
-    margin-top: 2.373333rem;
+.fade-enter,
+.fade-leave-to
+/* .fade-leave-active in below version 2.1.8 */
+
+  {
+  opacity: 0
 }
 
-.page05 span.btn{
-    display: block;
-    width: 5.466667rem;
-    line-height: 1.173333rem;
-    text-align: center;
-    margin: 0 auto;
-    color: #5f4506;
-    background: linear-gradient(to right, #d2a953, #fee07b, #e6b353);
-    border-radius: .133333rem;
-    margin-top: 1.173333rem;
-    margin-left: 2.266667rem;
-    margin-bottom: 1.28rem;
+.page05 img.fail {
+  margin-top: 2.373333rem;
 }
 
-.page05 span.txt{
-    display: inline-block;
-    color: #fedf7a;
-    padding: .133333rem .653333rem;
+.page05 span.btn {
+  display: block;
+  width: 5.466667rem;
+  line-height: 1.173333rem;
+  text-align: center;
+  margin: 0 auto;
+  color: #5f4506;
+  background: linear-gradient(to right, #d2a953, #fee07b, #e6b353);
+  border-radius: .133333rem;
+  margin-top: 1.173333rem;
+  margin-left: 2.266667rem;
+  margin-bottom: 1.28rem;
+}
+
+.page05 span.txt {
+  display: inline-block;
+  color: #fedf7a;
+  padding: .133333rem .653333rem;
 }
 
 .page06 {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
-.page06 .step1{
-    width: 100%;
-    height: 5.786667rem;
-    background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/signflow_bg01_new.jpg') no-repeat 0 0 / 100% 100%;
+.page06 .step1 {
+  width: 100%;
+  height: 5.786667rem;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/signflow_bg01_new.jpg') no-repeat 0 0 / 100% 100%;
 }
-.page06 .step2{
-    width: 100%;
-    height: 10.36rem;
-    background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/signflow_bg02_new.jpg') no-repeat 0 0 / 100% 100%;
+
+.page06 .step2 {
+  width: 100%;
+  height: 10.36rem;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/signflow_bg02_new.jpg') no-repeat 0 0 / 100% 100%;
 }
-.page06 .step3{
-    width: 100%;
-    height: 20.333333rem;
-    background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/signflow_bg03_new.jpg') no-repeat 0 0 / 100% 100%;
-    position: relative;
+
+.page06 .step3 {
+  width: 100%;
+  height: 20.333333rem;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2017/12/year_sign/signflow_bg03_new.jpg') no-repeat 0 0 / 100% 100%;
+  position: relative;
 }
-.page06 .txt{
-    display: inline-block;
-    color: #fedf7a;
-    padding: 0 .653333rem;
-    line-height: .613333rem !important;
+
+.page06 .txt {
+  display: inline-block;
+  color: #fedf7a;
+  padding: 0 .653333rem;
+  line-height: .613333rem !important;
 }
-.page06 .step3 .bot-block{
-    position: absolute;
-    bottom: 0;
+
+.page06 .step3 .bot-block {
+  position: absolute;
+  bottom: 0;
 }
-.page06 .step01{
-    margin-top: .213333rem;
+
+.page06 .step01 {
+  margin-top: .213333rem;
 }
-.page06 .step01_card{
-    width: 3.2rem;
-    display: block;
-    margin: .533333rem auto;
+
+.page06 .step01_card {
+  width: 3.2rem;
+  display: block;
+  margin: .533333rem auto;
 }
-.page06 .step02_sign{
-    width: 8.48rem;
-    display: block;
-    margin: .666667rem auto .533333rem;
+
+.page06 .step02_sign {
+  width: 8.48rem;
+  display: block;
+  margin: .666667rem auto .533333rem;
 }
-.page06 .step02_text{
-    margin-bottom: .666667rem;
+
+.page06 .step02_text {
+  margin-bottom: .666667rem;
 }
-.page06 .step03_giftbox{
-    width: 8.48rem;
-    display: block;
-    margin: .666667rem auto .4rem;
+
+.page06 .step03_giftbox {
+  width: 8.48rem;
+  display: block;
+  margin: .666667rem auto .4rem;
 }
-.page06 .step03_text{
-    margin-bottom: .92rem;
+
+.page06 .step03_text {
+  margin-bottom: .92rem;
 }
-/* cube dialog*/ 
+
+/* cube dialog*/
+
 .dialog-container .dialog-content {
-    margin: {
-        top: .933333rem;
-        bottom: .56rem;
-    }
+  margin: {
+    top: .933333rem;
+    bottom: .56rem;
+  }
 }
+
 [v-cloak] {
-    display: none;
+  display: none;
 }

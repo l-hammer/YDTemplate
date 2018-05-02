@@ -2,101 +2,104 @@
  * Created by LHammer on 18/03/04.
  * Select 选择器公共样式
  */
-@import '../../mixins/ellipsis.scss';
 
+@import '../../mixins/ellipsis.scss';
 $select-prefix-cls: 'select';
 $select-color: #939393;
 $select-hover-color: #ff8819;
 $select-border-color: #d4d4d4;
 // $select-selected-color: #f7f7f7;
-
 .#{$select-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  min-width: 165px;
+  color: #b4b4b4;
+  font-size: 12px;
+  vertical-align: middle;
+  &__selection {
     position: relative;
-    display: inline-block;
-    min-width: 165px;
-    color: #b4b4b4;
+    display: block;
+    padding-left: 8px;
+    height: 36px;
+    line-height: 34px;
+    border: 1px solid $select-border-color;
+    border-radius: 4px;
+    transition: all .3s;
+    cursor: pointer;
+    overflow: hidden;
+    color: #939393;
+    .#{$select-prefix-cls}__selected {
+      float: left;
+      display: inline-block;
+      @include text-ellipsis(126px);
+    }
+    .#{$select-prefix-cls}__icon {
+      float: left;
+      position: relative;
+      display: inline-block;
+      width: 36px;
+      height: 34px;
+      line-height: 34px;
+    }
+    .YDSICON.yds-icon-arrow-down-b {
+      position: absolute;
+      top: 13px;
+      right: 11px;
+      color: $select-border-color;
+      transform-origin: center 5px;
+      transition: transform .3s;
+      &.reverse {
+        transform: rotate(180deg);
+        transition: transform .3s;
+      }
+    }
+    &:hover {
+      border-color: $select-hover-color;
+      .YDSICON.yds-icon-arrow-down-b {
+        color: $select-hover-color;
+      }
+    }
+  }
+  &__dropdown {
+    position: absolute;
+    top: 36px;
+    left: 0px;
+    width: 100%;
+    max-height: 288px;
     font-size: 12px;
-    vertical-align: middle;
-    &__selection {
-        position: relative;
-        display: block;
-        padding-left: 8px;
-        height: 36px;
-        line-height: 34px;
-        border: 1px solid $select-border-color;
-        border-radius: 4px;
-        transition: all .3s;
-        cursor: pointer;
-        overflow: hidden;
-        color: #939393;
-        .#{$select-prefix-cls}__selected {
-            float: left;
-            display: inline-block;
-            @include text-ellipsis(126px);
-        }
-        .#{$select-prefix-cls}__icon {
-            float: left;
-            position: relative;
-            display: inline-block;
-            width: 36px; height: 34px;
-            line-height: 34px;
-        }
-        .YDSICON.yds-icon-arrow-down-b {
-            position: absolute;
-            top: 13px; right: 11px;
-            color: $select-border-color;
-            transform-origin: center 5px;
-            transition: transform .3s;
-            &.reverse {
-                transform: rotate(180deg);
-                transition: transform .3s;
-            }
-        }
-        &:hover {
-            border-color: $select-hover-color;
-            .YDSICON.yds-icon-arrow-down-b {
-                color: $select-hover-color;
-            }
-        }
+    border-radius: 4px;
+    border: 1px solid $select-border-color;
+    overflow-y: auto;
+    z-index: 99;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: center top;
+    transition: all .3s ease-in;
+    &.slideDown {
+      opacity: 1;
+      transform: scaleY(1);
+      transition: all .3s ease-in;
     }
-    &__dropdown {
-        position: absolute;
-        top: 36px; left: 0px;
-        width: 100%;
-        max-height: 288px;
-        font-size: 12px;
-        border-radius: 4px;
-        border: 1px solid $select-border-color;
-        overflow-y: auto;
-        z-index: 99;
-        opacity: 0;
-        transform: scaleY(0);
-        transform-origin: center top;
-        transition: all .3s ease-in;
-        &.slideDown {
-            opacity: 1;
-            transform: scaleY(1);
-            transition: all .3s ease-in;
-        }
-        .#{$select-prefix-cls}__list {
-            padding: 0;
-            font-size: 0
-        }
-        .#{$select-prefix-cls}__option {
-            display: inline-block;
-            padding: 6px 12px;
-            font-size: 12px;
-            line-height: 2;
-            text-align: left;
-            transition: all .3s;
-            cursor: pointer;
-            @include text-ellipsis;
-            &:hover, &--focus {
-                background-color: rgba($color: $select-hover-color, $alpha: .2);
-                color: $select-hover-color;
-            }
-        }
+    .#{$select-prefix-cls}__list {
+      padding: 0;
+      font-size: 0
     }
+    .#{$select-prefix-cls}__option {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 12px;
+      line-height: 2;
+      text-align: left;
+      transition: all .3s;
+      cursor: pointer;
+      @include text-ellipsis;
+      &:hover,
+      &--focus {
+        background-color: rgba($color: $select-hover-color, $alpha: .2);
+        color: $select-hover-color;
+      }
+    }
+  }
 }
 
 /**

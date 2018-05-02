@@ -2,38 +2,46 @@
  * Created by LHammer on 18/03/07.
  * base.scss
  */
-@import "../mixins/index.scss";  /* mixins */
+@import "../mixins/index.scss";
 
+/* mixins */
 @include font-size(12px, ".ft-12");
 @include font-size(13px, ".ft-13");
 @include font-size(14px, ".ft-14");
 @include font-size(15px, ".ft-15");
 @include font-size(16px, ".ft-16");
 @include font-size(18px, ".ft-18");
-
 html,
 body {
-    height: 100%;
-    line-height: 1;
-    font-family: 'Lantinghei SC', 'Microsoft Yahei Mono';
-    -webkit-font-smoothing: antialiased;
-    box-sizing: border-box;
+  height: 100%;
+  line-height: 1;
+  font-family: 'Lantinghei SC', 'Microsoft Yahei Mono';
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 }
+
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
-}
-.clearfix {
-    @include clearfix();
-}
-::-webkit-input-placeholder { /* WebKit browsers */ 
-    line-height: 1;
-}
-li {
-    list-style: none;
-}
-a, a:hover, a:active, a:visited{
-    text-decoration: none;
+  box-sizing: inherit;
 }
 
+.clearfix {
+  @include clearfix();
+}
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  line-height: 1;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+}

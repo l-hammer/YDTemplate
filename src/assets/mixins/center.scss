@@ -2,55 +2,63 @@
  * 上下垂直居中
  */
 $center: center;
-
 %__right {
-    position: absolute;
-    left: 50%;
+  position: absolute;
+  left: 50%;
 }
+
 %__lower {
-    position: absolute;
-    top: 50%;
+  position: absolute;
+  top: 50%;
 }
+
 %__lower_right {
-    position: absolute;
-    left: 50%; top: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }
+
 /** 
 * mobile && >=IE 9
 */
 @mixin center {
-    @extend %__lower_right;
-    transform: translate(-50%, -50%);
-    @content;
+  @extend %__lower_right;
+  transform: translate(-50%, -50%);
+  @content;
 }
+
 @mixin justify-center {
-    @extend %__right;
-    transform: translateX(-50%);
-    @content;
+  @extend %__right;
+  transform: translateX(-50%);
+  @content;
 }
+
 @mixin align-center {
-    @extend %__lower;
-    transform: translateY(-50%);
-    @content;
+  @extend %__lower;
+  transform: translateY(-50%);
+  @content;
 }
+
 /** 
 * pc && <=IE 8
 */
 @mixin pc-center($left: auto, $top: auto) {
-    @extend %__lower_right;
-    margin-left: $left;
-    margin-top: $top;
-    @content;
+  @extend %__lower_right;
+  margin-left: $left;
+  margin-top: $top;
+  @content;
 }
+
 @mixin pc-justify-center($left: auto) {
-    @extend %__right;
-    margin-left: $left;
-    @content;
+  @extend %__right;
+  margin-left: $left;
+  @content;
 }
+
 @mixin pc-align-center($top: auto) {
-    @extend %__lower;
-    margin-top: $top;
-    @content;
+  @extend %__lower;
+  margin-top: $top;
+  @content;
 }
 
 // @mixin center($left: auto, $top: auto) {

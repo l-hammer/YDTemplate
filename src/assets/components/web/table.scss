@@ -2,136 +2,134 @@
  * Created by LHammer on 18/03/04.
  * Table 表格公用样式
  */
+
 $table-prefix-cls: 'table';
 $primary-color: #ff8819;
-
 .#{$table-prefix-cls}-outer {
-    width: 1000px;
-    margin: 52px auto 0;
-    text-align: center;
-    // 默认2列
-    .#{$table-prefix-cls} {
-        width: 608px;
-        background: $primary-color;
-        margin: auto;
-        border-radius: 36px;
-        color: white;
-        font: {
-            size: 18px;
-            weight: 500;
-        }
-        overflow: hidden;
-        // perfect-scrollbar
-        &-body {
-            width:100%; 
-            height: 180px;
-            position: relative; 
-        }
-        &-header {
-            font: {
-                size: 20px;
-                weight: 900;
-            }
-        }
-        span {
-            float: left;
-            width: 50%; height: 60px;
-            padding: 10px 0;
-            line-height: 40px;
-            
-            border: 3px solid white {
-                top-width: 0;
-                left-width: 0;
-            }
-            &.lineend {
-                border-right-width: 0;
-            }
-            &.last {
-                border-bottom-width: 0;
-            }
-        }
-        .norecord {
-            line-height: 129px;
-        }
-        // 3列
-        &.col-3 {
-            span {
-                width: 36%;
-                &.lineend{
-                    width: 28%;
-                }
-            }
-            .#{$table-prefix-cls}-footer {
-                span.all {
-                    width: 72%;
-                }
-                span.sum {
-                    width: 28%;
-                }
-            }
-        }
+  width: 1000px;
+  margin: 52px auto 0;
+  text-align: center; // 默认2列
+  .#{$table-prefix-cls} {
+    width: 608px;
+    background: $primary-color;
+    margin: auto;
+    border-radius: 36px;
+    color: white;
+    font: {
+      size: 18px;
+      weight: 500;
     }
+    overflow: hidden; // perfect-scrollbar
+    &-body {
+      width: 100%;
+      height: 180px;
+      position: relative;
+    }
+    &-header {
+      font: {
+        size: 20px;
+        weight: 900;
+      }
+    }
+    span {
+      float: left;
+      width: 50%;
+      height: 60px;
+      padding: 10px 0;
+      line-height: 40px;
+      border: 3px solid white {
+        top-width: 0;
+        left-width: 0;
+      }
+      &.lineend {
+        border-right-width: 0;
+      }
+      &.last {
+        border-bottom-width: 0;
+      }
+    }
+    .norecord {
+      line-height: 129px;
+    } // 3列
+    &.col-3 {
+      span {
+        width: 36%;
+        &.lineend {
+          width: 28%;
+        }
+      }
+      .#{$table-prefix-cls}-footer {
+        span.all {
+          width: 72%;
+        }
+        span.sum {
+          width: 28%;
+        }
+      }
+    }
+  }
 }
+
 /*
  * Html template e.g.
  *
  * 2列
  <div class="table-outer clearfix">
-    <div class="table">
-        <div class="table-header">
-            <span>单笔出借金额（元）</span>
-            <span class="lineend">返现比例</span>
-        </div>
-        <div id="tableBody" class="table-body clearfix">
-            <div class="row">
-                <span><i class="icon gold_bag"></i> 达到1万元</span>
-                <span class="lineend">0.3%</span>
-            </div>
-            <div class="row">
-                <span><i class="icon gold_bag"></i> 达到5万元</span>
-                <span class="lineend">0.4%</span>
-            </div>
-            <div class="row">
-                <span class="last"><i class="icon gold_bag"></i> 达到10万元</span>
-                <span class="lineend last">0.5%</span>
-            </div>
-        </div>
+  <div class="table">
+    <div class="table-header">
+      <span>单笔出借金额（元）</span>
+      <span class="lineend">返现比例</span>
     </div>
+    <div id="tableBody" class="table-body clearfix">
+      <div class="row">
+        <span><i class="icon gold_bag"></i> 达到1万元</span>
+        <span class="lineend">0.3%</span>
+      </div>
+      <div class="row">
+        <span><i class="icon gold_bag"></i> 达到5万元</span>
+        <span class="lineend">0.4%</span>
+      </div>
+      <div class="row">
+        <span class="last"><i class="icon gold_bag"></i> 达到10万元</span>
+        <span class="lineend last">0.5%</span>
+      </div>
+    </div>
+  </div>
 </div>
  *
  * 3 列
  *
 <div class="table-outer clearfix">
-    <div class="table col-3">
-        <div class="table-header">
-            <span>出借时间</span>
-            <span>出借金额（元）</span>
-            <span class="lineend">返现金额（元）</span>
-        </div>
-        <div id="tableBody" class="table-body clearfix">
-            <div class="row">
-                <span>2017-11-1 11:00</span>
-                <span><i class="icon gold_bag"></i> 10000</span>
-                <span class="lineend">30</span>
-            </div>
-            <div class="row">
-                <span>2017-11-1 11:00</span>
-                <span><i class="icon gold_bag"></i> 20000</span>
-                <span class="lineend">60</span>
-            </div>
-            <div class="row">
-                <span>2017-11-1 11:00</span>
-                <span><i class="icon gold_bag"></i> 100000</span>
-                <span class="lineend ">100</span>
-            </div>
-            <!-- <div class="norecord">
-                暂无返现记录
-            </div> -->
-        </div>
-        <div class="table-footer">
-            <span class="all last">总计</span>
-            <span class="sum lineend last">199</span>
-        </div>
+  <div class="table col-3">
+    <div class="table-header">
+      <span>出借时间</span>
+      <span>出借金额（元）</span>
+      <span class="lineend">返现金额（元）</span>
     </div>
+    <div id="tableBody" class="table-body clearfix">
+      <div class="row">
+        <span>2017-11-1 11:00</span>
+        <span><i class="icon gold_bag"></i> 10000</span>
+        <span class="lineend">30</span>
+      </div>
+      <div class="row">
+        <span>2017-11-1 11:00</span>
+        <span><i class="icon gold_bag"></i> 20000</span>
+        <span class="lineend">60</span>
+      </div>
+      <div class="row">
+        <span>2017-11-1 11:00</span>
+        <span><i class="icon gold_bag"></i> 100000</span>
+        <span class="lineend ">100</span>
+      </div>
+      <!-- <div class="norecord">
+        暂无返现记录
+      </div> -->
+    </div>
+    <div class="table-footer">
+      <span class="all last">总计</span>
+      <span class="sum lineend last">199</span>
+    </div>
+  </div>
 </div>
  */
