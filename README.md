@@ -37,7 +37,7 @@ Several quick start options are available:
 YDTemplate/
 ├── bin/    // python脚本
 │   ├── autocopy.py    // 🚚自动拷贝上线代码
-│   └── mvuseless.py    // 🚚删除开发非相关代码for强迫症用户
+│   └── mvuseless.py    // 🔥删除开发非相关代码for强迫症用户
 ├── configs/
 │   └── init.ini    // 🎉初始化配置
 ├── mock/
