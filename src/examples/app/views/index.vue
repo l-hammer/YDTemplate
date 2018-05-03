@@ -142,7 +142,6 @@ export default {
   },
   watch: {
     loading(newVal) {
-      console.log(newVal);
       if (!newVal) {
         this.getUserInfo();
       }
@@ -192,7 +191,7 @@ export default {
       }
     },
     getUserInfo(val) {
-      this.$axios.test().then((data) => {
+      this.$axios.getLoanInfo().then((data) => {
         this.loanMoney = data.total_money;
         this.nativeMoney = +data.money;
         if (val) {

@@ -20,10 +20,23 @@ export function fetch(url, params) {
 
 export default {
   /**
-   * 示例接口
+   * 测试接口
    * @param {*} data username
    */
   test(data) {
     return fetch('/webapi/uc_my_userinfo', data);
+  },
+  /**
+   * app获取出借信息接口
+   */
+  getLoanInfo() {
+    return fetch('/webapi/getLoanInfo');
+  },
+  /**
+   * app领取加息券接口
+   * @param {*} data cash -> id
+   */
+  getCash(data) {
+    return fetch('/webapi/getCash', data);
   },
 };
