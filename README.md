@@ -38,10 +38,14 @@ YDTemplate/
 ├── bin/    // python脚本
 │   ├── autocopy.py    // 🚚自动拷贝上线代码
 │   └── mvuseless.py    // 🚚删除开发非相关代码for强迫症用户
-├── server/
-│   └── index.js    // 💡node proxy
 ├── configs/
 │   └── init.ini    // 🎉初始化配置
+├── mock/
+│   ├── index.js    // 🗳mock server
+│   ├── data.json    // 🗄mock data
+│   └── util.js    // 🤡mock API
+├── server/
+│   └── index.js    // 💡node proxy
 ├── src/
 │   ├── api/
 │   │   ├── config.js/    // axios配置
