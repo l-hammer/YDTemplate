@@ -3,4 +3,5 @@ karma.sauce.js
 server/*
 dist/*
 bin/*
+mock/*
 package.json

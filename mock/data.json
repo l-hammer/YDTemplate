@@ -1,0 +1,18 @@
+{
+  "loanInfo": {
+    "code": 0,
+    "message": "success",
+    "data": {
+      "money": 295000.12,
+      "total_money": "295,000.12"
+    }
+  },
+  "cashs": {
+    "code": 0,
+    "message": "success",
+    "data": {
+      "money": 185000.12,
+      "total_money": "185,000.12"
+    }
+  }
+}
