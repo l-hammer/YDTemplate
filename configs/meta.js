@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs')
 
 module.exports = {
-  prompts = {
+  prompts: {
     name: {
       type: "string",
       require: true,
