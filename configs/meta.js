@@ -40,15 +40,17 @@ module.exports = {
     const green = chalk.green
     const yellow = chalk.yellow
     const message = `
-      # ${green(`Project initialization finished!`)}
-      # ==============================
+# ${green(`Project initialization finished!`)}
+# ==============================
 
-      To get started:
+To get started:
 
-      ${yellow(`
-        ${data.inPlace ? '' : `cd ${data.destDirName}\n`}npm install \n npm run dev or npm run start
-      `)}
-    `
+  ${yellow(`
+    ${data.inPlace ? '' : `cd ${data.destDirName}\n  `}npm install\n  npm run dev or npm run start
+  `)}
+
+Documentation can be found at https://vuejs-templates.github.io/webpack
+`
     console.log(message)
   }
 }
