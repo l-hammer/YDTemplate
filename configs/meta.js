@@ -16,7 +16,7 @@ module.exports = {
     },
     author: {
       type: "string",
-      message: "Project description",
+      message: "Author",
       default: "LHammer"
     },
     type: {
