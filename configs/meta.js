@@ -49,7 +49,7 @@ To get started:
     `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}npm install\n  npm run dev or npm run start`
   )}
 
-Documentation can be found at https://vuejs-templates.github.io/webpack
+Documentation can be found at https://github.com/l-hammer/YDTemplate
 `
     console.log(message)
   }
