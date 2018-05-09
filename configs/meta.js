@@ -48,6 +48,7 @@ module.exports = {
     'src/assets/examples/web.scss': "type === 'web'",
     'src/app/**/*': "type === 'wx' || type === 'h5'",
     'src/examples/app/**/*': "type === 'wx' || type === 'h5'",
+    'src/components/**/*': "type === 'wx' || type === 'h5'",
     'src/assets/components/app/*': "type === 'wx' || type === 'h5'",
     'src/assets/app.scss': "type === 'wx' || type === 'h5'",
     'src/assets/examples/app.scss': "type === 'wx' || type === 'h5'",
