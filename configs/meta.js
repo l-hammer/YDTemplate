@@ -39,6 +39,7 @@ module.exports = {
   complete: function(data, { chalk }) {
     const green = chalk.green
     const yellow = chalk.yellow
+    const magenta = chalk.magenta
     const message = `
 # ${green(`Project initialization finished!`)}
 # ==============================
@@ -46,10 +47,10 @@ module.exports = {
 To get started:
 
   ${yellow(
-    `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}npm install\n  npm run dev or npm run start`
+    `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}npm install (or if using yarn: yarn)\n  npm run dev or npm run start`
   )}
 
-Documentation can be found at https://github.com/l-hammer/YDTemplate
+Documentation can be found at ${magenta('https://github.com/l-hammer/YDTemplate')}
 `
     console.log(message)
   }
