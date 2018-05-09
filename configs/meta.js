@@ -44,13 +44,13 @@ module.exports = {
 # ${green(`Project initialization finished!`)}
 # ==================================
 
-👨‍💻To get started:
+👨‍💻 To get started:
 
   ${yellow(
-    `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}npm install (or if using yarn: yarn)\n  npm run dev or npm run start`
+    `${data.inPlace ? '' : `  cd ${data.destDirName}\n    `}npm install (or if using yarn: yarn)\n    npm run dev or npm run start`
   )}
 
-🌏Documentation can be found at ${magenta('https://github.com/l-hammer/YDTemplate')}
+🌏 Documentation can be found at ${magenta('https://github.com/l-hammer/YDTemplate')}
 `
     console.log(message)
   }
