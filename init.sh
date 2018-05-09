@@ -45,4 +45,4 @@ function initProject {
 
 initProject
 
-echo -e "\n#\033[32m Project initialization finished! \033[0m\n\nTo get started:\n\n \033[33m npm run appstart or npm run webstart \033[0m\n"
+echo -e "\n#\033[32m Project initialization finished! \033[0m\n\nTo get started:\n\n \033[33m npm run dev or npm run start \033[0m\n"

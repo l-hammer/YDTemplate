@@ -36,6 +36,10 @@ module.exports = {
       default: '38'
     },
   },
+  filters: {
+    'config/meta.js': false,
+    'init.sh': false
+  },
   complete: function(data, { chalk }) {
     const green = chalk.green
     const yellow = chalk.yellow
@@ -47,7 +51,7 @@ module.exports = {
 👨‍💻 To get started:
 
   ${yellow(
-    `${data.inPlace ? '' : `  cd ${data.destDirName}\n    `}npm install (or if using yarn: yarn)\n    npm run dev or npm run start`
+    `${data.inPlace ? '  ' : `  cd ${data.destDirName}\n    `}npm install (or if using yarn: yarn)\n    ${data.type === 'web' ? 'npm run dev:web or npm run start:web' : 'npm run dev or npm run start'}`
   )}
 
 🌏 Documentation can be found at ${magenta('https://github.com/l-hammer/YDTemplate')}
