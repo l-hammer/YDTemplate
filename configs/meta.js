@@ -37,7 +37,7 @@ module.exports = {
     },
   },
   filters: {
-    'config/meta.js': false,
+    'configs/meta.js': false,
     'init.sh': false
   },
   complete: function(data, { chalk }) {
