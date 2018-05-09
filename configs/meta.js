@@ -53,6 +53,16 @@ module.exports = {
     'src/assets/app.scss': "type === 'wx' || type === 'h5'",
     'src/assets/examples/app.scss': "type === 'wx' || type === 'h5'",
   },
+  skipInterpolation: [
+    'build.sh',
+    'push.sh',
+    'bin/autocopy.py',
+    'src/vetar/index.js',
+    'src/app/template/index.tpl',
+    'src/app/views/record.vue',
+    'src/examples/app/template/riseseason.tpl',
+    'src/examples/app/views/index.vue'
+  ],
   complete: function(data, { chalk }) {
     const green = chalk.green
     const yellow = chalk.yellow
