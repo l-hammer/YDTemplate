@@ -38,7 +38,17 @@ module.exports = {
   },
   filters: {
     'configs/meta.js': false,
-    'init.sh': false
+    'init.sh': false,
+    'src/web/*': "type === 'web'",
+    'src/assets/modal/*': "type === 'web'",
+    'src/assets/perfect-scrollbar/*': "type === 'web'",
+    'src/assets/components/web/*': "type === 'web'",
+    'src/assets/web.scss': "type === 'web'",
+    'src/assets/examples/web.scss': "type === 'web'",
+    'src/app/**/*': "type === 'wx' || type === 'h5'",
+    'src/assets/components/app/*': "type === 'wx' || type === 'h5'",
+    'src/assets/app.scss': "type === 'wx' || type === 'h5'",
+    'src/assets/examples/app.scss': "type === 'wx' || type === 'h5'",
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
