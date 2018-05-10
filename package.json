@@ -1,8 +1,8 @@
 {
-  "name": "{{ name }}",
-  "description": "{{ description }}",
+  "name": "parcel-yindou-template",
+  "description": "yindou-template using parcel bundler",
   "version": "1.0.0",
-  "author": "{{ author }}",
+  "author": "LHammer",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node mock/index.js app --no-cache",
     "dev:web": "cross-env NODE_ENV=development node mock/index.js web --no-cache",
@@ -37,22 +37,18 @@
     "YDTemplate"
   ],
   "dependencies": {
-    {{#if_eq type "web"}}
-    "handlebars": "^4.0.11",
-    "jquery": "^3.3.1",
-    "jquery-modal": "^0.9.1",
-    "perfect-scrollbar": "^1.3.0",
-    "swiper": "^4.0.7",
-    {{/if_eq}}
-    {{#unless_eq type "web"}}
     "axios": "^0.17.1",
     "es6-promise": "^4.2.4",
     "qs": "^6.5.1",
     "v-animate-css": "^0.0.2",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
-    "weixin-js-sdk": "^1.3.2"
-    {{/unless_eq}}
+    "weixin-js-sdk": "^1.3.2",
+    "handlebars": "^4.0.11",
+    "jquery": "^3.3.1",
+    "jquery-modal": "^0.9.1",
+    "perfect-scrollbar": "^1.3.0",
+    "swiper": "^4.0.7"
   },
   "peerDependencies": {
     "vue": "^2.5.10"

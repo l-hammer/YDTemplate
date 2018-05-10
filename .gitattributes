@@ -1,2 +1,2 @@
-package.json merge=our
-configs/init.ini merge=our
+package.json merge=ours
+configs/init.ini merge=ours
