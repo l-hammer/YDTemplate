@@ -1,8 +1,6 @@
 <br><br>
 <p align="center">
-    <a href="https://getbootstrap.com/">
-        <img src="./static/logo.png" width="329">
-    </a>
+    <img src="./static/logo.png" width="329">
     <p align="center">
         <a href="https://travis-ci.org/l-hammer/YDTemplate" target="_blank"><img src="https://travis-ci.org/l-hammer/YDTemplate.svg?branch=dev"></a>
         <a href="https://github.com/l-hammer/YDTemplate/issues"><img src="https://img.shields.io/github/issues/l-hammer/YDTemplate.svg"></a>
