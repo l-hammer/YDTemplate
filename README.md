@@ -1,4 +1,3 @@
-<br><br>
 <p align="center">
     <img src="./static/logo.png" width="329">
     <p align="center">
