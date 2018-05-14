@@ -9,6 +9,7 @@
         <a href="https://github.com/l-hammer/YDTemplate/issues"><img src="https://img.shields.io/github/issues/l-hammer/YDTemplate.svg"></a>
         <img src="https://img.shields.io/badge/devDependencies-up%20to%20date-blue.svg">
         <a href="https://github.com/l-hammer/YDTemplate/blob/master/LICENSE"><img src="https://img.shields.io/github/license/l-hammer/YDTemplate.svg"></a>
+        <a href="https://codeclimate.com/github/l-hammer/YDTemplate/maintainability"><img src="https://api.codeclimate.com/v1/badges/d4de5b2b2b842401df28/maintainability" /></a>
     </p>
     <p align="center">
         Yindou Web and App special development template~
