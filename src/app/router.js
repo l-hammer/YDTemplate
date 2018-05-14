@@ -17,6 +17,12 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index,
+      meta: {
+        title: '', // 分享标题
+        desc: '', // 分享描述
+        link: '', // 分享链接
+        imgUrl: '', // 分享图标
+      },
     },
     {
       name: 'record',
