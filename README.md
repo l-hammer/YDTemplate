@@ -20,10 +20,12 @@ Several quick start options are available:
 - Initialize template run: `. init.sh`
 - Clone the repo: `https://github.com/l-hammer/YDTemplate.git`
 - Install dependencies with [npm](https://www.npmjs.com/): `npm install`
-- App development run ~~`npm run dev`~~ `npm run start`
-- Web development run ~~`npm run dev:web`~~ `npm run start:web`
-- Open web example run ~~`npm run dev:webeg`~~ `npm run start:webeg`
-- Open app example run ~~`npm run dev:appeg`~~ `npm run start:appeg`
+- App development run `npm run start`
+- App development use mock data run `npm run dev`
+- Web development run `npm run start:web`
+- Web development use mock data run `npm run dev:web`
+- Open web example run `npm run dev:webeg`
+- Open app example run `npm run dev:appeg`
 - Build run `. build.sh @param1 @param2` (@param1:`web`,`app`,`webeg`,`appeg`; @param2:`--no-minify`)
 - Move useless codes run `python bin/mvuseless.py @param` (@param:`web`,`app`,`examples`)
 - Open `http://localhost:1234` in your browser.
