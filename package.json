@@ -4,24 +4,30 @@
   "version": "1.0.0",
   "author": "{{ author }}",
   "scripts": {
+    {{#if_eq type "h5"}}
     "dev": "cross-env NODE_ENV=development node mock/index.js app --no-cache",
-    "dev:web": "cross-env NODE_ENV=development node mock/index.js web --no-cache",
     "dev:appeg": "cross-env NODE_ENV=development node mock/index.js appeg --no-cache",
-    "dev:webeg": "cross-env NODE_ENV=development node mock/index.js webeg --no-cache",
     "start": "cross-env NODE_ENV=development node server/index.js app --no-cache",
-    "start:web": "cross-env NODE_ENV=development node server/index.js web --no-cache",
     "start:appeg": "cross-env NODE_ENV=development node server/index.js appeg --no-cache",
-    "start:webeg": "cross-env NODE_ENV=development node server/index.js webeg --no-cache",
     "build": "cross-env NODE_ENV=production parcel build src/app/index.html --no-minify",
     "build:min": "cross-env NODE_ENV=production parcel build src/app/index.html",
-    "build:web": "cross-env NODE_ENV=production parcel build src/web/index.html  --no-minify",
-    "build:web:min": "cross-env NODE_ENV=production parcel build src/web/index.html",
     "build:appeg": "cross-env NODE_ENV=production parcel build src/examples/app/index.html --no-minify",
     "build:appeg:min": "cross-env NODE_ENV=production parcel build src/examples/app/index.html",
+    {{/if_eq}}
+    {{#if_eq type "web"}}
+    "dev:web": "cross-env NODE_ENV=development node mock/index.js web --no-cache",
+    "dev:webeg": "cross-env NODE_ENV=development node mock/index.js webeg --no-cache",
+    "start:web": "cross-env NODE_ENV=development node server/index.js web --no-cache",
+    "start:webeg": "cross-env NODE_ENV=development node server/index.js webeg --no-cache",
+    {{/if_eq}}
+    {{#if_eq type "wx"}}
+    "build:web": "cross-env NODE_ENV=production parcel build src/web/index.html  --no-minify",
+    "build:web:min": "cross-env NODE_ENV=production parcel build src/web/index.html",
     "build:webeg": "cross-env NODE_ENV=production parcel build src/examples/web/index.html --no-minify",
     "build:webeg:min": "cross-env NODE_ENV=production parcel build src/examples/web/index.html",
     "dist": "npm run webbuild && npm run appbuild",
     "cleardepe": "rm -rf node_modules/"
+    {{/if_eq}}
   },
   "repository": {
     "type": "git",
@@ -34,6 +40,7 @@
   "keywords": [
     "Vue",
     "LHammer",
+    "Template",
     "YDTemplate"
   ],
   "dependencies": {
@@ -51,8 +58,10 @@
     "v-animate-css": "^0.0.2",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
-    "weixin-js-sdk": "^1.3.2"
     {{/unless_eq}}
+    {{#if_eq type "wx"}}
+    "weixin-js-sdk": "^1.3.2"
+    {{/if_eq}}
   },
   "peerDependencies": {
     "vue": "^2.5.10"
