@@ -38,7 +38,8 @@ YDTemplate/
 │   ├── autocopy.py    // 🚚自动拷贝上线代码
 │   └── mvuseless.py    // 🔥删除开发非相关代码for强迫症用户
 ├── configs/
-│   └── init.ini    // 🎉初始化配置
+│   ├── meta.js    // 🛠模板配置文件for ydt-cli
+│   └── init.ini    // 🎉build配置文件
 ├── mock/
 │   ├── index.js    // 🗳mock server
 │   ├── data.json    // 🗄mock data
@@ -94,6 +95,8 @@ YDTemplate/
 │       ├── date.js    // 解析日期、日期格式化
 │       ├── arrayPull.js    // 删除数组指定值
 │       ├── distinctValuesOfArray.js    // 数组去重
+│       ├── initArrayWithRange.js    // 初始化指定范围内的数组
+│       ├── shuffleArray.js    // 随机排列数组
 │       ├── preloadimages.js    // 图片预加载
 │       ├── viewType.js    // 判断数据类型
 │       ├── clone.js    // 拷贝（Object, Array or Primitive）
