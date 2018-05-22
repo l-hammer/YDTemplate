@@ -1,0 +1,17 @@
+/**
+ * -------------------------------------------------
+ *               examples app vars.scss
+ * -------------------------------------------------
+ */
+
+/* records
+------------------------------ */
+$records-prefix-cls: 'records';
+$record-table-bg: #008ace;
+$record-table-border-color: #2eb0f3;
+
+/* progress
+------------------------------ */
+$progress-prefix-cls: 'progress';
+$progress-bg: #2eb0f3;
+$progress-deep-bg: darken($progress-bg, 15%);
