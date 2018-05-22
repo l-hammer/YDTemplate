@@ -1,7 +1,7 @@
 {
   "name": "parcel-yindou-template",
   "description": "yindou-template using parcel bundler",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "author": "LHammer",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node mock/index.js app --no-cache",
