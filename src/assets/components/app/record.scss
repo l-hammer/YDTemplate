@@ -4,11 +4,11 @@
  */
 
 $records-prefix-cls: 'records';
-$record-table-bg: #821cf6;
-$record-table-border-color: #621d8c;
+$record-table-bg: #a7942d;
+$record-table-border-color: #f8dc40;
 .#{$records-prefix-cls} {
   height: 100%;
-  background: #a82891 url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/tenBilRedPacket/records-bg.jpg') no-repeat center top / 100%;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/invitefriends/records-title-new.png') no-repeat center top / 100%;
   padding: 2.44rem .4rem .4rem;
   &-table {
     width: 100%;
@@ -31,7 +31,7 @@ $record-table-border-color: #621d8c;
       }
     }
     &-body {
-      background: #f4eaff;
+      background: #f8f2cf;
       color: #555555;
       max-height: 10.573333rem;
       overflow: scroll;
@@ -52,14 +52,14 @@ $record-table-border-color: #621d8c;
       }
     }
     .empty {
-      background: #f4eaff;
+      background: #f8f2cf;
       color: #555555;
       height: 2.4rem;
       line-height: 2.4rem;
       text-align: center;
     }
     div.loading {
-      background: #f4eaff;
+      background: #f8f2cf;
       text-align: center;
       padding: 1.226667rem;
       >span[class*=loading] {

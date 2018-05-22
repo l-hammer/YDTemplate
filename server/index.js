@@ -44,9 +44,9 @@ app.use(
        * 订阅http-proxy的proxyReq事件
        * 在转发请求前设置请求头，将PHPSESSID附加到cookie
        * @class https://www.yindou.com -> 'PHPSESSID=n0q2uv73c2v7qd43feag8hntq5'
-       * @class http://songhwwww.yind123.com/ -> 'PHPSESSID=uitu7f6l86enb81t70iveku2v7'
+       * @class http://songhwwww.yind123.com/ -> 'PHPSESSID=nvquupl0hr2f6jmuijcscqvqk2'
        */
-      proxyReq.setHeader('cookie', 'PHPSESSID=uitu7f6l86enb81t70iveku2v7');
+      proxyReq.setHeader('cookie', 'PHPSESSID=nvquupl0hr2f6jmuijcscqvqk2');
       // if(app.locals.cookie) {
       //   proxyReq.setHeader('cookie', app.locals.cookie);
       // }
@@ -68,3 +68,9 @@ app.use(bundler.middleware())
 app.listen(port, () => {
   console.log(`Server running at \x1B[36mhttp://localhost:${port}\x1B[0m\n`);
 })
+
+// https://github.com/kentcdodds/cross-env/issues/121
+process.on('SIGINT', () => {
+  console.log();
+  process.exit(0);
+});
