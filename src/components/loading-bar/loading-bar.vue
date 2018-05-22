@@ -19,8 +19,6 @@
 </template>
 
 <script>
-import bus from '../../app/bus';
-
 export default {
   name: 'LoadingBar',
   props: {
@@ -47,7 +45,7 @@ export default {
       const per = val / this.imgs.length;
       this.percent = Math.floor(per * 100);
       if (per === 1) {
-        bus.updateLoading(false);
+        this.$bus.updateLoading(false);
       }
     },
   },

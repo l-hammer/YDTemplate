@@ -1,4 +1,4 @@
-<!-- 微信服务号加息助力升温季 -->
+<!-- 微信服务号邀请好友活动 -->
 <{extends file='wx/layout/events/main.tpl'}>
 
 <{block name=common_js_link}><{/block}>
@@ -19,3 +19,4 @@
 {{cssCode}}
 </style>
 <{/block}>
+

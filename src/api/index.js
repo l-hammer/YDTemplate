@@ -4,7 +4,7 @@
  */
 import axios from './config';
 
-export function fetch(url, params, type = 'post') {
+export function fetch(url, params = {}, type = 'post') {
   return new Promise((resolve, reject) => {
     axios[type](url, params).then((response) => {
       if (response.code === 0) {
@@ -26,17 +26,27 @@ export default {
   test(data) {
     return fetch('/webapi/uc_my_userinfo', data);
   },
+
   /**
-   * app获取出借信息接口
+   * --------------------------------------------------
+   *                    以下为示例接口                   .
+   * --------------------------------------------------
    */
-  getLoanInfo() {
-    return fetch('/webapi/getLoanInfo');
+
+  /**
+   * 游戏初始化信息
+   * @param {String} invitation_id 邀请人id
+   */
+  gameInfo(data) {
+    return fetch('/wx/getGameInfo', data);
   },
   /**
-   * app领取加息券接口
-   * @param {*} data cash -> id
+   * 摇数 + 奖金记录
+   * @param {String} act 'master_num': 邀请人摇数; slave_num: 被邀请人摇数; list: 奖金纪录
+   * @param {String} invitation_id 邀请人加密id
+   * @param {String} open_id 微信id
    */
-  getCash(data) {
-    return fetch('/webapi/getCash', data);
+  invite(data) {
+    return fetch('/webapi/shakeNum', data);
   },
 };

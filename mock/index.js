@@ -25,6 +25,7 @@ const port = Number(process.env.PORT || 1234);
 const router = require('./util');
 
 app.use('/webapi', router);
+app.use('/wx', router);
 
 const feedback = 'Interested in YDTemplate? Help me improve by sharing your feedback.';
 const github = 'https://github.com/l-hammer/YDTemplate';
@@ -34,3 +35,9 @@ app.use(bundler.middleware());
 app.listen(port, () => {
   console.log(`Server running at \x1B[36mhttp://localhost:${port}\x1B[0m\n`);
 })
+
+// https://github.com/kentcdodds/cross-env/issues/121
+process.on('SIGINT', () => {
+  console.log();
+  process.exit(0);
+});

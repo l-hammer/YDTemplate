@@ -10,7 +10,6 @@
 .table {
   width: 100%;
   min-height: .386667rem;
-  background: #fff;
   font-size: .32rem;
   &-header {
     background: $record-table-bg;
@@ -28,7 +27,7 @@
     }
   }
   &-body {
-    background: #f8f2cf;
+    background: $record-table-body-bg;
     color: #555555;
     max-height: 10.573333rem;
     overflow: scroll;
@@ -49,14 +48,14 @@
     }
   }
   .empty {
-    background: #f8f2cf;
+    background: $record-table-body-bg;
     color: #555555;
     height: 2.4rem;
     line-height: 2.4rem;
     text-align: center;
   }
   div.loading {
-    background: #f8f2cf;
+    background: $record-table-body-bg;
     text-align: center;
     padding: 1.226667rem;
     >span[class*=loading] {
