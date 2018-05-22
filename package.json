@@ -49,12 +49,11 @@
     "jquery": "^3.3.1",
     "jquery-modal": "^0.9.1",
     "perfect-scrollbar": "^1.3.0",
-    "swiper": "^4.0.7",
+    "swiper": "^4.2.6",
     {{/if_eq}}
     {{#unless_eq type "web"}}
     "axios": "^0.17.1",
-    "es6-promise": "^4.2.4",
-    "qs": "^6.5.1",
+    "qs": "^6.5.2",
     "v-animate-css": "^0.0.2",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
@@ -64,24 +63,26 @@
     {{/if_eq}}
   },
   "peerDependencies": {
-    "vue": "^2.5.10"
+    "vue": ">=2.5.16"
   },
   "devDependencies": {
-    "@vue/component-compiler-utils": "^1.0.0",
-    "autoprefixer": "^7.2.4",
-    "babel-eslint": "^8.2.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-vue": "^2.0.0",
-    "cross-env": "^5.0.5",
-    "eslint": "^4.17.0",
+    "@vue/component-compiler-utils": "^1.2.1",
+    "autoprefixer": "^8.5.0",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-vue": "^2.0.2",
+    "body-parser": "^1.18.3",
+    "connect-history-api-fallback": "^1.5.0",
+    "cross-env": "^5.1.5",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-vue": "^4.5.0",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "http-proxy-middleware": "^0.17.4",
     "mockjs": "^1.0.1-beta3",
-    "node-sass": "^4.8.3",
-    "parcel-bundler": "^1.7.1",
+    "node-sass": "^4.9.0",
+    "parcel-bundler": "^1.8.1",
     "parcel-plugin-eslint": "^1.0.4",
     "vue-hot-reload-api": "^2.3.0",
     "vue-template-compiler": "^2.5.16"
