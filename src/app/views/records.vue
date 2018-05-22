@@ -1,14 +1,14 @@
 <template>
   <div class="records">
-    <div class="records-table">
-      <div class="records-table-header">
+    <div class="table">
+      <div class="table-header">
         <span>日期</span>
         <span>类型</span>
         <span>金额（元）</span>
       </div>
       <div
         v-if="!loading && records.length > 0"
-        class="records-table-body">
+        class="table-body">
         <div
           v-for="record in records"
           :key="record.id"

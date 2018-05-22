@@ -1,15 +1,27 @@
 <template>
-  <div class="main home">
+  <div class="main invite">
     <div class="top">
-      <p class="tit ft-26">我的激活奖金<br>{{ money }}元</p>
+      <p
+        v-if="!selfLuckyNum || friendLuckyNum === '?'"
+        class="tit single ft-26">{{ selfLuckyNum && selfLuckyNum !== '?' ? '激烈PK中……' : 'PK好友，赚钱拿奖金' }}</p>
+      <p
+        v-if="selfLuckyNum > friendLuckyNum"
+        class="tit ft-26">恭喜您，PK胜利<br>获得1元奖金</p>
+      <p
+        v-if="selfLuckyNum < friendLuckyNum"
+        class="tit ft-26">不要气馁，<br>邀请好友继续赚！</p>
       <router-link
-        class="rules ft-22"
-        to="rules">规则》</router-link>
+        :to="{ name: 'rules', query: { invitation_id: gameInfo.invitation_id}}"
+        class="rules ft-22">规则》</router-link>
     </div>
     <div
       :class="{ drumming: drumming }"
       class="mid">
-      <span class="num ft-112">{{ luckyNum }}</span>
+      <div class="pk">
+        <span class="num friend ft-80">{{ friendLuckyNum }}<span class="name ft-24"><br>好友</span></span>
+        <span class="num vs ft-39">VS</span>
+        <span class="num self ft-80">{{ selfLuckyNum }}<span class="name ft-24"><br>我的</span></span>
+      </div>
       <transition name="zoom">
         <a
           v-if="!playStatus"
@@ -18,15 +30,19 @@
           @click="play">开始摇数</a>
       </transition>
     </div>
-    <div class="bot">
+    <div
+      :class="{ around: selfLuckyNum > friendLuckyNum }"
+      class="bot">
       <a
         :class="{ disabled: disabled, shake: !disabled }"
         class="btn ft-21"
         href="javascript: void(0);"
         @click="invite">马上邀友去赚钱》</a>
-      <router-link
+      <a
+        v-if="selfLuckyNum > friendLuckyNum"
         class="btn ft-21"
-        to="records">奖金激活记录》</router-link>
+        href="javascript: void(0);"
+        @click="withdraw">奖金提现》</a>
     </div>
     <Dialog
       :show-dialog="dialogs.invite.open"
@@ -59,22 +75,40 @@
         </div>
       </div>
     </Dialog>
+    <!-- <Dialog
+      :show-dialog="dialogs.withdraw.open"
+      :name="dialogs.withdraw.name"
+      @global-close-dialog="closeDialog(dialogs.withdraw.name)">
+      <div
+        slot="main"
+        class="dialog-withdraw">
+        <div class="con ft-18">{{ withdrawStatus ? '奖金稍后将发放到您的账户中~' : '提现失败,请重新操作~' }}</div>
+        <div slot="btns">
+          <a
+            class="btn ft-21"
+            href="javascript: void(0);"
+            @click="closeDialog(dialogs.withdraw.name)">确定</a>
+        </div>
+      </div>
+    </Dialog> -->
   </div>
 </template>
 
 <script>
+// import initArr from '../../utils/es6/initArrayWithRange';
 import shuffle from '../../../utils/es6/shuffleArray';
-// import arrayPull from '../../../utils/es6/arrayPull';
+// import arrayPull from '../../utils/es6/arrayPull';
 
 export default {
   data() {
     return {
-      money: 88888,
-      luckyNum: '?',
+      friendLuckyNum: '?',
+      selfLuckyNum: '?',
       drumming: false,
       shuffleArr: [],
       playStatus: true,
       isBind: false,
+      withdrawStatus: true,
       disabled: true,
       dialogs: {
         invite: {
@@ -93,13 +127,14 @@ export default {
       return this.$bus.gameInfo;
     },
   },
-  created() {
+  mounted() {
     const res = this.gameInfo.result;
-    const num = res.number;
+    const num = res.slave_number;
+    // const range = initArr(9, 1);
 
-    this.money = res.money;
     this.playStatus = !!+num;
-    this.luckyNum = !+num ? '?' : num;
+    this.selfLuckyNum = !+num ? '?' : num;
+    this.friendLuckyNum = !+num ? '?' : res.master_number;
     this.drumming = !!+num;
     this.disabled = !+num;
     this.shuffleArr = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
@@ -122,33 +157,39 @@ export default {
       let timer = null;
       let i = 0;
       const data = {
-        act: 'master_num',
+        act: 'slave_num',
+        invitation_id: decodeURIComponent(this.gameInfo.invitation_id),
+        open_id: this.gameInfo.openid,
       };
 
       this.$axios.invite(data).then((res) => {
-        this.arrayPull(this.shuffleArr, res.number);
-        this.shuffleArr.push(res.number);
+        this.arrayPull(this.shuffleArr, res.s_number);
+        this.shuffleArr.push(res.s_number);
         this.playStatus = true;
         timer = setInterval(() => {
           this.drumming = !this.drumming;
-          this.luckyNum = this.shuffleArr[i];
+          this.selfLuckyNum = this.shuffleArr[i];
           i += 1;
           if (timer && i === this.shuffleArr.length) {
             clearInterval(timer);
             this.disabled = false;
+            this.friendLuckyNum = this.gameInfo.result.master_number;
           }
         }, 129);
       });
     },
     invite() {
-      if (this.isBind) {
-        this.openDialog('invite');
-      } else {
-        this.openDialog('bind');
-      }
+      this.$router.push({ name: 'index' });
     },
     goBind() {
       window.location.href = 'https://www.yindou.com/cnl/?ydcod=wx_regist';
+    },
+    withdraw() {
+      if (!this.isBind) {
+        this.openDialog('bind');
+      } else {
+        window.location.href = '/uc/index';
+      }
     },
   },
 };

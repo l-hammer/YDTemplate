@@ -60,6 +60,41 @@ app.use(
   })
 )
 
+app.use(
+  '/wx',
+  proxy({
+    changeOrigin: true,
+    /**
+     * 拦截的目标对象
+     * @param target -> https://www.yindou.com 线上环境
+     * @param target -> http://songhwwww.yind123.com 测试环境
+     * @param target -> https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/xxxxxx mock环境
+     */
+    target: 'http://songhwwww.yind123.com/',
+    pathRewrite: { 
+      '^/api': '' 
+    },
+    onProxyReq: function (proxyReq, req) {
+      /**
+       * 订阅http-proxy的proxyReq事件
+       * 在转发请求前设置请求头，将PHPSESSID附加到cookie
+       * @class https://www.yindou.com -> 'PHPSESSID=n0q2uv73c2v7qd43feag8hntq5'
+       * @class http://songhwwww.yind123.com/ -> 'PHPSESSID=nvquupl0hr2f6jmuijcscqvqk2'
+       */
+      proxyReq.setHeader('cookie', 'PHPSESSID=nvquupl0hr2f6jmuijcscqvqk2');
+      // if(app.locals.cookie) {
+      //   proxyReq.setHeader('cookie', app.locals.cookie);
+      // }
+    },
+    // onProxyRes: function (proxyRes, req, res) {
+    //   const proxyCookie = proxyRes.headers["set-cookie"];
+    //   if (proxyCookie) {
+    //     app.locals.cookie = proxyCookie;
+    //   }
+    // }
+  })
+)
+
 const feedback = 'Interested in YDTemplate? Help me improve by sharing your feedback.';
 const github = 'https://github.com/l-hammer/YDTemplate';
 console.log(`\n\x1B[35m${feedback}\x1B[22m\x1B[39m\n\x1B[34m${github}\x1B[0m\n`);

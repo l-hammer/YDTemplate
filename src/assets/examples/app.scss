@@ -6,222 +6,229 @@
 @import "../animation/index.scss";  /* 常用动画 */
 @import "../basics/index.scss";  /* base */
 @import "../iconfonts/index.scss";  /* iconfonts */
+@import "../customs/examples/app.scss"; /* theme */
 @import "../components/app/progress.scss";  /* loading */
 @import "../components/app/record.scss";  /* record page */
 @import "../components/app/dialog.scss";  /* record page */
 
-@include font-size(21px, ".ft-21");
-@include font-size(23px, ".ft-23");
-@include font-size(24px, ".ft-24");
-@include font-size(26px, ".ft-26");
+// @include font-size(21px, '.ft-21');
+// @include font-size(22px, '.ft-22');
+// @include font-size(24px, '.ft-24');
+// @include font-size(26px, '.ft-26');
+// @include font-size(39px, '.ft-39');
+// @include font-size(80px, '.ft-80');
+// @include font-size(112px, '.ft-112');
 
-$wave: 'wave';
-$dialog: 'dialog';
-$target: 'target';
+.ft-14 {
+  font-size: .373333rem !important;
+}
+.ft-20 {
+  font-size: .533333rem;
+}
+.ft-21 {
+  font-size: .56rem;
+}
+.ft-22 {
+  font-size: .586667rem;
+}
+.ft-24 {
+  font-size: .64rem;
+}
+.ft-26 {
+  font-size: .693333rem;
+}
+.ft-39 {
+  font-size: 1.04rem;
+}
+.ft-80 {
+  font-size: 2.133333rem;
+}
+.ft-112 {
+  font-size: 2.986667rem;
+}
 
 #app {
   height: 100%;
-  background: linear-gradient(to bottom, #fefbec, #fcf4c7);
-}
-.main {
-  height: 100%;
-  font-family: 'HYXiaoMaiTiJ';
-  position: relative;
-  > .bg {
-    position: absolute;
-    width: 100%; height: 100%;
-    background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/riseseason/bg-1-amend.png') no-repeat center bottom / 100% auto;
-    z-index: 9;
+  background: linear-gradient(to bottom, #96D7F9, #2eb0f3);
+  .main {
+    height: inherit;
   }
-}
-.btn {
-  display: inline-block;
-  padding: .12rem .16rem;
-  text-align: center;
-  color: white;
-  border-radius: .36rem;
-  background: #ff6000;
-  &:active {
-      background: rgba($color: #ff6000, $alpha: .8);
-  }
-  &.gray {
-    background: #acafb0;
-  }
-}
-.loan {
-  width: 100%; height: 3.973333rem;
-  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/riseseason/bg-2.png') no-repeat left bottom / 100% auto;
-  padding-top: 2.026667rem;
-  padding-left: .386667rem;
-  > p {
-    width: 5.226667rem;
-    text-align: center;
-    color: #6b1115;
-  }
-  > p + p {
-    color: #ff6000;
-  }
-}
-.rule {
-  width: 2.56rem; height: 2.56rem;
-  position: absolute;
-  top: .28rem; right: .333333rem;
-  z-index: 12;
-  > .bg {
-    position: absolute;
-    top: 0; left: 0;
-    width: 2.56rem; height: 2.56rem;
-    background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/riseseason/bg-3.png') no-repeat center / 100%;
-    animation: rotate 5s linear 0s infinite;
-  }
-  > .con {
-    color: #ff6000;
-    @include center {
-      white-space: nowrap;
-    }
-  }
-}
-.#{$wave} {
-  &.shadow {
-    position: absolute;
-    top: .08rem;
-    background-image: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/riseseason/wave-shadow-amend.png');
-    background-position: 1.36rem bottom;
-    animation: wave-reverse 3.2s linear .8s infinite;
-    z-index: -1;
-  }
-  &-container {
-    position: absolute;
-    left: 0; bottom: 0;
-    width: 100%; height: 11.746667rem;
-  }
-  &-column {
-    width: 1.36rem; height: 6.56rem;
-    @include justify-center {
-      margin-top: .226667rem;
-      margin-left: -.466667rem;
-    }
-    &-clone {
-      position: absolute;
-      width: 1.36rem; height: 6.56rem;
-      left: 0; bottom: 0;
-      border-top-left-radius: .786667rem;
-      border-top-right-radius: .786667rem;
-      overflow: hidden;
-    }
-    .shape {
-      flex: 1;
-      width: 100%;
-      background: #f2492e;
-      margin-top: -1px;
-    }
-  }
-  &-main {
-    position: absolute;
-    width: 1.36rem; height: 1.066667rem;
-    left: 0; bottom: 0;
-    display: flex;
-    flex-direction: column;
-    transition: height 2s;
-  }
-  width: 1.36rem; height: .68rem;
-  background-image: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/riseseason/wave-main-amend.png');
-  background-repeat: repeat-x;
-  background-size: 1.36rem .68rem;
-  background-position: -1.36rem bottom;
-  animation: wave .8s linear infinite;
 }
 
-.#{$target} {
-  &-container {
-    position: absolute;
-    left: 0; bottom: 0;
-    width: 100%; height: 11.746667rem;
-    z-index: 12;
+.btn {
+  display: inline-block;
+  padding: .24rem;
+  background: #ffeea6;
+  border-radius: .52rem;
+  letter-spacing: -.026667rem;
+  color: #91512d;
+  &:active {
+    background: rgba($color: #ffeea6, $alpha: .8);
   }
-  &-column {
-    width: 1.36rem; height: 6.56rem;
-    @include justify-center {
-      margin-top: .226667rem;
-      margin-left: -.466667rem;
-    }
-  }
-  position: absolute;
-  top: .68rem; left: 1.853333rem;
-  z-index: 999;
-  > span {
-    display: block;
-    white-space: nowrap;
-    color: #6e151e;
-    margin-bottom: .066667rem;
-  }
-  &:nth-of-type(2) {
-    top: 2.946667rem;
-  }
-  &:nth-of-type(3) {
-    top: 4.693333rem;
+  &.gray {
+    background: #b8b5b0 !important;
   }
   &.disabled,
   &[disabled] {
-    > span {
-      color: #999999;
+    pointer-events: none;
+    filter: grayscale(60%);
+  }
+  &.shake {
+    animation: shake .8s infinite alternate-reverse;
+  }
+}
+
+.main.home,
+.main.invite {
+  display: flex;
+  flex-direction: column;
+  font-family: 'FZJHSXJW';
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/invitefriends/page-1.jpg') no-repeat center / 100% 100%;
+  .top {
+    position: relative;
+    padding-top: 1.36rem;
+    margin-bottom: .266667rem;
+    p.tit {
+      line-height: 1.1em;
+      color: white;
+      text-align: center;
+    }
+    a.rules {
+      position: absolute;
+      padding: .133333rem .08rem .133333rem .333333rem;
+      color: white;
+      top: .426667rem; right: .293333rem;
+      background: #0698e2;
+      border-radius: .426667rem;
+    }
+  }
+  .mid {
+    width: 100%;
+    height: 10.16rem;
+    background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/invitefriends/drum.png') no-repeat center / 100% 100%;
+    position: relative;
+    &.drumming {
+      background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/invitefriends/drumming.png') no-repeat center / 100% 100%;
+    }
+    span.num {
+      color: #ed5455;
+      font-family: 'fzhtjt';
+      @include justify-center {
+        margin-top: 1.6rem;
+      }
     }
     a.btn {
-      display: none;
+      padding: .173333rem .56rem;
+      background: #ee4b4c;
+      color: white;
+      &:active {
+        background: rgba($color: #ee4b4c, $alpha: .8);
+      }
+      position: absolute;
+      top: 5.066667rem; left: 50%;
+      margin-left: -1.786667rem;
+    }
+  }
+  .bot {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    > .btn {
+      padding-right: .08rem;
+    }
+  }
+  .dialog .dialog-container {
+    width: 10rem;
+    background: transparent;
+    .forward {
+      width: 100%; height: 3.64rem;
+      position: absolute;
+      top: -50vh;
+      background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/invitefriends/invite.png') no-repeat left top / 100%;
+    }
+  }
+  .dialog .dialog-bind,
+  .dialog .dialog-withdraw {
+    width: 8.24rem;
+    margin: 0 auto;
+    background: #ffe8c4;
+    color: #555555;
+    border-radius: .106667rem;
+    padding-bottom: .386667rem;
+    .con {
+      padding-top: .92rem;
+      padding-bottom: .613333rem;
+    }
+    div[slot=btns] {
+      display: flex;
+      justify-content: space-around;
+      padding: 0 .653333rem;
+    }
+    a.btn {
+      width: 2.746667rem;
+      text-align: center;
+      background: #ff3744;
+      color: white;
     }
   }
 }
 
-.#{$dialog} {
-  &-container {
-    padding-top: .426667rem;
-    background: transparent;
+.main.invite {
+  .top p.single.tit {
+    line-height: 1.52rem;
   }
-  &-rules {
-    padding: .88rem .386667rem 2.106667rem;
-    border-radius: .24rem;
-    background: #fcf4c7 url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/riseseason/dialog-bg-1.png') no-repeat center bottom / 100% auto;
-    color: #6b1115;
-    > h3 {
-      @include justify-center {
-        padding: .466667rem .56rem;
-        border-radius: 50%;
-        margin-top: -1.306667rem;
-      }
-      background: #fcf4c7;
+  .mid {
+    .pk .num {
+      text-align: center;
     }
-    > p {
-      position: relative;
-      text-align: justify;
-      z-index: 9;
+    .pk .friend {
+      margin-left: -1.453333rem;
+    }
+    .pk .self {
+      margin-left: 1.453333rem;
+    }
+    .pk .name {
+      display: flex;
+      font-family: 'FZJHSXJW';
+      margin-top: -.68rem;
+      color: #93532d;
+    }
+    .pk .vs {
+      margin-top: 2.933333rem;
+      color: #93532d;
     }
   }
-  &-success {
-    padding: .88rem .386667rem 1.306667rem;
-    border-radius: .24rem;
-    background: #fcf4c7 url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/riseseason/dialog-bg-2.png') no-repeat center bottom / 100% auto;
-    color: #6b1115;
-    > p {
-      line-height: .773333rem;
-      margin-bottom: .92rem;
-      &:nth-of-type(1) {
-        margin-bottom: .52rem;
-      }
-      &:nth-of-type(2) {
-        margin-bottom: .386667rem;
-      }
-      &:nth-of-type(3) {
-        margin-bottom: 0;
-      }
+  .bot {
+    padding-right: .28rem;
+    justify-content: flex-end;
+    &.around {
+      justify-content: space-around;
     }
-    > img {
-      width: 2.56rem;
-      margin-bottom: .386667rem;
+  }
+}
+
+.main.rules {
+  padding: 2.106667rem .426667rem 0;
+  background: #2eb0f3 url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/invitefriends/rule-title.png') no-repeat left top / 100%;
+  p {
+    color: white;
+    line-height: 1.29em;
+    &.ps {
+      margin-top: .386667rem;
+      margin-bottom: .48rem;
+      font-weight: 500;
     }
-    a.btn {
-      width: 2.906667rem;
-      padding: .213333rem .16rem;
-      border-radius: .48rem;
-    }
+  }
+  .table {
+    margin-top: .28rem;
+  }
+}
+
+.main.records {
+  padding-top: 1.906667rem;
+  background: #2eb0f3 url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/invitefriends/records-title.png') no-repeat left top / 100%;
+  .table span.date {
+    flex: 2;
   }
 }

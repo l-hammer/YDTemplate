@@ -2,70 +2,65 @@
  * Created by LHammer on 18/03/30.
  * Records 记录页公共样式
  */
-
-$records-prefix-cls: 'records';
-$record-table-bg: #a7942d;
-$record-table-border-color: #f8dc40;
 .#{$records-prefix-cls} {
   height: 100%;
   background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/invitefriends/records-title-new.png') no-repeat center top / 100%;
   padding: 2.44rem .4rem .4rem;
-  &-table {
-    width: 100%;
-    min-height: .386667rem;
-    background: #fff;
-    font-size: .32rem;
-    &-header {
-      background: $record-table-bg;
-      color: #fef3dd;
+}
+.table {
+  width: 100%;
+  min-height: .386667rem;
+  font-size: .32rem;
+  &-header {
+    background: $record-table-bg;
+    color: #fef3dd;
+    display: flex;
+    >span {
+      height: .813333rem;
+      flex: 1;
+      text-align: center;
+      line-height: .8rem;
+      border-bottom: 1px solid $record-table-border-color;
+      &:not(:last-child) {
+        border-right: 1px solid $record-table-border-color;
+      }
+    }
+  }
+  &-body {
+    background: $record-table-body-bg;
+    color: #555555;
+    max-height: 10.573333rem;
+    overflow: scroll;
+    .item {
+      width: 100%;
       display: flex;
       >span {
         height: .813333rem;
         flex: 1;
-        text-align: center;
-        line-height: .8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-bottom: 1px solid $record-table-border-color;
         &:not(:last-child) {
           border-right: 1px solid $record-table-border-color;
         }
       }
     }
-    &-body {
-      background: #f8f2cf;
-      color: #555555;
-      max-height: 10.573333rem;
-      overflow: scroll;
-      .item {
-        width: 100%;
-        display: flex;
-        >span {
-          height: .813333rem;
-          flex: 1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-bottom: 1px solid $record-table-border-color;
-          &:not(:last-child) {
-            border-right: 1px solid $record-table-border-color;
-          }
-        }
-      }
-    }
-    .empty {
-      background: #f8f2cf;
-      color: #555555;
-      height: 2.4rem;
-      line-height: 2.4rem;
-      text-align: center;
-    }
-    div.loading {
-      background: #f8f2cf;
-      text-align: center;
-      padding: 1.226667rem;
-      >span[class*=loading] {
-        color: $record-table-bg;
-        animation: circle-loading 1s linear infinite;
-      }
+  }
+  .empty {
+    background: $record-table-body-bg;
+    color: #555555;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+  }
+  div.loading {
+    background: $record-table-body-bg;
+    text-align: center;
+    padding: 1.226667rem;
+    >span[class*=loading] {
+      color: $record-table-bg;
+      animation: circle-loading 1s linear infinite;
     }
   }
 }

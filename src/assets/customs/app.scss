@@ -1,0 +1,18 @@
+/**
+ * -------------------------------------------------
+ *                   app vars.scss
+ * -------------------------------------------------
+ */
+
+/* records
+------------------------------ */
+$records-prefix-cls: 'records';
+$record-table-bg: #a7942d;
+$record-table-body-bg: #f8f2cf;
+$record-table-border-color: #f8dc40;
+
+/* progress
+------------------------------ */
+$progress-prefix-cls: 'progress';
+$progress-bg: #fcf4c7;
+$progress-deep-bg: darken($progress-bg, 15%);

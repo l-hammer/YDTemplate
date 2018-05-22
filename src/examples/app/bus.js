@@ -6,12 +6,16 @@ import Vue from 'vue/dist/vue';
 export default new Vue({
   data() {
     return {
-      loading: true,
+      globalLoading: true,
+      gameInfo: {},
     };
   },
   methods: {
     updateLoading(val) {
-      this.loading = val;
+      this.globalLoading = val;
+    },
+    updatedGameInfo(data) {
+      this.gameInfo = data;
     },
   },
 });

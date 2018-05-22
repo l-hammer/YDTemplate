@@ -2,10 +2,6 @@
  * Created by LHammer on 18/03/30.
  * Progress 进度条公共样式
  */
-
-$progress-prefix-cls: 'progress';
-$progress-bg: #fcf4c7;
-$progress-deep-bg: darken($progress-bg, 15%);
 .#{$progress-prefix-cls} {
   &-block {
     position: absolute;
