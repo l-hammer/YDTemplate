@@ -83,8 +83,30 @@ else
     rm -rf $monthDir && \
     git co *.tpl
   elif [[ $1 == "app" && $2 == "--no-minify" ]]; then
+    tempFile=./src/app/template/*.tpl
+    tempFileBase=`basename $tempFile`
     npm run build && \
-    python ./bin/autocopy.py $1
+    python ./bin/autocopy.py $1 && \
+    scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$prevMonth ./src/app && \
+    prevMonthDir=./src/app/$prevMonth
+    scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$pType$month ./src/app && \
+    monthDir=./src/app/$month
+    if [ -e $prevMonthDir/$tempFileBase ]; then
+      scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$prevMonth && \
+      echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$prevMonth done \033[0m\n"
+    elif [ ! -d "./src/app/$month" ]; then
+      mkdir -p "./src/app/$month" && \
+      monthDir=./src/app/$month
+      cp $tempFile "$monthDir" && \
+      scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $monthDir $server$pType && \
+      echo -e "\n\033[32m🚚  Make $month dir && Scp $month/$tempFileBase to $pType done \033[0m\n"
+    else
+      scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$pType$month && \
+      echo -e "\n\033[32m🚚  Scp $tempFileBase to $pType$month done \033[0m\n"
+    fi
+    rm -rf $prevMonthDir && \
+    rm -rf $monthDir && \
+    git co *.tpl
   elif [[ $1 == "webeg" && ! $2 ]]; then
     npm run build:webeg:min && \
     python ./bin/autocopy.py examples/web
