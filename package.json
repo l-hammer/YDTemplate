@@ -1,7 +1,7 @@
 {
   "name": "{{ name }}",
   "description": "{{ description }}",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "author": "{{ author }}",
   "scripts": {
     {{#if_eq type "h5"}}
