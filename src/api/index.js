@@ -4,9 +4,9 @@
  */
 import axios from './config';
 
-export function fetch(url, params) {
+export function fetch(url, params, type = 'post') {
   return new Promise((resolve, reject) => {
-    axios.post(url, params).then((response) => {
+    axios[type](url, params).then((response) => {
       if (response.code === 0) {
         resolve(response.data);
       } else {
