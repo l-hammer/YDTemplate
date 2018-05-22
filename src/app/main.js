@@ -16,6 +16,16 @@ Vue.config.productionTip = false;
 
 Vue.use(LoadingBar);
 
+router.beforeEach((to, from, next) => {
+  if (bus.globalLoading) {
+    bus.$watch('globalLoading', function (loading) {
+      !loading ? next() : next(false);
+    });
+  } else {
+    next();
+  }
+});
+
 router.afterEach((to) => {
   const shareData = {
     title: to.meta.title || '', // 分享标题

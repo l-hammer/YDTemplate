@@ -30,11 +30,14 @@ export default {
         return [];
       },
     },
+    show: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
       count: 0,
-      show: true,
       percent: 0,
       cacheImgs: [],
     };
@@ -44,8 +47,7 @@ export default {
       const per = val / this.imgs.length;
       this.percent = Math.floor(per * 100);
       if (per === 1) {
-        this.show = false;
-        bus.updateLoading(this.show);
+        bus.updateLoading(false);
       }
     },
   },

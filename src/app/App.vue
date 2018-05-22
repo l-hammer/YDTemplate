@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <Loading-bar :imgs="imgs"></Loading-bar>
+    <Loading-bar
+      :imgs="imgs"
+      :show="globalLoading">
+    </Loading-bar>
     <router-view></router-view>
   </div>
 </template>
@@ -28,6 +31,11 @@ export default {
         'https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/tenBilRedPacket/redpackets.png',
       ],
     };
+  },
+  computed: {
+    globalLoading() {
+      return this.$bus.globalLoading;
+    },
   },
 };
 </script>

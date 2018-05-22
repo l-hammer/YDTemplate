@@ -3,11 +3,11 @@ import Router from 'vue-router';
 
 // 全加载
 import index from './views/index.vue';
-import record from './views/record.vue';
+import records from './views/records.vue';
 
 // 懒加载
 // const index = () => import('./views/index.vue');
-// const record = () => import('./views/record.vue');
+// const records = () => import('./views/records.vue');
 
 Vue.use(Router);
 
@@ -27,9 +27,9 @@ export default new Router({
       },
     },
     {
-      name: 'record',
-      path: '/record',
-      component: record,
+      name: 'records',
+      path: '/records',
+      component: records,
     },
   ],
 });
