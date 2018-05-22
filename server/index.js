@@ -68,3 +68,9 @@ app.use(bundler.middleware())
 app.listen(port, () => {
   console.log(`Server running at \x1B[36mhttp://localhost:${port}\x1B[0m\n`);
 })
+
+// https://github.com/kentcdodds/cross-env/issues/121
+process.on('SIGINT', () => {
+  console.log();
+  process.exit(0);
+});
