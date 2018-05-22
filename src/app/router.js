@@ -12,6 +12,8 @@ import record from './views/record.vue';
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
+  base: '',
   routes: [
     {
       path: '/',
