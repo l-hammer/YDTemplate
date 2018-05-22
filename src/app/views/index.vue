@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import bus from '../bus';
-
 export default {
   data() {
     return {
@@ -22,7 +20,7 @@ export default {
   },
   computed: {
     loading() {
-      return bus.loading;
+      return this.bus.loading;
     },
   },
   mounted() {
