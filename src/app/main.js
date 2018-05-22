@@ -5,10 +5,12 @@
 import Vue from 'vue/dist/vue';
 import axios from '../api/index';
 import router from './router';
+import bus from './bus';
 import App from './App.vue';
 import LoadingBar from '../components/loading-bar';
 import wxShare from '../utils/es6/wxShare';
 
+Vue.prototype.$bus = bus;
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 
@@ -21,8 +23,7 @@ router.afterEach((to) => {
     link: to.meta.link || '', // 分享链接
     imgUrl: to.meta.imgUrl || '', // 分享图标
   };
-  wxShare.setConfig();
-  wxShare.init(shareData);
+  wxShare({}, shareData);
 });
 
 new Vue({
