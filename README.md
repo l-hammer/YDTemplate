@@ -13,12 +13,21 @@
     </p>
 </p>
 
+## Usage
+
+This is a project template for [ydt-cli](https://github.com/l-hammer/YDT-cli). 
+
+```bash
+$ npm install -g ydt-cli
+$ ydt-cli init YDTemplate my-project
+```
+
 ## Quick start
 
 Several quick start options are available:
 
-- Initialize template run: `. init.sh`
-- Clone the repo: `https://github.com/l-hammer/YDTemplate.git`
+<!-- - Initialize template run: `. init.sh` -->
+<!-- - Clone the repo: `https://github.com/l-hammer/YDTemplate.git` -->
 - Install dependencies with [npm](https://www.npmjs.com/): `npm install`
 - App development run `npm run start`
 - App development use mock data run `npm run dev`
@@ -26,7 +35,7 @@ Several quick start options are available:
 - Web development use mock data run `npm run dev:web`
 - Open web example run `npm run dev:webeg`
 - Open app example run `npm run dev:appeg`
-- Build run `. build.sh @param1 @param2` (@param1:`web`,`app`,`webeg`,`appeg`; @param2:`--no-minify`)
+- Build run `bash build.sh @param1 @param2` (@param1:`web`,`app`,`webeg`,`appeg`; @param2:`--no-minify`)
 - Move useless codes run `python bin/mvuseless.py @param` (@param:`web`,`app`,`examples`)
 - Open `http://localhost:1234` in your browser.
 
@@ -48,21 +57,23 @@ YDTemplate/
 │   └── index.js    // 💡node proxy
 ├── src/
 │   ├── api/
-│   │   ├── config.js/    // axios配置
-│   │   └── app/    // 业务API
+│   │   ├── config.js    // 🛠axios配置
+│   │   └── index.js    // 🎲业务API
 │   ├── assets/
 │   │   ├── normalize/
-│   │   │   └── index.scss    // 统一浏览器默认样式
+│   │   │   └── index.scss    // 🤖统一浏览器默认样式
 │   │   ├── basics/
-│   │   │   └── index.scss    // base.scss
+│   │   │   └── index.scss    // 🙌base.scss
 │   │   ├── iconfonts/
-│   │   │   └── index.scss    // 内联字体&&字体图标
+│   │   │   └── index.scss    // 🔄内联字体&&字体图标
 │   │   ├── animation/
-│   │   │   └── index.scss    // 常用css动画
+│   │   │   └── index.scss    // 🚥常用css动画
 │   │   ├── mixins/
-│   │   │   └── index.scss    // 可重用的代码块@mixin
-│   │   ├── components/
-│   │   │   └── index.scss    // 常用组件样式@dialog @progress @records page @onepx-border
+│   │   │   └── index.scss    // 📚可重用的代码块@mixin
+│   │   ├── customs/
+│   │   │   └── app.scss    // 💋自定义SCSS变量
+│   │   └── components/
+│   │       └── index.scss    // 🎈常用组件样式@dialog @progress @records page @onepx-border
 │   │   ├── app.scss    // app开发样式入口
 │   │   └── web.scss    // web开发样式入口
 │   ├── examples/
@@ -86,7 +97,7 @@ YDTemplate/
 │   │   ├── index.html    // web开发页
 │   │   ├── index.js    // web开发脚本
 │   │   └── template.tpl    // web上线模板
-│   │── vetar/    // 极简版MVVM
+│   │── vetar/    // 🤞极简版MVVM
 │   │   ├── dep.js    // 观察指挥中心
 │   │   ├── index.js    // MVVM:Vetar
 │   │   └── watcher.js    // 订阅者
