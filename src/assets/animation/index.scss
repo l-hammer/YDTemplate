@@ -126,3 +126,13 @@
 .zoom-leave-to {
   animation: zoomOut .25s linear;
 }
+
+@keyframes shake {
+  from {
+    border: 1px solid #ffeea6;
+  }
+  to {
+    border: 1px solid white;
+    box-shadow: 0 0 .693333rem white;
+  }
+}
