@@ -9,7 +9,7 @@
       "result": {
         "id": "26",
         "u_id": "350",
-        "number|0-2": 0,
+        "number|+2": 0,
         "money": "1.50",
         "dt": "2018-05-19 14:55:39"
       },
@@ -25,9 +25,9 @@
       "openid": "oIqWiwYcGxRj7ddnNz--1-j9i22M",
       "state": 1,
       "result": {
-          "master_number": "6",
+          "master_number|+5": 0,
           "id": "27",
-          "slave_number": 0
+          "slave_number|+6": 0
       },
       "share_url": "http://songhwwww.yind123.com/wx/yaoyou_fuwu/invite?invitation_id=o0pUuyQqL8SuJt4tWbUGIg%3D%3D",
       "fenxiang": true
