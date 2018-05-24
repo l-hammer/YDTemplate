@@ -63,7 +63,7 @@ module.exports = {
     'src/app/template/index.tpl',
     'src/app/views/record.vue',
     'src/examples/app/template/riseseason.tpl',
-    'src/examples/app/views/index.vue'
+    'src/examples/app/views/*.vue'
   ],
   complete: function(data, { chalk }) {
     const green = chalk.green
