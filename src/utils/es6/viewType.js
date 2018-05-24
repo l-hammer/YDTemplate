@@ -6,19 +6,19 @@
  */
 const { toString } = {};
 
-const ctorName = (val) => {
+export const ctorName = (val) => {
   return val.constructor ? val.constructor.name : null;
 };
 
-const isNull = (val) => {
+export const isNull = (val) => {
   return val === null;
 };
 
-const isUndef = (val) => {
+export const isUndef = (val) => {
   return val === undefined || val === null;
 };
 
-const isNumber = (num) => {
+export const isNumber = (num) => {
   const number = +num;
 
   if ((number - number) !== 0) {
@@ -39,32 +39,32 @@ const isNumber = (num) => {
   return false;
 };
 
-const isArray = (val) => {
+export const isArray = (val) => {
   if (Array.isArray) return Array.isArray(val);
   return val instanceof Array;
 };
 
-const isObject = (val) => {
+export const isObject = (val) => {
   return val !== null && typeof val === 'object';
 };
 
-const isPlainObject = (val) => {
+export const isPlainObject = (val) => {
   return toString.call(val) === '[object Object]';
 };
 
-const isRegexp = (val) => {
+export const isRegexp = (val) => {
   return toString.call(val) === '[object RegExp]';
 };
 
-const isGeneratorFn = (val) => {
+export const isGeneratorFn = (val) => {
   return ctorName(val) === 'GeneratorFunction';
 };
 
-const isFunction = (val) => {
+export const isFunction = (val) => {
   return typeof val === 'function';
 };
 
-const isPrimitive = (val) => {
+export const isPrimitive = (val) => {
   if (val === null) return true;
 
   const type = typeof val;
@@ -93,7 +93,7 @@ const isArguments = (val) => {
   return false;
 };
 
-const viewType = (val) => {
+export const viewType = (val) => {
   if (val === null) return 'null';
 
   const type = typeof val;
@@ -137,8 +137,6 @@ viewType.isArguments = isArguments;
 viewType.isFunction = isFunction;
 viewType.isGeneratorFn = isGeneratorFn;
 viewType.isPrimitive = isPrimitive;
-
-export default viewType;
 
 /**
  * e.g. test
