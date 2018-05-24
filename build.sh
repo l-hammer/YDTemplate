@@ -29,31 +29,31 @@ else
   rm -rf dist/ && \
   git co *.tpl && \
   if [[ $1 == "web" && ! $2 ]]; then
-      tempFile=./src/web/*.tpl
-      tempFileBase=`basename $tempFile`
-      npm run build:web:min && \
-      python ./bin/autocopy.py $1 && \
+    tempFile=./src/web/*.tpl
+    tempFileBase=`basename $tempFile`
+    npm run build:web:min && \
+    python ./bin/autocopy.py $1 && \
 
-      # see https://linux.cn/article-7456-1.html && http://man.linuxde.net/scp
-      scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$web$prevMonth ./src/web && \
-      prevMonthDir=./src/web/$prevMonth
-      scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$web$month ./src/web && \
-      monthDir=./src/web/$month
-      if [ -e $prevMonthDir/$tempFileBase ]; then
-          scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$web$prevMonth && \
-          echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$prevMonth done \033[0m\n"
-      elif [ ! -d $monthDir ]; then
-          mkdir -p "./src/web/$month" && \
-          monthDir=./src/web/$month
-          cp $tempFile "$monthDir" && \
-          scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $monthDir $server$web && \
-          echo -e "\n\033[32m🚚  Make $month dir && Scp $month/$tempFileBase to $web done \033[0m\n"
-      else
-          scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$web$month && \
-          echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$month done \033[0m\n"
-      fi
-      rm -rf $prevMonthDir
-      rm -rf $monthDir
+    # see https://linux.cn/article-7456-1.html && http://man.linuxde.net/scp
+    scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$web$prevMonth ./src/web && \
+    prevMonthDir=./src/web/$prevMonth
+    scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $server$web$month ./src/web && \
+    monthDir=./src/web/$month
+    if [ -e $prevMonthDir/$tempFileBase ]; then
+        scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$web$prevMonth && \
+        echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$prevMonth done \033[0m\n"
+    elif [ ! -d $monthDir ]; then
+        mkdir -p "./src/web/$month" && \
+        monthDir=./src/web/$month
+        cp $tempFile "$monthDir" && \
+        scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $monthDir $server$web && \
+        echo -e "\n\033[32m🚚  Make $month dir && Scp $month/$tempFileBase to $web done \033[0m\n"
+    else
+        scp -P $serverPort -rq -o ProxyCommand='ssh '$proxy' -p 21222 -A -W %h:%p' $tempFile $server$web$month && \
+        echo -e "\n\033[32m🚚  Scp $tempFileBase to $web$month done \033[0m\n"
+    fi
+    rm -rf $prevMonthDir
+    rm -rf $monthDir
   elif [[ $1 == "web" && $2 == "--no-minify" ]]; then
     npm run build:web && \
     python ./bin/autocopy.py web
