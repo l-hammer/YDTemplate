@@ -24,20 +24,18 @@ let app = express()
 let bundler = new Bundler(proxypath)
 let port = Number(process.env.PORT || 1234);
 
-app.locals.cookie = [];
-app.use(
-  '/webapi',
-  proxy({
-    changeOrigin: true,
-    /**
-     * 拦截的目标对象
-     * @param target -> https://www.yindou.com 线上环境
-     * @param target -> http://songhwwww.yind123.com 测试环境
-     * @param target -> https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/xxxxxx mock环境
-     */
-    target: 'http://songhwwww.yind123.com',
+const options = {
+  /**
+   * 拦截的目标对象
+   * @param target -> https://www.yindou.com 线上环境
+   * @param target -> http://songhwwww.yind123.com 测试环境
+   * @param target -> https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/xxxxxx mock环境
+   */
+  target: 'http://songhwwww.yind123.com',
+  changeOrigin: true,
     pathRewrite: { 
-      '^/api': '' 
+      '^/wx/getGameInfo': '/wx/yaoyou_api',
+      '^/webapi/shakeNum': '/webapi/yaoyou_bonus',
     },
     onProxyReq: function (proxyReq, req) {
       /**
@@ -57,43 +55,8 @@ app.use(
     //     app.locals.cookie = proxyCookie;
     //   }
     // }
-  })
-)
-
-app.use(
-  '/wx',
-  proxy({
-    changeOrigin: true,
-    /**
-     * 拦截的目标对象
-     * @param target -> https://www.yindou.com 线上环境
-     * @param target -> http://songhwwww.yind123.com 测试环境
-     * @param target -> https://www.easy-mock.com/mock/5a952f51a563ca3b10c483fe/xxxxxx mock环境
-     */
-    target: 'http://songhwwww.yind123.com/',
-    pathRewrite: { 
-      '^/api': '' 
-    },
-    onProxyReq: function (proxyReq, req) {
-      /**
-       * 订阅http-proxy的proxyReq事件
-       * 在转发请求前设置请求头，将PHPSESSID附加到cookie
-       * @class https://www.yindou.com -> 'PHPSESSID=n0q2uv73c2v7qd43feag8hntq5'
-       * @class http://songhwwww.yind123.com/ -> 'PHPSESSID=nvquupl0hr2f6jmuijcscqvqk2'
-       */
-      proxyReq.setHeader('cookie', 'PHPSESSID=nvquupl0hr2f6jmuijcscqvqk2');
-      // if(app.locals.cookie) {
-      //   proxyReq.setHeader('cookie', app.locals.cookie);
-      // }
-    },
-    // onProxyRes: function (proxyRes, req, res) {
-    //   const proxyCookie = proxyRes.headers["set-cookie"];
-    //   if (proxyCookie) {
-    //     app.locals.cookie = proxyCookie;
-    //   }
-    // }
-  })
-)
+}
+app.use(['/webapi', '/wx'], proxy(options))
 
 const feedback = 'Interested in YDTemplate? Help me improve by sharing your feedback.';
 const github = 'https://github.com/l-hammer/YDTemplate';
