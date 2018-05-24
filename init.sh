@@ -6,9 +6,9 @@
 # set -x
 # vim:set ts=4 sw=4 et fdm=marker:
 
-file=./configs/init.ini
+# file=./configs/init.ini
 
-source $file
+# source $file
 
 # function initProject {
   # read -p "? Enter a project name($name) " val
@@ -58,28 +58,29 @@ function git-status {
 function git-prompt {
   local branch=`git-branch`
   local git_status=`git-status`
+  local git_now; # 标示
 
-  echo $git_status
-  
-  if [[ "$git_status" != "" ]]; then
-    local git_now; # 标示
-    if [[ "$git_status" =~ nothing\ to\ commit || "$git_status" =~  Your\ branch\ is\ up\-to\-date\ with ]]; then
-        git_now="=";
-    elif [[ "$git_status" =~ Changes\ not\ staged || "$git_status" =~ no\ changes\ added ]]; then
-        git_now='~';
-    elif [[ "$git_status" =~ Changes\ to\ be\ committed ]]; then #Changes to be committed
-        git_now='*';
-    elif [[ "$git_status" =~ Untracked\ files ]]; then
-        git_now="+";
-    elif [[ "$git_status" =~ Your\ branch\ is\ ahead ]]; then
-        git_now="#";
-    fi
-    echo "${git_now}";
+  if [[ "$git_status" =~ nothing\ to\ commit || "$git_status" =~  Your\ branch\ is\ up\-to\-date\ with ]]; then
+      if [[ $branch == 'master' ]]; then
+        echo -e "\n\033[33m🚨 warning: No permission on branch master, please create a new branch for development~ \033[0m\n"
+      else
+        git add ./ && \
+        git commit -m ':tada:initialization template……' && \
+        git pull origin master && \
+        git push -u origin master
+      fi
+  elif [[ "$git_status" =~ Changes\ not\ staged || "$git_status" =~ no\ changes\ added ]]; then
+      git_now = "~ please commit changes not staged"
+  elif [[ "$git_status" =~ Changes\ to\ be\ committed ]]; then
+      git_now = "* please commit changes"
+  elif [[ "$git_status" =~ Untracked\ files ]]; then
+      git_now = "+ please commit untracked files"
+  elif [[ "$git_status" =~ Your\ branch\ is\ ahead ]]; then
+      git_now = "# your branch is ahead, please commit"
   fi
 
-  if [[ $branch == 'master' ]]; then
-    echo -e "\n\033[33m🚨 warning: No permission on branch master, please create a new branch for development~ \033[0m\n"
+  if [ $git_now ]; then
+    echo -e "\033[31m > 💥  error: ${git_now} \033[0m"
   fi
-
 }
 git-prompt
