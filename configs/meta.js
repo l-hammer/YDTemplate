@@ -38,7 +38,7 @@ module.exports = {
   },
   filters: {
     'configs/meta.js': false,
-    'init.sh': false,
+    'init.sh': true,
     'src/JSAPI/**/*': false,
     'src/vetar/**/*': false,
     'src/web/*': "type === 'web'",
