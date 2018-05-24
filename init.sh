@@ -63,12 +63,14 @@ function git-prompt {
   if [[ "$git_status" =~ nothing\ added\ to\ commit || "$git_status" =~  Your\ branch\ is\ up\-to\-date\ with ]]; then
     if [[ $branch == 'master' ]]; then
       echo -e "\n\033[33m🚨 WARNING: No permission on branch master, please create a new branch for development~ \033[0m\n"
-      echo -e "👨‍💻 Suggest to options :\033[36m $ git co -b ${name} \033[0m\n"
+      echo -e "👨‍💻 Suggest to options:\n"
+      echo -e "\033[36m    $ git co master \033[0m"
+      echo -e "\033[36m    $ git pull \033[0m"
+      echo -e "\033[36m    $ git co -b ${name} \033[0m\n"
     else
       git add ./ && \
       git commit -m ':tada:initialization template……' && \
-      git pull origin $branch && \
-      git push -u origin $branch
+      git push origin $branch
     fi
   elif [[ "$git_status" =~ Changes\ not\ staged || "$git_status" =~ no\ changes\ added ]]; then
     git_now="~ please commit changes not staged"
