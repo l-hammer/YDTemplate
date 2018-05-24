@@ -61,7 +61,7 @@ module.exports = {
     'bin/autocopy.py',
     'src/vetar/index.js',
     'src/app/template/index.tpl',
-    'src/app/views/record.vue',
+    'src/app/views/records.vue',
     'src/examples/app/template/riseseason.tpl',
     'src/examples/app/views/*.vue'
   ],
