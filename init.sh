@@ -61,10 +61,9 @@ function git-prompt {
   local git_now; # 标示
 
   if [[ "$git_status" =~ nothing\ added\ to\ commit || "$git_status" =~  Your\ branch\ is\ up\-to\-date\ with ]]; then
-    if [[ $branch == 'develop' ]]; then
-      echo -e "\n\033[33m🚨 warning: No permission on branch master, please create a new branch for development~ \033[0m\n"
-      echo -e "Options:\n\n"
-      echo -e "  $ git co -b ${projectName}\n"
+    if [[ $branch == 'master' ]]; then
+      echo -e "\n\033[33m🚨 WARNING: No permission on branch master, please create a new branch for development~ \033[0m\n"
+      echo -e "👨‍💻 Suggest to options :\033[36m $ git co -b ${name} \033[0m\n"
     else
       git add ./ && \
       git commit -m ':tada:initialization template……' && \
@@ -81,8 +80,8 @@ function git-prompt {
     git_now="# your branch is ahead, please commit"
   fi
 
-  if [ $git_now ]; then
-    echo -e "\033[31m > 💥  error: ${git_now} \033[0m"
+  if [ "$git_now" ]; then
+    echo -e "\n\033[31m💥 ERROR: ${git_now} \033[0m\n"
   fi
 }
 
