@@ -33,10 +33,10 @@ const options = {
    */
   target: 'http://songhwwww.yind123.com',
   changeOrigin: true,
-    pathRewrite: { 
+    pathRewrite: arguments[0] === 'appeg' ? { 
       '^/wx/getGameInfo': '/wx/yaoyou_api',
       '^/webapi/shakeNum': '/webapi/yaoyou_bonus',
-    },
+    } : {},
     onProxyReq: function (proxyReq, req) {
       /**
        * 订阅http-proxy的proxyReq事件
