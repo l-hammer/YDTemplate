@@ -54,13 +54,15 @@ export default class store {
     const item = {};
     const curtime = new Date().getTime();
 
+    if (this.has(key)) {
+      throw new Error(`The ${key} already exists in localStorage~`);
+    }
+
     item.val = value;
     item.exp = !isNumber(long)
       ? parse(long).getTime()
       : curtime + long * 24 * 60 * 60 * 1000; // 过期时间
-    if (this.has(key)) {
-      throw new Error(`The ${key} already exists in localStorage~`);
-    }
+
     this._setItem(key, item);
   }
   /**
