@@ -110,6 +110,8 @@ YDTemplate/
 │       ├── shuffleArray.js    // 随机排列数组
 │       ├── preloadimages.js    // 图片预加载
 │       ├── viewType.js    // 判断数据类型
+│       ├── store.js    // localStorage
+│       ├── cookie.js    // cookie
 │       ├── clone.js    // 拷贝（Object, Array or Primitive）
 │       ├── deepClone.js    // 深拷贝 (Object, Array, RegExp, Date or Primitives)
 │       └── wxShare.tpl    // 微信分享
