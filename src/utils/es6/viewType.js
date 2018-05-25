@@ -48,6 +48,10 @@ export const isObject = (val) => {
   return val !== null && typeof val === 'object';
 };
 
+export const isString = (val) => {
+  return typeof val === 'string';
+};
+
 export const isPlainObject = (val) => {
   return toString.call(val) === '[object Object]';
 };

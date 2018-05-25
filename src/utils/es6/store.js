@@ -4,7 +4,7 @@
  * @method store
  * @description For better operation of the localStorage API.
  */
-import { isObject, isNumber } from './viewType';
+import { isObject, isNumber, isString, isNull } from './viewType';
 import { parse } from './date';
 
 /**
@@ -22,7 +22,12 @@ const serialize = (item) => {
  * @returns {Object}
  */
 const deserialize = (value) => {
-  return value || JSON.parse(value);
+  if (!isString(value)) return null;
+  try {
+    return JSON.parse(value);
+  } catch (error) {
+    return value;
+  }
 };
 
 export default class store {
@@ -35,7 +40,6 @@ export default class store {
     if (!this.storage) {
       throw new Error('Environment does not support localStorage.');
     }
-    console.log(this.storage);
   }
   vaild(key) {
     return `${this.strstamps}-${key}`;
@@ -49,10 +53,14 @@ export default class store {
   set(key, value, long = 29) {
     const item = {};
     const curtime = new Date().getTime();
+
     item.val = value;
     item.exp = !isNumber(long)
       ? parse(long).getTime()
       : curtime + long * 24 * 60 * 60 * 1000; // 过期时间
+    if (this.has(key)) {
+      throw new Error(`The ${key} already exists in localStorage~`);
+    }
     this._setItem(key, item);
   }
   /**
@@ -71,6 +79,13 @@ export default class store {
     }
 
     return obj.val;
+  }
+  /**
+   * 是否已经存在key
+   * @param {*} key
+   */
+  has(key) {
+    return !isNull(this._getItem(key));
   }
   /**
    * 删除
