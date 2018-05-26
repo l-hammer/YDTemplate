@@ -102,18 +102,19 @@ YDTemplate/
 │   │   ├── index.js    // MVVM:Vetar
 │   │   └── watcher.js    // 订阅者
 │   └── utils/    // 🗃常用工具函数
-│       ├── scrollToTop.js    // 返回顶部
-│       ├── date.js    // 解析日期、日期格式化
 │       ├── arrayPull.js    // 删除数组指定值
-│       ├── distinctValuesOfArray.js    // 数组去重
-│       ├── initArrayWithRange.js    // 初始化指定范围内的数组
-│       ├── shuffleArray.js    // 随机排列数组
-│       ├── preloadimages.js    // 图片预加载
-│       ├── viewType.js    // 判断数据类型
-│       ├── store.js    // localStorage
 │       ├── cookie.js    // cookie
 │       ├── clone.js    // 拷贝（Object, Array or Primitive）
+│       ├── date.js    // 解析日期、日期格式化
 │       ├── deepClone.js    // 深拷贝 (Object, Array, RegExp, Date or Primitives)
+│       ├── distinctValuesOfArray.js    // 数组去重
+│       ├── fetch.js    // ajax
+│       ├── initArrayWithRange.js    // 初始化指定范围内的数组
+│       ├── preloadimages.js    // 图片预加载
+│       ├── scrollToTop.js    // 返回顶部
+│       ├── shuffleArray.js    // 随机排列数组
+│       ├── store.js    // localStorage
+│       ├── viewType.js    // 判断数据类型
 │       └── wxShare.tpl    // 微信分享
 ├── clearcache.sh    // ♻️清除缓冲
 ├── build.sh    // 📦打包
