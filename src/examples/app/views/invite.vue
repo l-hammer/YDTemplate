@@ -95,17 +95,15 @@
 </template>
 
 <script>
-// import initArr from '../../utils/es6/initArrayWithRange';
-import shuffle from '../../../utils/es6/shuffleArray';
-// import arrayPull from '../../utils/es6/arrayPull';
+import mixin from '../mixins';
 
 export default {
+  mixins: [mixin],
   data() {
     return {
       friendLuckyNum: '?',
       selfLuckyNum: '?',
       drumming: false,
-      shuffleArr: [],
       playStatus: true,
       isBind: false,
       withdrawStatus: true,
@@ -130,29 +128,15 @@ export default {
   mounted() {
     const res = this.gameInfo.result;
     const num = res.slave_number;
-    // const range = initArr(9, 1);
 
     this.playStatus = !!+num;
     this.selfLuckyNum = !+num ? '?' : num;
     this.friendLuckyNum = !+num ? '?' : res.master_number;
     this.drumming = !!+num;
     this.disabled = !+num;
-    this.shuffleArr = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     this.isBind = this.gameInfo.fenxiang;
   },
   methods: {
-    openDialog(name) {
-      this.dialogs[name].open = true;
-    },
-    closeDialog(name) {
-      this.dialogs[name].open = false;
-    },
-    arrayPull(arr, ...args) {
-      const argState = Array.isArray(args[0]) ? args[0] : args;
-      const pulled = arr.filter(v => !argState.includes(v));
-      arr.length = 0;
-      pulled.forEach(v => arr.push(v));
-    },
     play() {
       let timer = null;
       let i = 0;
