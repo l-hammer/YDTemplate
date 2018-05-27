@@ -28,7 +28,7 @@ if __name__ == "__main__":
       if res:
         templateFilePath = './src/'+filearg+'/'+res.group()
     
-    # !app or examples/app? cp js -> template.tpl{{jsCode}}
+    # !app or examples/app? cp js -> template.tpl<{% jsCode %}>
     file_object = open(filePath, 'r')
     for (num,value) in enumerate(file_object):
       if value.find("this is a mark line") is not -1:
@@ -45,9 +45,9 @@ if __name__ == "__main__":
       lines=r.readlines()
     with open(templateFilePath, 'w') as w:
       for l in lines:
-        w.write(l.replace('{{jsCode}}',jsCon))
+        w.write(l.replace('<{% jsCode %}>',jsCon))
 
-  # cp html -> template.tpl{{htmlCode}}
+  # cp html -> template.tpl<{% htmlCode %}>
   htmlCon = ''
   filePath = './src/'+filearg+'/index.html'
 
@@ -68,9 +68,9 @@ if __name__ == "__main__":
     lines=r.readlines()
   with open(templateFilePath, 'w') as w:
     for l in lines:
-      w.write(l.replace('{{htmlCode}}',htmlCon))
+      w.write(l.replace('<{% htmlCode %}>',htmlCon))
 
-  #app or examples/app? : cp js -> template.tpl{{jsCode}}
+  #app or examples/app? : cp js -> template.tpl<{% jsCode %}>
   if filearg == 'app' or filearg == 'examples/app':
     filedir = './dist'
     files = os.listdir(filedir)
@@ -86,9 +86,9 @@ if __name__ == "__main__":
       lines=r.readlines()
     with open(templateFilePath, 'w') as w:
       for l in lines:
-        w.write(l.replace('{{jsCode}}',jsCon))
+        w.write(l.replace('<{% jsCode %}>',jsCon))
 
-  # cp css -> template.tpl{{cssCode}}
+  # cp css -> template.tpl<{% cssCode %}>
   cssCon = ''
   filedir = './dist'
   files = os.listdir(filedir)
@@ -104,4 +104,4 @@ if __name__ == "__main__":
     lines=r.readlines()
   with open(templateFilePath, 'w') as w:
     for l in lines:
-      w.write(l.replace('{{cssCode}}',cssCon))
+      w.write(l.replace('<{% cssCode %}>',cssCon))

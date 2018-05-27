@@ -4,7 +4,7 @@
 <{extends file='web/layout/event/main.tpl'}>    
 
 <{block name=content}>
-{{htmlCode}}
+<{% htmlCode %}>
 <{/block}>
 
 <{block name=local_js_link}>
@@ -13,12 +13,12 @@
 
 <{block name=local_js_block}>
 <script type="text/javascript">
-{{jsCode}}
+<{% jsCode %}>
 </script>
 <{/block}>
 
 <{block name=local_css_block}>
 <style>
-{{cssCode}}
+<{% cssCode %}>
 </style>
 <{/block}>

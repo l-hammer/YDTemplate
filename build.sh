@@ -134,7 +134,7 @@ fi
 # lineEndNum=$[${lineEnd%:*}-4]
 # jsCon=`sed -n "${lineStartNum}, ${lineEndNum}p" $file` 
 
-#实现$jsCon替换$templateFile中{{jsCode}}
-#sed -i '' "/{{jsCode}}/c\\
+#实现$jsCon替换$templateFile中<{% jsCode %}>
+#sed -i '' "/<{% jsCode %}>/c\\
 #$jsCon" $templateFile
-#sed -i "" "s/{{jsCode}}/$jsCon/" $templateFile
+#sed -i "" "s/<{% jsCode %}>/$jsCon/" $templateFile
