@@ -84,6 +84,10 @@ YDTemplate/
 │   │   ├── loading-bar/    // 进度条
 │   │   └── dialog/    // 对话框
 │   ├── app/    // SPA
+│   │   ├── template/
+│   │   │   └── index.tpl    // build中间模板
+│   │   ├── mixin/    // 混入
+│   │   │   └── index.tpl    // 功能复用
 │   │   ├── views/    // page
 │   │   │   ├── index.vue    // 首页
 │   │   │   └── xxx.vue    // 其它页
