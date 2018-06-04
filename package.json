@@ -4,7 +4,7 @@
   "version": "1.2.1",
   "author": "{{ author }}",
   "scripts": {
-    {{#if_eq type "h5"}}
+    {{#if_eq type "wx || h5"}}
     "dev": "cross-env NODE_ENV=development node mock/index.js app --no-cache",
     "dev:appeg": "cross-env NODE_ENV=development node mock/index.js appeg --no-cache",
     "start": "cross-env NODE_ENV=development node server/index.js app --no-cache",
@@ -13,21 +13,20 @@
     "build:min": "cross-env NODE_ENV=production parcel build src/app/index.html",
     "build:appeg": "cross-env NODE_ENV=production parcel build src/examples/app/index.html --no-minify",
     "build:appeg:min": "cross-env NODE_ENV=production parcel build src/examples/app/index.html",
+    "dist": "npm run appbuild",
     {{/if_eq}}
     {{#if_eq type "web"}}
     "dev:web": "cross-env NODE_ENV=development node mock/index.js web --no-cache",
     "dev:webeg": "cross-env NODE_ENV=development node mock/index.js webeg --no-cache",
     "start:web": "cross-env NODE_ENV=development node server/index.js web --no-cache",
     "start:webeg": "cross-env NODE_ENV=development node server/index.js webeg --no-cache",
-    {{/if_eq}}
-    {{#if_eq type "wx"}}
     "build:web": "cross-env NODE_ENV=production parcel build src/web/index.html  --no-minify",
     "build:web:min": "cross-env NODE_ENV=production parcel build src/web/index.html",
     "build:webeg": "cross-env NODE_ENV=production parcel build src/examples/web/index.html --no-minify",
     "build:webeg:min": "cross-env NODE_ENV=production parcel build src/examples/web/index.html",
-    "dist": "npm run webbuild && npm run appbuild",
-    "cleardepe": "rm -rf node_modules/"
+    "dist": "npm run webbuild",
     {{/if_eq}}
+    "cleardepe": "rm -rf node_modules/"
   },
   "repository": {
     "type": "git",
