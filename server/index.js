@@ -21,7 +21,10 @@ switch (arguments[0]) {
 }
 
 let app = express()
-let bundler = new Bundler(proxypath)
+let bundler = new Bundler(proxypath, {
+  cache: true,
+  open: true,
+})
 let port = Number(process.env.PORT || 1234);
 
 const options = {
