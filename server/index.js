@@ -45,14 +45,15 @@ const options = {
        * 订阅http-proxy的proxyReq事件
        * 在转发请求前设置请求头，将PHPSESSID附加到cookie
        * @class https://www.yindou.com -> 'PHPSESSID=n0q2uv73c2v7qd43feag8hntq5'
-       * @class http://songhwwww.yind123.com/ -> 'PHPSESSID=nvquupl0hr2f6jmuijcscqvqk2'
+       * @class http://songhwwww.yind123.com/ -> 'PHPSESSID=casgl42ggcqcpm2ff1vhv4eou2'
        */
-      proxyReq.setHeader('cookie', 'PHPSESSID=nvquupl0hr2f6jmuijcscqvqk2');
+      proxyReq.setHeader('cookie', 'PHPSESSID=casgl42ggcqcpm2ff1vhv4eou2');
       // if(app.locals.cookie) {
       //   proxyReq.setHeader('cookie', app.locals.cookie);
       // }
     },
     // onProxyRes: function (proxyRes, req, res) {
+    //   console.log(proxyRes.res._header);
     //   const proxyCookie = proxyRes.headers["set-cookie"];
     //   if (proxyCookie) {
     //     app.locals.cookie = proxyCookie;
